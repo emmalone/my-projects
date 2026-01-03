@@ -2,6 +2,8 @@ baseURL = 'http://localhost:1313/'
 languageCode = 'en-us'
 title = 'My Projects - Documentation Hub'
 theme = 'hugo-book'
+refLinksErrorLevel = 'WARNING'
+refLinksNotFoundURL = '#'
 
 [params]
   BookRepo = 'https://github.com/emmalone/my-projects'

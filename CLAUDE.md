@@ -172,6 +172,40 @@ Located in `.github/workflows/deploy.yml`
 
 ## Important Notes
 
+### CRITICAL: Do NOT Run generate-docs.py on Remote/Cloud Servers
+
+**This script MUST only be run on Mark's local machine** where `/Users/mark/PycharmProjects/` exists.
+
+**Why this matters:**
+- `generate-docs.py` copies markdown files from source projects to the Hugo content directory
+- It first **deletes** existing content directories (`projects/`, `documents/`, `inventory/`)
+- If run on a remote server (Claude Code web, GitHub Actions, etc.), the source files don't exist
+- This causes all 142+ document files to be **permanently deleted** from the repository
+
+**What happens if run remotely:**
+1. Content directories are cleaned (deleted)
+2. Script tries to copy files from `/Users/mark/PycharmProjects/...`
+3. Files don't exist → copy fails silently
+4. Commit includes deletion of all documents
+5. Site deployment shows empty/broken pages
+
+**Safe workflow:**
+```bash
+# ONLY run these on Mark's local Mac:
+python3 scan-projects.py
+python3 generate-docs.py
+
+# Then commit and push
+git add .
+git commit -m "Update documentation"
+git push
+```
+
+**If you need to make changes to generate-docs.py:**
+1. Edit the script file only (don't run it)
+2. Commit and push the script changes
+3. Mark will run it locally to regenerate content
+
 ### klm-hugo-lab Exclusion
 
 The klm-hugo-lab project is excluded from scanning because:
@@ -295,6 +329,20 @@ gh run list --limit 3
 ```
 
 ## Tips for Working with Claude Code
+
+### From iPhone/Web Claude Code Sessions
+
+**IMPORTANT**: Remote Claude Code sessions (iPhone, web) run on cloud servers, NOT on Mark's local machine.
+
+**Safe operations in remote sessions:**
+- Edit individual content files in `my-projects-docs/content/`
+- Edit `generate-docs.py` logic (but don't run it)
+- Edit configuration files
+- Git operations (commit, push, create PRs)
+
+**NEVER do in remote sessions:**
+- Run `python3 generate-docs.py` - will delete all documents
+- Run `python3 scan-projects.py` - source projects don't exist
 
 ### From iPhone
 

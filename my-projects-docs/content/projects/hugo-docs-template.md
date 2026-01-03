@@ -1,5 +1,6 @@
 ---
 title: "hugo-docs-template"
+type: docs
 weight: 1
 ---
 

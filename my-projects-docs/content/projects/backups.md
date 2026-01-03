@@ -1,5 +1,6 @@
 ---
 title: "backups"
+type: docs
 weight: 1
 ---
 

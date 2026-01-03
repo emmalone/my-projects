@@ -1,5 +1,6 @@
 ---
 title: "OppManagement"
+type: docs
 weight: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "hello"
+type: docs
 weight: 1
 ---
 

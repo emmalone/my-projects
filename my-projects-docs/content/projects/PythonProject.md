@@ -1,5 +1,6 @@
 ---
 title: "PythonProject"
+type: docs
 weight: 1
 ---
 

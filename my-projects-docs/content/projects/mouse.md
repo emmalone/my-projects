@@ -1,5 +1,6 @@
 ---
 title: "mouse"
+type: docs
 weight: 1
 ---
 

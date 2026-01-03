@@ -10,7 +10,6 @@ refLinksNotFoundURL = '#'
   BookSearch = true
   BookToC = true
   BookComments = false
-  BookMenuBundle = '/menu'
 
 [markup]
   [markup.goldmark]

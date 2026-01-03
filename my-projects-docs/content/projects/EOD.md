@@ -1,5 +1,6 @@
 ---
 title: "EOD"
+type: docs
 weight: 1
 ---
 

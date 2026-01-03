@@ -1,5 +1,6 @@
 ---
 title: "klmdnc"
+type: docs
 weight: 1
 ---
 

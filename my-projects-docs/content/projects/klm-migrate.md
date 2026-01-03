@@ -1,5 +1,6 @@
 ---
 title: "klm-migrate"
+type: docs
 weight: 1
 ---
 

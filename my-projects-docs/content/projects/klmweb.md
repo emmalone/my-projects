@@ -1,5 +1,6 @@
 ---
 title: "klmweb"
+type: docs
 weight: 1
 ---
 

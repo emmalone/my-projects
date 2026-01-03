@@ -1,5 +1,6 @@
 ---
 title: "remote"
+type: docs
 weight: 1
 ---
 

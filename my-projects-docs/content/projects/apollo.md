@@ -1,5 +1,6 @@
 ---
 title: "apollo"
+type: docs
 weight: 1
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: "klm-plan"
+type: docs
 weight: 1
 ---
 

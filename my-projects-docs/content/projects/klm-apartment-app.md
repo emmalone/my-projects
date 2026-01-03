@@ -1,5 +1,6 @@
 ---
 title: "klm-apartment-app"
+type: docs
 weight: 1
 ---
 

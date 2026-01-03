@@ -1,5 +1,6 @@
 ---
 title: "PythonDA"
+type: docs
 weight: 1
 ---
 

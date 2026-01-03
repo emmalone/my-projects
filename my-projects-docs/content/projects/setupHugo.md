@@ -1,5 +1,6 @@
 ---
 title: "setupHugo"
+type: docs
 weight: 1
 ---
 

@@ -59,13 +59,14 @@ class DocumentationGenerator:
 languageCode = 'en-us'
 title = 'My Projects - Documentation Hub'
 theme = 'hugo-book'
+refLinksErrorLevel = 'WARNING'
+refLinksNotFoundURL = '#'
 
 [params]
   BookRepo = 'https://github.com/emmalone/my-projects'
   BookSearch = true
   BookToC = true
   BookComments = false
-  BookMenuBundle = '/menu'
 
 [markup]
   [markup.goldmark]
@@ -185,6 +186,7 @@ weight: 10
 
             content = f'''---
 title: "{project['name']}"
+type: docs
 weight: 1
 ---
 

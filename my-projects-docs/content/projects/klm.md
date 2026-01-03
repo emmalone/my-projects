@@ -1,5 +1,6 @@
 ---
 title: "klm"
+type: docs
 weight: 1
 ---
 

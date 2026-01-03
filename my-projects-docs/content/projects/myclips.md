@@ -1,5 +1,6 @@
 ---
 title: "myclips"
+type: docs
 weight: 1
 ---
 

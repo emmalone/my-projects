@@ -1,5 +1,6 @@
 ---
 title: "neo"
+type: docs
 weight: 1
 ---
 

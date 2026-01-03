@@ -1,5 +1,6 @@
 ---
 title: "stc2scv"
+type: docs
 weight: 1
 ---
 

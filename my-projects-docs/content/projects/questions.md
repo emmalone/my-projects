@@ -1,5 +1,6 @@
 ---
 title: "questions"
+type: docs
 weight: 1
 ---
 

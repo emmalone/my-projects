@@ -1,7 +1,8 @@
 ---
 title: "Projects"
 type: docs
-bookCollapseSection: false
+bookCollapseSection: true
+weight: 10
 ---
 
 # All Projects

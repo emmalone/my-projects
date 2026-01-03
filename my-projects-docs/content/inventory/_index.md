@@ -1,6 +1,8 @@
 ---
 title: "Inventory"
 type: docs
+bookCollapseSection: true
+weight: 30
 ---
 
 # Project Inventory

@@ -140,7 +140,8 @@ Welcome to the central documentation hub for all projects in PycharmProjects.
         index = f'''---
 title: "Projects"
 type: docs
-bookCollapseSection: false
+bookCollapseSection: true
+weight: 10
 ---
 
 # All Projects
@@ -246,7 +247,8 @@ weight: 1
         index = f'''---
 title: "Documents"
 type: docs
-bookCollapseSection: false
+bookCollapseSection: true
+weight: 20
 ---
 
 # All Documents
@@ -329,10 +331,12 @@ modified: {md_info['modified']}
             print(f"⚠️  Error adding frontmatter to {file_path}: {e}")
 
     def create_inventory_page(self):
-        """Create detailed inventory page"""
+        """Create detailed inventory page with collapsible project sub-pages"""
         content = f'''---
 title: "Inventory"
 type: docs
+bookCollapseSection: true
+weight: 30
 ---
 
 # Project Inventory
@@ -385,6 +389,55 @@ Complete inventory of all projects in PycharmProjects.
 
         print("✅ Inventory page created")
 
+    def create_inventory_project_pages(self):
+        """Create individual project pages under the inventory section for nav sub-items"""
+        for idx, project in enumerate(sorted(self.inventory['projects'], key=lambda p: p['name'].lower())):
+            project_file = f"{self.content_dir}/inventory/{project['name']}.md"
+
+            # Build tech stack string
+            tech_stack = ', '.join(project.get('tech_stack', [])) or 'Unknown'
+            git_status = "Git Repository" if project['is_git_repo'] else "Directory"
+
+            content = f'''---
+title: "{project['name']}"
+type: docs
+weight: {idx + 1}
+---
+
+# {project['name']}
+
+| Property | Value |
+|----------|-------|
+| **Type** | {git_status} |
+| **Tech Stack** | {tech_stack} |
+| **Documents** | {len(project.get('markdown_files', []))} |
+| **Size** | {project.get('size_mb', 0):.2f} MB |
+| **Path** | `{project['path']}` |
+
+'''
+            # Add link to full project page
+            content += f"[View Full Project Details]({{{{< relref \"/projects/{project['name']}\" >}}}})\n\n"
+
+            # Add GitHub link if available
+            if project['is_git_repo'] and 'git' in project:
+                git = project['git']
+                if 'remote_url' in git:
+                    content += f"[View on GitHub]({git['remote_url']})\n\n"
+
+            # Add document links if available
+            if project.get('markdown_files'):
+                content += f"## Documents ({len(project['markdown_files'])})\n\n"
+                for md_file in project['markdown_files'][:10]:  # Show first 10
+                    doc_link = f"/documents/{project['name']}/{md_file['name'].replace('.md', '')}"
+                    content += f"- [{md_file['name']}]({{{{< relref \"{doc_link}\" >}}}})\n"
+                if len(project['markdown_files']) > 10:
+                    content += f"\n*...and {len(project['markdown_files']) - 10} more documents*\n"
+
+            with open(project_file, 'w') as f:
+                f.write(content)
+
+        print(f"✅ Created {len(self.inventory['projects'])} inventory project pages")
+
     def install_theme(self):
         """Install hugo-book theme"""
         themes_dir = f"{self.output_dir}/themes"
@@ -427,6 +480,7 @@ Complete inventory of all projects in PycharmProjects.
         self.create_documents_index()
         self.copy_document_files()
         self.create_inventory_page()
+        self.create_inventory_project_pages()
 
         print("\n" + "="*60)
         print("COMPLETE!")

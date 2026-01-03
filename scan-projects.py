@@ -34,8 +34,8 @@ class ProjectScanner:
         # Get all subdirectories
         for item in self.base_path.iterdir():
             if item.is_dir() and not item.name.startswith('.'):
-                # Skip my-projects itself and template
-                if item.name in ['my-projects', '.claude']:
+                # Skip my-projects itself, template, and problematic projects
+                if item.name in ['my-projects', '.claude', 'klm-hugo-lab']:
                     continue
 
                 project_info = self.scan_project(item)
@@ -76,8 +76,8 @@ class ProjectScanner:
         # Find all markdown files
         markdown_files = list(project_path.rglob('*.md'))
         for md_file in markdown_files:
-            # Skip files in node_modules, venv, .git, etc.
-            if any(part in md_file.parts for part in ['node_modules', 'venv', '.git', 'dist', 'build']):
+            # Skip files in node_modules, venv, .git, themes, archetypes, etc.
+            if any(part in md_file.parts for part in ['node_modules', 'venv', '.git', 'dist', 'build', 'themes', 'archetypes']):
                 continue
 
             md_info = {
@@ -235,11 +235,21 @@ class ProjectScanner:
                     # Remove frontmatter for paragraph search
                     content = content[frontmatter_match.end():].strip()
 
-            # Find first paragraph (non-heading, non-empty)
+            # Find first paragraph (non-heading, non-empty, no shortcodes)
             lines = content.split('\n')
             for line in lines:
                 line = line.strip()
-                if line and not line.startswith('#') and not line.startswith('```') and not line.startswith('-'):
+                # Skip empty, headings, code blocks, lists, HTML, and shortcodes
+                if (line and
+                    not line.startswith('#') and
+                    not line.startswith('```') and
+                    not line.startswith('-') and
+                    not line.startswith('<') and
+                    not line.startswith('{%') and
+                    not line.startswith('{{%') and
+                    not line.startswith('{{<') and
+                    '{{% ' not in line and
+                    '{{< ' not in line):
                     # Limit to 200 chars
                     if len(line) > 200:
                         return line[:197] + '...'

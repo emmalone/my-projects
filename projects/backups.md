@@ -18,13 +18,11 @@ No description available
 
 ## Files
 
-**Total Markdown Files**: 18
+**Total Markdown Files**: 16
 
 
 ### Documentation
 
-- [default.md](klm-hugo-site/archetypes/default.md)
-  - +++
 - [insurance-insights.md](klm-hugo-site/content/insurance-insights.md)
   - Insurance Insights - Knowledge Center & Blog - KLM Insurance Solutions
 - [commercial-insurance.md](klm-hugo-site/content/commercial-insurance.md)
@@ -57,8 +55,6 @@ No description available
   - **Date:** December 28, 2025
 - [GITOVERVIEW.md](klm-hugo-site/docs/GITOVERVIEW.md)
   - This document provides a comprehensive overview of the Git/GitHub workflow you've mastered through building the Task Manager API demo application.
-- [default.md](klm-hugo-site/themes/klm-theme/archetypes/default.md)
-  - +++
 
 **Path**: `/Users/mark/PycharmProjects/backups`
 **Size**: 3.15 MB

@@ -7,11 +7,7 @@ weight: 1
 
 **Type**: Directory
 
-## Documentation (18 files)
-
-### [default.md]({{< relref "/documents/backups/default" >}})
-
-+++
+## Documentation (16 files)
 
 ### [insurance-insights.md]({{< relref "/documents/backups/insurance-insights" >}})
 
@@ -76,10 +72,6 @@ High-quality, reliable insurance coverage options in Pennsylvania
 ### [GITOVERVIEW.md]({{< relref "/documents/backups/GITOVERVIEW" >}})
 
 This document provides a comprehensive overview of the Git/GitHub workflow you've mastered through building the Task Manager API demo application.
-
-### [default.md]({{< relref "/documents/backups/default" >}})
-
-+++
 
 
 **Path**: `/Users/mark/PycharmProjects/backups`

@@ -29,7 +29,7 @@ A Hugo-based wiki for organizing business planning, product development, and str
 
 ## Files
 
-**Total Markdown Files**: 72
+**Total Markdown Files**: 34
 
 
 ### Documentation
@@ -56,84 +56,8 @@ A Hugo-based wiki for organizing business planning, product development, and str
   - ✅ **CloudFront Distribution Created**
 - [claude.md](claude.md)
   - This repository contains business planning documents, product ideas, and strategic planning for KLM Insurance. The content is organized using Hugo and published automatically to AWS S3 for easy acc...
-- [default.md](archetypes/default.md)
-  - +++
 - [_index.md](content/_index.md)
   - Welcome to the KLM business planning workspace. This site organizes our strategic thinking, product development, and operational planning across all business lines.
-- [README.md](themes/hugo-book/README.md)
-  - [![Hugo](https://img.shields.io/badge/hugo-0.146-blue.svg)](https://gohugo.io)
-- [docs.md](themes/hugo-book/archetypes/docs.md)
-  - No summary available
-- [posts.md](themes/hugo-book/archetypes/posts.md)
-  - No summary available
-- [_index.md](themes/hugo-book/exampleSite/content.zh/_index.md)
-  - {{% columns %}}
-- [showcases.md](themes/hugo-book/exampleSite/content.en/showcases.md)
-  - <div class="book-hero text-center">
-- [_index.md](themes/hugo-book/exampleSite/content.en/_index.md)
-  - <div class="book-hero">
-- [_index.md](themes/hugo-book/exampleSite/content.he/_index.md)
-  - {{% columns %}}
-- [creating-a-new-theme.md](themes/hugo-book/exampleSite/content.en/posts/creating-a-new-theme.md)
-  - This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I'l...
-- [migrate-from-jekyll.md](themes/hugo-book/exampleSite/content.en/posts/migrate-from-jekyll.md)
-  - Jekyll has a rule that any directory not starting with `_` will be copied as-is to the `_site` output. Hugo keeps all static content under `static`. You should therefore move it all there.
-- [hugoisforlovers.md](themes/hugo-book/exampleSite/content.en/posts/hugoisforlovers.md)
-  - +++
-- [goisforlovers.md](themes/hugo-book/exampleSite/content.en/posts/goisforlovers.md)
-  - +++
-- [_index.md](themes/hugo-book/exampleSite/content.en/posts/_index.md)
-  - No summary available
-- [hidden.md](themes/hugo-book/exampleSite/content.en/docs/example/hidden.md)
-  - Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/example/_index.md)
-  - Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim
-- [buttons.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/buttons.md)
-  - Buttons are styled links that can lead to local page or external link.
-- [columns.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/columns.md)
-  - Columns help organize shorter pieces of content horizontally for readability. `columns` shortcode styles markdown list as up to 3 columns.
-- [details.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/details.md)
-  - Details shortcode is a helper for `details` html5 element. To collapse the details either omit the `open`
-- [hints.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/hints.md)
-  - Hint shortcode can be used as a hint/alert/notification block.
-- [tabs.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/tabs.md)
-  - Tabs let you organize content by context, for example installation instructions for each supported platform.
-- [steps.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/steps.md)
-  - Steps shortcode styles numbered list as series of points for better content organization.
-- [katex.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/katex.md)
-  - KaTeX shortcode let you render math typesetting in markdown document. See [KaTeX](https://katex.org/)
-- [mermaid.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/mermaid.md)
-  - [MermaidJS](https://mermaid-js.github.io/) is library for generating svg charts and diagrams from text.
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/_index.md)
-  - No summary available
-- [images.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/images.md)
-  - > [!WARNING]
-- [badges.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/badges.md)
-  - > [!WARNING]
-- [asciinema.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/asciinema.md)
-  - > [!WARNING]
-- [cards.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/cards.md)
-  - > [!WARNING]
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/_index.md)
-  - No summary available
-- [first-page.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/first-page.md)
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u...
-- [second-page.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/second-page.md)
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u...
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/_index.md)
-  - Section renders pages in section as definition list, using title and description. Optional param `summary` can be used to show or hide page summary
-- [with-toc.md](themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/with-toc.md)
-  - Lorem markdownum pavent auras, surgit nunc cingentibus libet **Laomedonque que**
-- [without-toc.md](themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/without-toc.md)
-  - Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/_index.md)
-  - Lorem markdownum partu paterno Achillem. Habent amne generosi aderant ad pellem
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/example/collapsed/_index.md)
-  - No summary available
-- [4th-level.md](themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/4th-level.md)
-  - Inde aderam facti; Theseus vis de tauri illa peream. Oculos **uberaque** non
-- [_index.md](themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/_index.md)
-  - Nefas discordemque domino montes numen tum humili nexilibusque exit, Iove. Quae
 - [_index.md](content/lines-of-business/_index.md)
   - KLM operates across three main insurance verticals:
 - [sales-process.md](content/sales-operations/sales-process.md)
@@ -185,8 +109,8 @@ A Hugo-based wiki for organizing business planning, product development, and str
 
 **Branch**: main
 
-**Last Commit**: Add Hugo documentation site automation system (5 minutes ago) by Mark Malone
+**Last Commit**: Add automation summary documentation (2 hours ago) by Mark Malone
 
 
 **Path**: `/Users/mark/PycharmProjects/klm-plan`
-**Size**: 20.85 MB
+**Size**: 20.86 MB

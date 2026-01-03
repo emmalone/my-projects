@@ -1,0 +1,440 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Complete Hugo Documentation Site Setup - Step-by-Step Guide# This document captures the complete process we followed to create a secure, production-ready Hugo documentation site with AWS hosting, HTTPS, password protection, and automated deployment.
+Table of Contents# Overview Prerequisites Step-by-Step Setup Process Architecture Security Implementation Troubleshooting What We Built Overview# What We Built# Hugo static site with hugo-book theme for documentation AWS S3 for storage (completely private) CloudFront for CDN and HTTPS Lambda@Edge for password authentication + URL rewriting GitHub Actions for automated deployment Secure architecture with Origin Access Control (OAC) Key Features# ✅ HTTPS encryption via CloudFront ✅ Password protection (basic auth) ✅ Private S3 bucket (no public access) ✅ Auto-deployment from GitHub ✅ Mobile editing via GitHub app ✅ Navigation that works correctly ✅ ~60-90 second deployment pipeline Prerequisites# Local Tools# # Install Hugo (macOS) brew install hugo # Verify hugo version # Should show v0.1xx.x or higher (extended) # Install AWS CLI brew install awscli # Configure AWS credentials aws configure # Enter: Access Key ID, Secret Access Key, Region (us-east-1), Output (json) # Install GitHub CLI brew install gh # Authenticate with GitHub gh auth loginRequired Access# AWS account with programmatic access GitHub account Permissions to create: S3 buckets, CloudFront distributions, Lambda functions, IAM roles Step-by-Step Setup Process# Phase 1: Create Hugo Site Locally# 1. Initialize Hugo Site# # Create new site hugo new site project-name cd project-name # Initialize git git init # Add hugo-book theme as submodule git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book2. Configure Hugo (hugo.toml)# baseURL = 'http://localhost:1313/' # Will update later with CloudFront URL languageCode = 'en-us' title = 'Project Name Documentation' theme = 'hugo-book' # Book theme configuration [params] BookRepo = 'https://github.com/username/project-name' BookSearch = true BookToC = true BookComments = false [markup] [markup.goldmark] [markup.goldmark.renderer] unsafe = true [markup.tableOfContents] startLevel = 13. Create Content Structure# # Create homepage hugo new _index.md # Create content sections hugo new lines-of-business/_index.md hugo new products/_index.md hugo new marketing/_index.md hugo new sales-operations/_index.mdExample content/_index.md:
+"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/documents/klm-plan/complete-setup-guide/"><meta property="og:site_name" content="My Projects - Documentation Hub"><meta property="og:title" content="COMPLETE-SETUP-GUIDE"><meta property="og:description" content="Complete Hugo Documentation Site Setup - Step-by-Step Guide# This document captures the complete process we followed to create a secure, production-ready Hugo documentation site with AWS hosting, HTTPS, password protection, and automated deployment.
+Table of Contents# Overview Prerequisites Step-by-Step Setup Process Architecture Security Implementation Troubleshooting What We Built Overview# What We Built# Hugo static site with hugo-book theme for documentation AWS S3 for storage (completely private) CloudFront for CDN and HTTPS Lambda@Edge for password authentication + URL rewriting GitHub Actions for automated deployment Secure architecture with Origin Access Control (OAC) Key Features# ✅ HTTPS encryption via CloudFront ✅ Password protection (basic auth) ✅ Private S3 bucket (no public access) ✅ Auto-deployment from GitHub ✅ Mobile editing via GitHub app ✅ Navigation that works correctly ✅ ~60-90 second deployment pipeline Prerequisites# Local Tools# # Install Hugo (macOS) brew install hugo # Verify hugo version # Should show v0.1xx.x or higher (extended) # Install AWS CLI brew install awscli # Configure AWS credentials aws configure # Enter: Access Key ID, Secret Access Key, Region (us-east-1), Output (json) # Install GitHub CLI brew install gh # Authenticate with GitHub gh auth loginRequired Access# AWS account with programmatic access GitHub account Permissions to create: S3 buckets, CloudFront distributions, Lambda functions, IAM roles Step-by-Step Setup Process# Phase 1: Create Hugo Site Locally# 1. Initialize Hugo Site# # Create new site hugo new site project-name cd project-name # Initialize git git init # Add hugo-book theme as submodule git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book2. Configure Hugo (hugo.toml)# baseURL = 'http://localhost:1313/' # Will update later with CloudFront URL languageCode = 'en-us' title = 'Project Name Documentation' theme = 'hugo-book' # Book theme configuration [params] BookRepo = 'https://github.com/username/project-name' BookSearch = true BookToC = true BookComments = false [markup] [markup.goldmark] [markup.goldmark.renderer] unsafe = true [markup.tableOfContents] startLevel = 13. Create Content Structure# # Create homepage hugo new _index.md # Create content sections hugo new lines-of-business/_index.md hugo new products/_index.md hugo new marketing/_index.md hugo new sales-operations/_index.mdExample content/_index.md:"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="documents"><meta property="article:published_time" content="2026-01-03T10:52:06+00:00"><meta property="article:modified_time" content="2026-01-03T10:52:06+00:00"><meta itemprop=name content="COMPLETE-SETUP-GUIDE"><meta itemprop=description content="Complete Hugo Documentation Site Setup - Step-by-Step Guide# This document captures the complete process we followed to create a secure, production-ready Hugo documentation site with AWS hosting, HTTPS, password protection, and automated deployment.
+Table of Contents# Overview Prerequisites Step-by-Step Setup Process Architecture Security Implementation Troubleshooting What We Built Overview# What We Built# Hugo static site with hugo-book theme for documentation AWS S3 for storage (completely private) CloudFront for CDN and HTTPS Lambda@Edge for password authentication + URL rewriting GitHub Actions for automated deployment Secure architecture with Origin Access Control (OAC) Key Features# ✅ HTTPS encryption via CloudFront ✅ Password protection (basic auth) ✅ Private S3 bucket (no public access) ✅ Auto-deployment from GitHub ✅ Mobile editing via GitHub app ✅ Navigation that works correctly ✅ ~60-90 second deployment pipeline Prerequisites# Local Tools# # Install Hugo (macOS) brew install hugo # Verify hugo version # Should show v0.1xx.x or higher (extended) # Install AWS CLI brew install awscli # Configure AWS credentials aws configure # Enter: Access Key ID, Secret Access Key, Region (us-east-1), Output (json) # Install GitHub CLI brew install gh # Authenticate with GitHub gh auth loginRequired Access# AWS account with programmatic access GitHub account Permissions to create: S3 buckets, CloudFront distributions, Lambda functions, IAM roles Step-by-Step Setup Process# Phase 1: Create Hugo Site Locally# 1. Initialize Hugo Site# # Create new site hugo new site project-name cd project-name # Initialize git git init # Add hugo-book theme as submodule git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book2. Configure Hugo (hugo.toml)# baseURL = 'http://localhost:1313/' # Will update later with CloudFront URL languageCode = 'en-us' title = 'Project Name Documentation' theme = 'hugo-book' # Book theme configuration [params] BookRepo = 'https://github.com/username/project-name' BookSearch = true BookToC = true BookComments = false [markup] [markup.goldmark] [markup.goldmark.renderer] unsafe = true [markup.tableOfContents] startLevel = 13. Create Content Structure# # Create homepage hugo new _index.md # Create content sections hugo new lines-of-business/_index.md hugo new products/_index.md hugo new marketing/_index.md hugo new sales-operations/_index.mdExample content/_index.md:"><meta itemprop=datePublished content="2026-01-03T10:52:06+00:00"><meta itemprop=dateModified content="2026-01-03T10:52:06+00:00"><meta itemprop=wordCount content="2073"><title>COMPLETE-SETUP-GUIDE | My Projects - Documentation Hub</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/documents/klm-plan/complete-setup-guide/><link rel=stylesheet href=/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj+RQ9XBXU=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.da5a5af27f9bdea67bd6f07f3142824ec301e0c7f9d37c0fc61aefc961834a9e.js integrity="sha256-2lpa8n+b3qZ71vB/MUKCTsMB4Mf503wPxhrvyWGDSp4=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-documents"><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>My Projects - Documentation Hub</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>COMPLETE-SETUP-GUIDE</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#complete-hugo-documentation-site-setup---step-by-step-guide>Complete Hugo Documentation Site Setup - Step-by-Step Guide</a><ul><li><a href=#table-of-contents>Table of Contents</a></li><li><a href=#overview>Overview</a><ul><li><a href=#what-we-built>What We Built</a></li><li><a href=#key-features>Key Features</a></li></ul></li><li><a href=#prerequisites>Prerequisites</a><ul><li><a href=#local-tools>Local Tools</a></li><li><a href=#required-access>Required Access</a></li></ul></li><li><a href=#step-by-step-setup-process>Step-by-Step Setup Process</a><ul><li><a href=#phase-1-create-hugo-site-locally>Phase 1: Create Hugo Site Locally</a></li><li><a href=#phase-2-aws-s3-setup-initial---public-website>Phase 2: AWS S3 Setup (Initial - Public Website)</a></li><li><a href=#phase-3-github-repository-setup>Phase 3: GitHub Repository Setup</a></li><li><a href=#phase-4-github-actions-auto-deployment>Phase 4: GitHub Actions Auto-Deployment</a></li><li><a href=#phase-5-cloudfront-with-https>Phase 5: CloudFront with HTTPS</a></li><li><a href=#phase-6-password-protection-with-lambdaedge>Phase 6: Password Protection with Lambda@Edge</a></li><li><a href=#phase-7-secure-the-s3-bucket-make-private>Phase 7: Secure the S3 Bucket (Make Private)</a></li><li><a href=#phase-8-verification-and-testing>Phase 8: Verification and Testing</a></li></ul></li><li><a href=#architecture>Architecture</a><ul><li><a href=#data-flow>Data Flow</a></li><li><a href=#security-layers>Security Layers</a></li></ul></li><li><a href=#security-implementation>Security Implementation</a><ul><li><a href=#what-makes-it-secure>What Makes It Secure?</a></li></ul></li><li><a href=#troubleshooting>Troubleshooting</a><ul><li><a href=#navigation-links-return-403>Navigation Links Return 403</a></li><li><a href=#cloudfront-deployment-taking-forever>CloudFront Deployment Taking Forever</a></li><li><a href=#s3-sync-not-working-in-github-actions>S3 Sync Not Working in GitHub Actions</a></li><li><a href=#lambda-function-cant-be-attached-to-cloudfront>Lambda Function Can&rsquo;t Be Attached to CloudFront</a></li></ul></li><li><a href=#what-we-built-1>What We Built</a><ul><li><a href=#file-structure>File Structure</a></li><li><a href=#aws-resources-created>AWS Resources Created</a></li><li><a href=#credentials--access>Credentials & Access</a></li></ul></li><li><a href=#cost-estimate-monthly>Cost Estimate (Monthly)</a><ul><li><a href=#typical-usage>Typical Usage</a></li><li><a href=#free-tier-benefits-first-12-months>Free Tier Benefits (First 12 Months)</a></li></ul></li><li><a href=#next-steps>Next Steps</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=complete-hugo-documentation-site-setup---step-by-step-guide>Complete Hugo Documentation Site Setup - Step-by-Step Guide<a class=anchor href=#complete-hugo-documentation-site-setup---step-by-step-guide>#</a></h1><p>This document captures the <strong>complete process</strong> we followed to create a secure, production-ready Hugo documentation site with AWS hosting, HTTPS, password protection, and automated deployment.</p><h2 id=table-of-contents>Table of Contents<a class=anchor href=#table-of-contents>#</a></h2><ol><li><a href=#overview>Overview</a></li><li><a href=#prerequisites>Prerequisites</a></li><li><a href=#step-by-step-setup-process>Step-by-Step Setup Process</a></li><li><a href=#architecture>Architecture</a></li><li><a href=#security-implementation>Security Implementation</a></li><li><a href=#troubleshooting>Troubleshooting</a></li><li><a href=#what-we-built>What We Built</a></li></ol><hr><h2 id=overview>Overview<a class=anchor href=#overview>#</a></h2><h3 id=what-we-built>What We Built<a class=anchor href=#what-we-built>#</a></h3><ul><li><strong>Hugo static site</strong> with hugo-book theme for documentation</li><li><strong>AWS S3</strong> for storage (completely private)</li><li><strong>CloudFront</strong> for CDN and HTTPS</li><li><strong>Lambda@Edge</strong> for password authentication + URL rewriting</li><li><strong>GitHub Actions</strong> for automated deployment</li><li><strong>Secure architecture</strong> with Origin Access Control (OAC)</li></ul><h3 id=key-features>Key Features<a class=anchor href=#key-features>#</a></h3><ul><li>✅ HTTPS encryption via CloudFront</li><li>✅ Password protection (basic auth)</li><li>✅ Private S3 bucket (no public access)</li><li>✅ Auto-deployment from GitHub</li><li>✅ Mobile editing via GitHub app</li><li>✅ Navigation that works correctly</li><li>✅ ~60-90 second deployment pipeline</li></ul><hr><h2 id=prerequisites>Prerequisites<a class=anchor href=#prerequisites>#</a></h2><h3 id=local-tools>Local Tools<a class=anchor href=#local-tools>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Install Hugo (macOS)</span>
+</span></span><span style=display:flex><span>brew install hugo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Verify</span>
+</span></span><span style=display:flex><span>hugo version  <span style=color:#75715e># Should show v0.1xx.x or higher (extended)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Install AWS CLI</span>
+</span></span><span style=display:flex><span>brew install awscli
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Configure AWS credentials</span>
+</span></span><span style=display:flex><span>aws configure
+</span></span><span style=display:flex><span><span style=color:#75715e># Enter: Access Key ID, Secret Access Key, Region (us-east-1), Output (json)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Install GitHub CLI</span>
+</span></span><span style=display:flex><span>brew install gh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Authenticate with GitHub</span>
+</span></span><span style=display:flex><span>gh auth login</span></span></code></pre></div><h3 id=required-access>Required Access<a class=anchor href=#required-access>#</a></h3><ul><li>AWS account with programmatic access</li><li>GitHub account</li><li>Permissions to create: S3 buckets, CloudFront distributions, Lambda functions, IAM roles</li></ul><hr><h2 id=step-by-step-setup-process>Step-by-Step Setup Process<a class=anchor href=#step-by-step-setup-process>#</a></h2><h3 id=phase-1-create-hugo-site-locally>Phase 1: Create Hugo Site Locally<a class=anchor href=#phase-1-create-hugo-site-locally>#</a></h3><h4 id=1-initialize-hugo-site>1. Initialize Hugo Site<a class=anchor href=#1-initialize-hugo-site>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create new site</span>
+</span></span><span style=display:flex><span>hugo new site project-name
+</span></span><span style=display:flex><span>cd project-name
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Initialize git</span>
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Add hugo-book theme as submodule</span>
+</span></span><span style=display:flex><span>git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book</span></span></code></pre></div><h4 id=2-configure-hugo-hugotoml>2. Configure Hugo (hugo.toml)<a class=anchor href=#2-configure-hugo-hugotoml>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#a6e22e>baseURL</span> = <span style=color:#e6db74>&#39;http://localhost:1313/&#39;</span>  <span style=color:#75715e># Will update later with CloudFront URL</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>languageCode</span> = <span style=color:#e6db74>&#39;en-us&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>title</span> = <span style=color:#e6db74>&#39;Project Name Documentation&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>theme</span> = <span style=color:#e6db74>&#39;hugo-book&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Book theme configuration</span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>params</span>]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>BookRepo</span> = <span style=color:#e6db74>&#39;https://github.com/username/project-name&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>BookSearch</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>BookToC</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>BookComments</span> = <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[<span style=color:#a6e22e>markup</span>]
+</span></span><span style=display:flex><span>  [<span style=color:#a6e22e>markup</span>.<span style=color:#a6e22e>goldmark</span>]
+</span></span><span style=display:flex><span>    [<span style=color:#a6e22e>markup</span>.<span style=color:#a6e22e>goldmark</span>.<span style=color:#a6e22e>renderer</span>]
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>unsafe</span> = <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>  [<span style=color:#a6e22e>markup</span>.<span style=color:#a6e22e>tableOfContents</span>]
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>startLevel</span> = <span style=color:#ae81ff>1</span></span></span></code></pre></div><h4 id=3-create-content-structure>3. Create Content Structure<a class=anchor href=#3-create-content-structure>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create homepage</span>
+</span></span><span style=display:flex><span>hugo new _index.md
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create content sections</span>
+</span></span><span style=display:flex><span>hugo new lines-of-business/_index.md
+</span></span><span style=display:flex><span>hugo new products/_index.md
+</span></span><span style=display:flex><span>hugo new marketing/_index.md
+</span></span><span style=display:flex><span>hugo new sales-operations/_index.md</span></span></code></pre></div><p>Example <code>content/_index.md</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Home&#34;
+</span></span><span style=display:flex><span>type: docs
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span># Welcome to Project Documentation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Your content here...</span></span></code></pre></div><h4 id=4-test-locally>4. Test Locally<a class=anchor href=#4-test-locally>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo server -D
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Visit http://localhost:1313</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Verify navigation, content, theme</span></span></span></code></pre></div><hr><h3 id=phase-2-aws-s3-setup-initial---public-website>Phase 2: AWS S3 Setup (Initial - Public Website)<a class=anchor href=#phase-2-aws-s3-setup-initial---public-website>#</a></h3><h4 id=1-create-s3-bucket>1. Create S3 Bucket<a class=anchor href=#1-create-s3-bucket>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create bucket (use unique name)</span>
+</span></span><span style=display:flex><span>aws s3 mb s3://project-name --region us-east-1</span></span></code></pre></div><h4 id=2-enable-static-website-hosting-initially>2. Enable Static Website Hosting (Initially)<a class=anchor href=#2-enable-static-website-hosting-initially>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>aws s3 website s3://project-name <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --index-document index.html <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --error-document 404.html</span></span></code></pre></div><h4 id=3-make-bucket-public-temporarily>3. Make Bucket Public (Temporarily)<a class=anchor href=#3-make-bucket-public-temporarily>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Disable public access blocks (temporary)</span>
+</span></span><span style=display:flex><span>aws s3api put-public-access-block <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --bucket project-name <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --public-access-block-configuration <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create public bucket policy</span>
+</span></span><span style=display:flex><span>cat &gt; bucket-policy-public.json <span style=color:#e6db74>&lt;&lt;EOF
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Version&#34;: &#34;2012-10-17&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Statement&#34;: [{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Sid&#34;: &#34;PublicReadGetObject&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Effect&#34;: &#34;Allow&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Principal&#34;: &#34;*&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Action&#34;: &#34;s3:GetObject&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Resource&#34;: &#34;arn:aws:s3:::project-name/*&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  }]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>aws s3api put-bucket-policy <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --bucket project-name <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --policy file://bucket-policy-public.json</span></span></code></pre></div><h4 id=4-build-and-deploy-hugo-site>4. Build and Deploy Hugo Site<a class=anchor href=#4-build-and-deploy-hugo-site>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Build site</span>
+</span></span><span style=display:flex><span>hugo --minify
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Sync to S3</span>
+</span></span><span style=display:flex><span>aws s3 sync public/ s3://project-name --delete</span></span></code></pre></div><h4 id=5-test-public-website>5. Test Public Website<a class=anchor href=#5-test-public-website>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Get website URL</span>
+</span></span><span style=display:flex><span>aws s3api get-bucket-website --bucket project-name
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Visit: http://project-name.s3-website-us-east-1.amazonaws.com</span></span></span></code></pre></div><hr><h3 id=phase-3-github-repository-setup>Phase 3: GitHub Repository Setup<a class=anchor href=#phase-3-github-repository-setup>#</a></h3><h4 id=1-create-github-repository>1. Create GitHub Repository<a class=anchor href=#1-create-github-repository>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create repo</span>
+</span></span><span style=display:flex><span>gh repo create project-name --public --source<span style=color:#f92672>=</span>. --remote<span style=color:#f92672>=</span>origin
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Add files</span>
+</span></span><span style=display:flex><span>git add .
+</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Initial commit: Hugo site with hugo-book theme&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Push</span>
+</span></span><span style=display:flex><span>git push -u origin main</span></span></code></pre></div><h4 id=2-configure-github-secrets-for-aws>2. Configure GitHub Secrets for AWS<a class=anchor href=#2-configure-github-secrets-for-aws>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Add AWS credentials as secrets</span>
+</span></span><span style=display:flex><span>gh secret set AWS_ACCESS_KEY_ID
+</span></span><span style=display:flex><span><span style=color:#75715e># Paste your AWS access key when prompted</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>gh secret set AWS_SECRET_ACCESS_KEY
+</span></span><span style=display:flex><span><span style=color:#75715e># Paste your AWS secret key when prompted</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>gh secret set AWS_REGION
+</span></span><span style=display:flex><span><span style=color:#75715e># Enter: us-east-1</span></span></span></code></pre></div><hr><h3 id=phase-4-github-actions-auto-deployment>Phase 4: GitHub Actions Auto-Deployment<a class=anchor href=#phase-4-github-actions-auto-deployment>#</a></h3><h4 id=1-create-workflow-file>1. Create Workflow File<a class=anchor href=#1-create-workflow-file>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir -p .github/workflows</span></span></code></pre></div><p>Create <code>.github/workflows/deploy.yml</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>name</span>: <span style=color:#ae81ff>Deploy Hugo to S3 and Invalidate CloudFront</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>on</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>push</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>branches</span>: [ <span style=color:#ae81ff>main ]</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>workflow_dispatch</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>jobs</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>deploy</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>runs-on</span>: <span style=color:#ae81ff>ubuntu-latest</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>steps</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Checkout repository</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>actions/checkout@v4</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>submodules</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>fetch-depth</span>: <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Setup Hugo</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>peaceiris/actions-hugo@v2</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>hugo-version</span>: <span style=color:#e6db74>&#39;latest&#39;</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>extended</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Build Hugo site</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: <span style=color:#ae81ff>hugo --minify</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Configure AWS credentials</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>uses</span>: <span style=color:#ae81ff>aws-actions/configure-aws-credentials@v4</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>with</span>:
+</span></span><span style=display:flex><span>          <span style=color:#f92672>aws-access-key-id</span>: <span style=color:#ae81ff>${{ secrets.AWS_ACCESS_KEY_ID }}</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>aws-secret-access-key</span>: <span style=color:#ae81ff>${{ secrets.AWS_SECRET_ACCESS_KEY }}</span>
+</span></span><span style=display:flex><span>          <span style=color:#f92672>aws-region</span>: <span style=color:#ae81ff>${{ secrets.AWS_REGION }}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Sync to S3</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: |<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          aws s3 sync public/ s3://project-name \
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            --delete \
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            --cache-control &#34;public, max-age=3600&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>Invalidate CloudFront cache</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>run</span>: |<span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>          aws cloudfront create-invalidation \
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            --distribution-id YOUR_DISTRIBUTION_ID \
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            --paths &#34;/*&#34;</span></span></span></code></pre></div><h4 id=2-test-deployment>2. Test Deployment<a class=anchor href=#2-test-deployment>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git add .github/workflows/deploy.yml
+</span></span><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Add GitHub Actions deployment workflow&#34;</span>
+</span></span><span style=display:flex><span>git push
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check deployment status</span>
+</span></span><span style=display:flex><span>gh run list
+</span></span><span style=display:flex><span>gh run view</span></span></code></pre></div><hr><h3 id=phase-5-cloudfront-with-https>Phase 5: CloudFront with HTTPS<a class=anchor href=#phase-5-cloudfront-with-https>#</a></h3><h4 id=1-create-cloudfront-distribution>1. Create CloudFront Distribution<a class=anchor href=#1-create-cloudfront-distribution>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create distribution configuration</span>
+</span></span><span style=display:flex><span>cat &gt; cloudfront-config.json <span style=color:#e6db74>&lt;&lt;EOF
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;CallerReference&#34;: &#34;project-name-$(date +%s)&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Comment&#34;: &#34;Project Name Docs with HTTPS&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;DefaultRootObject&#34;: &#34;index.html&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Origins&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Quantity&#34;: 1,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Items&#34;: [{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;Id&#34;: &#34;S3-project-name&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;DomainName&#34;: &#34;project-name.s3-website-us-east-1.amazonaws.com&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;CustomOriginConfig&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;HTTPPort&#34;: 80,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;HTTPSPort&#34;: 443,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;OriginProtocolPolicy&#34;: &#34;http-only&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    }]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;DefaultCacheBehavior&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;TargetOriginId&#34;: &#34;S3-project-name&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;ViewerProtocolPolicy&#34;: &#34;redirect-to-https&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;AllowedMethods&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;Quantity&#34;: 2,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;Items&#34;: [&#34;HEAD&#34;, &#34;GET&#34;],
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;CachedMethods&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;Quantity&#34;: 2,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;Items&#34;: [&#34;HEAD&#34;, &#34;GET&#34;]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Compress&#34;: true,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;ForwardedValues&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;QueryString&#34;: false,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;Cookies&#34;: {&#34;Forward&#34;: &#34;none&#34;}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;MinTTL&#34;: 0,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;DefaultTTL&#34;: 86400,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;MaxTTL&#34;: 31536000
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Enabled&#34;: true
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create distribution</span>
+</span></span><span style=display:flex><span>aws cloudfront create-distribution <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --distribution-config file://cloudfront-config.json</span></span></code></pre></div><h4 id=2-get-distribution-details>2. Get Distribution Details<a class=anchor href=#2-get-distribution-details>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># List distributions</span>
+</span></span><span style=display:flex><span>aws cloudfront list-distributions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Get specific distribution</span>
+</span></span><span style=display:flex><span>aws cloudfront get-distribution --id YOUR_DIST_ID
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Note the Domain Name (e.g., d1abc123xyz.cloudfront.net)</span></span></span></code></pre></div><h4 id=3-update-hugo-config-with-cloudfront-url>3. Update Hugo Config with CloudFront URL<a class=anchor href=#3-update-hugo-config-with-cloudfront-url>#</a></h4><p>Edit <code>hugo.toml</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span><span style=color:#a6e22e>baseURL</span> = <span style=color:#e6db74>&#39;https://d1abc123xyz.cloudfront.net/&#39;</span></span></span></code></pre></div><h4 id=4-update-github-actions-with-distribution-id>4. Update GitHub Actions with Distribution ID<a class=anchor href=#4-update-github-actions-with-distribution-id>#</a></h4><p>Edit <code>.github/workflows/deploy.yml</code> and replace <code>YOUR_DISTRIBUTION_ID</code></p><hr><h3 id=phase-6-password-protection-with-lambdaedge>Phase 6: Password Protection with Lambda@Edge<a class=anchor href=#phase-6-password-protection-with-lambdaedge>#</a></h3><h4 id=1-create-iam-role-for-lambdaedge>1. Create IAM Role for Lambda@Edge<a class=anchor href=#1-create-iam-role-for-lambdaedge>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create trust policy</span>
+</span></span><span style=display:flex><span>cat &gt; lambda-trust-policy.json <span style=color:#e6db74>&lt;&lt;EOF
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Version&#34;: &#34;2012-10-17&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Statement&#34;: [{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Effect&#34;: &#34;Allow&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Principal&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;Service&#34;: [
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;lambda.amazonaws.com&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;edgelambda.amazonaws.com&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      ]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Action&#34;: &#34;sts:AssumeRole&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  }]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create role</span>
+</span></span><span style=display:flex><span>aws iam create-role <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --role-name project-name-lambda-edge-role <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --assume-role-policy-document file://lambda-trust-policy.json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Attach execution policy</span>
+</span></span><span style=display:flex><span>aws iam attach-role-policy <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --role-name project-name-lambda-edge-role <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole</span></span></code></pre></div><h4 id=2-create-lambda-function-code>2. Create Lambda Function Code<a class=anchor href=#2-create-lambda-function-code>#</a></h4><p>Create <code>lambda-auth.js</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#e6db74>&#39;use strict&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Basic Authentication for CloudFront
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// Username: your-username
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// Password: your-password
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>exports</span>.<span style=color:#a6e22e>handler</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>event</span>, <span style=color:#a6e22e>context</span>, <span style=color:#a6e22e>callback</span>) =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>request</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>Records</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>cf</span>.<span style=color:#a6e22e>request</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>headers</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>headers</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Step 1: Handle index.html for directory requests
+</span></span></span><span style=display:flex><span>    <span style=color:#75715e>// This fixes navigation links when using S3 bucket origin
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>uri</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>uri</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// If URI ends with &#39;/&#39;, append &#39;index.html&#39;
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>uri</span>.<span style=color:#a6e22e>endsWith</span>(<span style=color:#e6db74>&#39;/&#39;</span>)) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>uri</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#39;index.html&#39;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// If URI has no file extension, append &#39;/index.html&#39;
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>uri</span>.<span style=color:#a6e22e>includes</span>(<span style=color:#e6db74>&#39;.&#39;</span>) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>uri</span>.<span style=color:#a6e22e>endsWith</span>(<span style=color:#e6db74>&#39;/&#39;</span>)) {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>uri</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#39;/index.html&#39;</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Step 2: Require Basic Authentication
+</span></span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>authUser</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;your-username&#39;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>authPass</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;your-password&#39;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>authString</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Basic &#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>Buffer</span>.<span style=color:#a6e22e>from</span>(<span style=color:#a6e22e>authUser</span> <span style=color:#f92672>+</span> <span style=color:#e6db74>&#39;:&#39;</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>authPass</span>).<span style=color:#a6e22e>toString</span>(<span style=color:#e6db74>&#39;base64&#39;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#66d9ef>typeof</span> <span style=color:#a6e22e>headers</span>.<span style=color:#a6e22e>authorization</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;undefined&#39;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>headers</span>.<span style=color:#a6e22e>authorization</span>[<span style=color:#ae81ff>0</span>].<span style=color:#a6e22e>value</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>authString</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>status</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;401&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>statusDescription</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;Unauthorized&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>body</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;Unauthorized&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>headers</span><span style=color:#f92672>:</span> {
+</span></span><span style=display:flex><span>                <span style=color:#e6db74>&#39;www-authenticate&#39;</span><span style=color:#f92672>:</span> [{<span style=color:#a6e22e>key</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;WWW-Authenticate&#39;</span>, <span style=color:#a6e22e>value</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#39;Basic realm=&#34;Project Docs&#34;&#39;</span>}]
+</span></span><span style=display:flex><span>            },
+</span></span><span style=display:flex><span>        };
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>callback</span>(<span style=color:#66d9ef>null</span>, <span style=color:#a6e22e>response</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Continue request processing if authenticated
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>callback</span>(<span style=color:#66d9ef>null</span>, <span style=color:#a6e22e>request</span>);
+</span></span><span style=display:flex><span>};</span></span></code></pre></div><h4 id=3-deploy-lambda-function>3. Deploy Lambda Function<a class=anchor href=#3-deploy-lambda-function>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Package function</span>
+</span></span><span style=display:flex><span>zip lambda-auth.zip lambda-auth.js
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create function (MUST be in us-east-1 for Lambda@Edge)</span>
+</span></span><span style=display:flex><span>aws lambda create-function <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --region us-east-1 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --function-name project-name-basic-auth <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --runtime nodejs20.x <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --role arn:aws:iam::YOUR_ACCOUNT_ID:role/project-name-lambda-edge-role <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --handler lambda-auth.handler <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --zip-file fileb://lambda-auth.zip <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --timeout <span style=color:#ae81ff>5</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --memory-size <span style=color:#ae81ff>128</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Publish version</span>
+</span></span><span style=display:flex><span>aws lambda publish-version <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --function-name project-name-basic-auth</span></span></code></pre></div><h4 id=4-attach-lambda-to-cloudfront>4. Attach Lambda to CloudFront<a class=anchor href=#4-attach-lambda-to-cloudfront>#</a></h4><p>Create Python script <code>attach-lambda.py</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e>#!/usr/bin/env python3</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> boto3
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> sys
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>    cloudfront <span style=color:#f92672>=</span> boto3<span style=color:#f92672>.</span>client(<span style=color:#e6db74>&#39;cloudfront&#39;</span>, region_name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;us-east-1&#39;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    dist_id <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;YOUR_DISTRIBUTION_ID&#39;</span>
+</span></span><span style=display:flex><span>    lambda_arn <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;arn:aws:lambda:us-east-1:YOUR_ACCOUNT_ID:function:project-name-basic-auth:1&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;📡 Fetching CloudFront distribution </span><span style=color:#e6db74>{</span>dist_id<span style=color:#e6db74>}</span><span style=color:#e6db74>...&#34;</span>)
+</span></span><span style=display:flex><span>    response <span style=color:#f92672>=</span> cloudfront<span style=color:#f92672>.</span>get_distribution_config(Id<span style=color:#f92672>=</span>dist_id)
+</span></span><span style=display:flex><span>    config <span style=color:#f92672>=</span> response[<span style=color:#e6db74>&#39;DistributionConfig&#39;</span>]
+</span></span><span style=display:flex><span>    etag <span style=color:#f92672>=</span> response[<span style=color:#e6db74>&#39;ETag&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;🔧 Adding Lambda@Edge function association...&#34;</span>)
+</span></span><span style=display:flex><span>    config[<span style=color:#e6db74>&#39;DefaultCacheBehavior&#39;</span>][<span style=color:#e6db74>&#39;LambdaFunctionAssociations&#39;</span>] <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;Quantity&#39;</span>: <span style=color:#ae81ff>1</span>,
+</span></span><span style=display:flex><span>        <span style=color:#e6db74>&#39;Items&#39;</span>: [{
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;LambdaFunctionARN&#39;</span>: lambda_arn,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;EventType&#39;</span>: <span style=color:#e6db74>&#39;viewer-request&#39;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#39;IncludeBody&#39;</span>: <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        }]
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;☁️  Updating CloudFront distribution...&#34;</span>)
+</span></span><span style=display:flex><span>    cloudfront<span style=color:#f92672>.</span>update_distribution(
+</span></span><span style=display:flex><span>        Id<span style=color:#f92672>=</span>dist_id,
+</span></span><span style=display:flex><span>        DistributionConfig<span style=color:#f92672>=</span>config,
+</span></span><span style=display:flex><span>        IfMatch<span style=color:#f92672>=</span>etag
+</span></span><span style=display:flex><span>    )
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>✅ Lambda@Edge attached successfully!&#34;</span>)
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;⏳ Deployment in progress (takes 5-10 minutes)&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>except</span> <span style=color:#a6e22e>Exception</span> <span style=color:#66d9ef>as</span> e:
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>❌ Error: </span><span style=color:#e6db74>{</span>e<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>    sys<span style=color:#f92672>.</span>exit(<span style=color:#ae81ff>1</span>)</span></span></code></pre></div><p>Run it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>python3 attach-lambda.py</span></span></code></pre></div><p>Wait 5-10 minutes for CloudFront to deploy the Lambda function globally.</p><hr><h3 id=phase-7-secure-the-s3-bucket-make-private>Phase 7: Secure the S3 Bucket (Make Private)<a class=anchor href=#phase-7-secure-the-s3-bucket-make-private>#</a></h3><h4 id=1-create-origin-access-control-oac>1. Create Origin Access Control (OAC)<a class=anchor href=#1-create-origin-access-control-oac>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create OAC configuration</span>
+</span></span><span style=display:flex><span>cat &gt; oac-config.json <span style=color:#e6db74>&lt;&lt;EOF
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Name&#34;: &#34;project-name-oac&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Description&#34;: &#34;OAC for project-name S3 bucket&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;SigningProtocol&#34;: &#34;sigv4&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;SigningBehavior&#34;: &#34;always&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;OriginAccessControlOriginType&#34;: &#34;s3&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Create OAC</span>
+</span></span><span style=display:flex><span>aws cloudfront create-origin-access-control <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --origin-access-control-config file://oac-config.json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Note the OAC ID from output</span></span></span></code></pre></div><h4 id=2-update-cloudfront-to-use-s3-bucket-origin-not-website>2. Update CloudFront to Use S3 Bucket Origin (Not Website)<a class=anchor href=#2-update-cloudfront-to-use-s3-bucket-origin-not-website>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Get current config</span>
+</span></span><span style=display:flex><span>aws cloudfront get-distribution-config <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --id YOUR_DIST_ID &gt; dist-config.json
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Edit dist-config.json:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Change Origin DomainName from:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#   &#34;project-name.s3-website-us-east-1.amazonaws.com&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># To:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#   &#34;project-name.s3.us-east-1.amazonaws.com&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Change from CustomOriginConfig to S3OriginConfig:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#   &#34;S3OriginConfig&#34;: {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#     &#34;OriginAccessIdentity&#34;: &#34;&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#   },</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#   &#34;OriginAccessControlId&#34;: &#34;YOUR_OAC_ID&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Update distribution (use Python script or AWS CLI)</span></span></span></code></pre></div><h4 id=3-disable-s3-public-access>3. Disable S3 Public Access<a class=anchor href=#3-disable-s3-public-access>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Disable website hosting</span>
+</span></span><span style=display:flex><span>aws s3api delete-bucket-website --bucket project-name
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Remove public policy</span>
+</span></span><span style=display:flex><span>aws s3api delete-bucket-policy --bucket project-name
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Enable all public access blocks</span>
+</span></span><span style=display:flex><span>aws s3api put-public-access-block <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --bucket project-name <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --public-access-block-configuration <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  <span style=color:#e6db74>&#34;BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true&#34;</span></span></span></code></pre></div><h4 id=4-create-cloudfront-only-bucket-policy>4. Create CloudFront-Only Bucket Policy<a class=anchor href=#4-create-cloudfront-only-bucket-policy>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cat &gt; bucket-policy-cloudfront.json <span style=color:#e6db74>&lt;&lt;EOF
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Version&#34;: &#34;2012-10-17&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  &#34;Statement&#34;: [{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Sid&#34;: &#34;AllowCloudFrontServicePrincipal&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Effect&#34;: &#34;Allow&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Principal&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;Service&#34;: &#34;cloudfront.amazonaws.com&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Action&#34;: &#34;s3:GetObject&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Resource&#34;: &#34;arn:aws:s3:::project-name/*&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;Condition&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      &#34;StringEquals&#34;: {
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#34;AWS:SourceArn&#34;: &#34;arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/YOUR_DIST_ID&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>      }
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    }
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  }]
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>}
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>EOF</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>aws s3api put-bucket-policy <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --bucket project-name <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --policy file://bucket-policy-cloudfront.json</span></span></code></pre></div><hr><h3 id=phase-8-verification-and-testing>Phase 8: Verification and Testing<a class=anchor href=#phase-8-verification-and-testing>#</a></h3><h4 id=1-test-s3-direct-access-should-fail>1. Test S3 Direct Access (Should Fail)<a class=anchor href=#1-test-s3-direct-access-should-fail>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -I http://project-name.s3-website-us-east-1.amazonaws.com
+</span></span><span style=display:flex><span><span style=color:#75715e># Expected: 404 or AccessDenied (website disabled)</span></span></span></code></pre></div><h4 id=2-test-cloudfront-without-auth-should-require-password>2. Test CloudFront Without Auth (Should Require Password)<a class=anchor href=#2-test-cloudfront-without-auth-should-require-password>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -I https://d1abc123xyz.cloudfront.net/
+</span></span><span style=display:flex><span><span style=color:#75715e># Expected: HTTP 401 Unauthorized</span></span></span></code></pre></div><h4 id=3-test-cloudfront-with-auth-should-work>3. Test CloudFront With Auth (Should Work)<a class=anchor href=#3-test-cloudfront-with-auth-should-work>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -u <span style=color:#e6db74>&#34;username:password&#34;</span> https://d1abc123xyz.cloudfront.net/
+</span></span><span style=display:flex><span><span style=color:#75715e># Expected: HTTP 200 OK with content</span></span></span></code></pre></div><h4 id=4-test-navigation-links>4. Test Navigation Links<a class=anchor href=#4-test-navigation-links>#</a></h4><p>Visit in browser:</p><ul><li><a href=https://d1abc123xyz.cloudfront.net/>https://d1abc123xyz.cloudfront.net/</a></li><li><a href=https://d1abc123xyz.cloudfront.net/products/>https://d1abc123xyz.cloudfront.net/products/</a></li><li><a href=https://d1abc123xyz.cloudfront.net/lines-of-business/>https://d1abc123xyz.cloudfront.net/lines-of-business/</a></li></ul><p>All should work correctly and require authentication.</p><hr><h2 id=architecture>Architecture<a class=anchor href=#architecture>#</a></h2><h3 id=data-flow>Data Flow<a class=anchor href=#data-flow>#</a></h3><pre tabindex=0><code>User Request
+    ↓
+CloudFront Edge Location
+    ↓
+Lambda@Edge (viewer-request)
+    ├─ Rewrite URI (append index.html)
+    └─ Check Authentication
+        ↓
+CloudFront Cache (if authenticated)
+    ↓
+S3 Bucket (via OAC - private)
+    ↓
+Response to User (HTTPS)</code></pre><h3 id=security-layers>Security Layers<a class=anchor href=#security-layers>#</a></h3><ol><li><strong>HTTPS</strong>: All traffic encrypted via CloudFront SSL</li><li><strong>Authentication</strong>: Lambda@Edge basic auth</li><li><strong>Private S3</strong>: No public access, only CloudFront via OAC</li><li><strong>Public Access Blocks</strong>: All 4 S3 protections enabled</li></ol><hr><h2 id=security-implementation>Security Implementation<a class=anchor href=#security-implementation>#</a></h2><h3 id=what-makes-it-secure>What Makes It Secure?<a class=anchor href=#what-makes-it-secure>#</a></h3><h4 id=1-s3-bucket-security>1. S3 Bucket Security<a class=anchor href=#1-s3-bucket-security>#</a></h4><ul><li>✅ All public access blocks enabled</li><li>✅ Static website hosting disabled</li><li>✅ Bucket policy only allows CloudFront service principal</li><li>✅ Condition checks specific CloudFront distribution ARN</li><li>❌ No public read permissions</li><li>❌ No website endpoint exposed</li></ul><h4 id=2-cloudfront-security>2. CloudFront Security<a class=anchor href=#2-cloudfront-security>#</a></h4><ul><li>✅ HTTPS enforced (redirect-to-https)</li><li>✅ Lambda@Edge authentication on viewer-request</li><li>✅ Origin Access Control (OAC) for S3 access</li><li>✅ Cache compression enabled</li><li>❌ No direct S3 access possible</li></ul><h4 id=3-lambdaedge-security>3. Lambda@Edge Security<a class=anchor href=#3-lambdaedge-security>#</a></h4><ul><li>✅ Basic HTTP authentication</li><li>✅ Runs at edge locations (low latency)</li><li>✅ Blocks unauthenticated requests before S3 fetch</li><li>✅ Also handles URL rewriting for navigation</li></ul><hr><h2 id=troubleshooting>Troubleshooting<a class=anchor href=#troubleshooting>#</a></h2><h3 id=navigation-links-return-403>Navigation Links Return 403<a class=anchor href=#navigation-links-return-403>#</a></h3><p><strong>Problem</strong>: S3 bucket endpoint doesn&rsquo;t auto-append index.html</p><p><strong>Solution</strong>: Lambda@Edge function must handle URL rewriting:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>uri</span>.<span style=color:#a6e22e>endsWith</span>(<span style=color:#e6db74>&#39;/&#39;</span>)) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>uri</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#39;index.html&#39;</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>uri</span>.<span style=color:#a6e22e>includes</span>(<span style=color:#e6db74>&#39;.&#39;</span>) <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>!</span><span style=color:#a6e22e>uri</span>.<span style=color:#a6e22e>endsWith</span>(<span style=color:#e6db74>&#39;/&#39;</span>)) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>request</span>.<span style=color:#a6e22e>uri</span> <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#39;/index.html&#39;</span>;
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><h3 id=cloudfront-deployment-taking-forever>CloudFront Deployment Taking Forever<a class=anchor href=#cloudfront-deployment-taking-forever>#</a></h3><p><strong>Normal</strong>: Lambda@Edge deployment takes 5-15 minutes to propagate to all edge locations globally.</p><p><strong>Check Status</strong>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>aws cloudfront get-distribution --id YOUR_DIST_ID --query <span style=color:#e6db74>&#39;Distribution.Status&#39;</span></span></span></code></pre></div><h3 id=s3-sync-not-working-in-github-actions>S3 Sync Not Working in GitHub Actions<a class=anchor href=#s3-sync-not-working-in-github-actions>#</a></h3><p><strong>Check</strong>:</p><ol><li>AWS credentials in GitHub Secrets</li><li>Bucket name matches in workflow</li><li>Distribution ID is correct for invalidation</li></ol><h3 id=lambda-function-cant-be-attached-to-cloudfront>Lambda Function Can&rsquo;t Be Attached to CloudFront<a class=anchor href=#lambda-function-cant-be-attached-to-cloudfront>#</a></h3><p><strong>Error</strong>: &ldquo;InvalidLambdaFunctionAssociation&rdquo;</p><p><strong>Cause</strong>: Multiple functions on same event type (viewer-request)</p><p><strong>Solution</strong>: Combine both functions (auth + URL rewrite) into one Lambda function</p><hr><h2 id=what-we-built-1>What We Built<a class=anchor href=#what-we-built-1>#</a></h2><h3 id=file-structure>File Structure<a class=anchor href=#file-structure>#</a></h3><pre tabindex=0><code>project-name/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml              # Auto-deployment
+├── content/
+│   ├── _index.md                   # Homepage
+│   ├── lines-of-business/
+│   ├── products/
+│   ├── marketing/
+│   └── sales-operations/
+├── static/                          # Images, PDFs
+├── themes/
+│   └── hugo-book/                  # Git submodule
+├── hugo.toml                        # Hugo config
+├── lambda-auth.js                   # Auth + URL rewrite function
+├── attach-lambda.py                 # CloudFront Lambda attachment
+├── bucket-policy-cloudfront.json    # S3 security policy
+├── CLAUDE.md                        # Project documentation
+├── SECURITY-SETUP.md                # Security documentation
+├── NAVIGATION-FIX.md                # Navigation fix documentation
+└── README.md</code></pre><h3 id=aws-resources-created>AWS Resources Created<a class=anchor href=#aws-resources-created>#</a></h3><ul><li><strong>S3 Bucket</strong>: project-name (private)</li><li><strong>CloudFront Distribution</strong>: YOUR_DIST_ID</li><li><strong>Lambda@Edge Function</strong>: project-name-basic-auth:1</li><li><strong>IAM Role</strong>: project-name-lambda-edge-role</li><li><strong>Origin Access Control</strong>: project-name-oac</li></ul><h3 id=credentials--access>Credentials & Access<a class=anchor href=#credentials--access>#</a></h3><ul><li><strong>CloudFront URL</strong>: <a href=https://d1abc123xyz.cloudfront.net>https://d1abc123xyz.cloudfront.net</a></li><li><strong>Username</strong>: (configured in lambda-auth.js)</li><li><strong>Password</strong>: (configured in lambda-auth.js)</li><li><strong>S3 Direct Access</strong>: Blocked (returns 404)</li></ul><hr><h2 id=cost-estimate-monthly>Cost Estimate (Monthly)<a class=anchor href=#cost-estimate-monthly>#</a></h2><h3 id=typical-usage>Typical Usage<a class=anchor href=#typical-usage>#</a></h3><ul><li>S3 Storage: $0.50 (20GB)</li><li>S3 Requests: $0.10 (10k requests)</li><li>CloudFront Data Transfer: $2.00 (20GB out)</li><li>CloudFront Requests: $0.20 (200k requests)</li><li>Lambda@Edge: $0.50 (200k invocations)</li><li><strong>Total</strong>: ~$3.30/month</li></ul><h3 id=free-tier-benefits-first-12-months>Free Tier Benefits (First 12 Months)<a class=anchor href=#free-tier-benefits-first-12-months>#</a></h3><ul><li>S3: 5GB storage, 20k GET, 2k PUT</li><li>CloudFront: 1TB transfer, 10M requests</li><li>Lambda: 1M requests, 400k GB-seconds</li><li><strong>Potential Cost</strong>: $0-1/month with free tier</li></ul><hr><h2 id=next-steps>Next Steps<a class=anchor href=#next-steps>#</a></h2><ol><li><p><strong>Custom Domain</strong> (Optional)</p><ul><li>Register domain in Route 53</li><li>Request ACM certificate</li><li>Update CloudFront with custom domain and certificate</li></ul></li><li><p><strong>Enhanced Security</strong></p><ul><li>Implement OAuth instead of basic auth</li><li>Add IP allowlisting</li><li>Enable WAF for additional protection</li></ul></li><li><p><strong>Monitoring</strong></p><ul><li>Set up CloudWatch alarms for errors</li><li>Enable CloudFront access logs</li><li>Monitor costs with AWS Budgets</li></ul></li><li><p><strong>Content Management</strong></p><ul><li>Create content templates</li><li>Document content structure</li><li>Set up review process</li></ul></li></ol><hr><p><strong>Created</strong>: 2026-01-03
+<strong>Project</strong>: klm-plan
+<strong>Purpose</strong>: Complete reference for recreating secure Hugo documentation sites</p><p>This guide documents every step, every command, and every decision made during the setup process.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#complete-hugo-documentation-site-setup---step-by-step-guide>Complete Hugo Documentation Site Setup - Step-by-Step Guide</a><ul><li><a href=#table-of-contents>Table of Contents</a></li><li><a href=#overview>Overview</a><ul><li><a href=#what-we-built>What We Built</a></li><li><a href=#key-features>Key Features</a></li></ul></li><li><a href=#prerequisites>Prerequisites</a><ul><li><a href=#local-tools>Local Tools</a></li><li><a href=#required-access>Required Access</a></li></ul></li><li><a href=#step-by-step-setup-process>Step-by-Step Setup Process</a><ul><li><a href=#phase-1-create-hugo-site-locally>Phase 1: Create Hugo Site Locally</a></li><li><a href=#phase-2-aws-s3-setup-initial---public-website>Phase 2: AWS S3 Setup (Initial - Public Website)</a></li><li><a href=#phase-3-github-repository-setup>Phase 3: GitHub Repository Setup</a></li><li><a href=#phase-4-github-actions-auto-deployment>Phase 4: GitHub Actions Auto-Deployment</a></li><li><a href=#phase-5-cloudfront-with-https>Phase 5: CloudFront with HTTPS</a></li><li><a href=#phase-6-password-protection-with-lambdaedge>Phase 6: Password Protection with Lambda@Edge</a></li><li><a href=#phase-7-secure-the-s3-bucket-make-private>Phase 7: Secure the S3 Bucket (Make Private)</a></li><li><a href=#phase-8-verification-and-testing>Phase 8: Verification and Testing</a></li></ul></li><li><a href=#architecture>Architecture</a><ul><li><a href=#data-flow>Data Flow</a></li><li><a href=#security-layers>Security Layers</a></li></ul></li><li><a href=#security-implementation>Security Implementation</a><ul><li><a href=#what-makes-it-secure>What Makes It Secure?</a></li></ul></li><li><a href=#troubleshooting>Troubleshooting</a><ul><li><a href=#navigation-links-return-403>Navigation Links Return 403</a></li><li><a href=#cloudfront-deployment-taking-forever>CloudFront Deployment Taking Forever</a></li><li><a href=#s3-sync-not-working-in-github-actions>S3 Sync Not Working in GitHub Actions</a></li><li><a href=#lambda-function-cant-be-attached-to-cloudfront>Lambda Function Can&rsquo;t Be Attached to CloudFront</a></li></ul></li><li><a href=#what-we-built-1>What We Built</a><ul><li><a href=#file-structure>File Structure</a></li><li><a href=#aws-resources-created>AWS Resources Created</a></li><li><a href=#credentials--access>Credentials & Access</a></li></ul></li><li><a href=#cost-estimate-monthly>Cost Estimate (Monthly)</a><ul><li><a href=#typical-usage>Typical Usage</a></li><li><a href=#free-tier-benefits-first-12-months>Free Tier Benefits (First 12 Months)</a></li></ul></li><li><a href=#next-steps>Next Steps</a></li></ul></li></ul></nav></div></aside></main></body></html>

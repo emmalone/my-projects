@@ -33,7 +33,7 @@ KAA automates the process of completing insurance applications across multiple c
 
 - **Ba...
 
-## Documentation (10 files)
+## Documentation (13 files)
 
 ### [CLAUDE_CODE_INSTRUCTIONS.md]({{< relref "/documents/klm-apartment-app/CLAUDE_CODE_INSTRUCTIONS" >}})
 
@@ -42,6 +42,10 @@ Build working MVP by end of day: Single property → PDF generation workflow
 ### [CONVERSATION_SUMMARY.md]({{< relref "/documents/klm-apartment-app/CONVERSATION_SUMMARY" >}})
 
 **Date**: January 2, 2026
+
+### [DATABASE_WORKFLOW.md]({{< relref "/documents/klm-apartment-app/DATABASE_WORKFLOW" >}})
+
+The KAA database is designed to store all insurance application data in a flexible, normalized structure.
 
 ### [README.md]({{< relref "/documents/klm-apartment-app/README" >}})
 
@@ -63,6 +67,14 @@ KAA is an insurance application automation system designed to streamline the pro
 
 **Created**: 2026-01-02
 
+### [acord_140_extraction_summary.md]({{< relref "/documents/klm-apartment-app/acord_140_extraction_summary" >}})
+
+**Date:** January 3, 2026
+
+### [handwritten_application_complete_data.md]({{< relref "/documents/klm-apartment-app/handwritten_application_complete_data" >}})
+
+**Source:** `2024_habit_supplemental_applications.pdf` (19 pages)
+
 ### [JOTFORM_MANUAL_SETUP.md]({{< relref "/documents/klm-apartment-app/JOTFORM_MANUAL_SETUP" >}})
 
 Due to API limitations with programmatically creating JotForm forms with many questions, we've provided multiple alternatives for collecting the missing insurance application data.
@@ -79,9 +91,9 @@ The KAA Insurance Application missing fields form has been successfully deployed
 
 **Branch**: main
 
-**Last Commit**: Fix form URL - use HTTPS direct S3 URL instead of website endpoint
+**Last Commit**: Add comprehensive extraction from 2024 handwritten supplemental applications
 
-**Author**: Mark Malone (11 hours ago)
+**Author**: Mark Malone (52 minutes ago)
 
 ⚠️ **Status**: Uncommitted changes
 

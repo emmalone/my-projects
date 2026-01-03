@@ -1,0 +1,263 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="KLM Insurance - New Page & Menu Template Guide# Last Updated: December 22, 2025
+This guide explains how to create new pages and menu items in your KLM Insurance Hugo website.
+Table of Contents# Creating a New Page Adding to Navigation Menu Page Templates Available Step-by-Step Examples Troubleshooting Creating a New Page# Quick Start# Create the content file in klm-hugo-site/content/ Add menu item in klm-hugo-site/hugo.toml Run Hugo to see your changes File Naming Convention# Use lowercase Use hyphens (not spaces or underscores) End with .md Examples: ✅ boat-insurance.md ✅ privacy-policy.md ✅ claims-process.md ❌ Boat Insurance.md ❌ privacy_policy.md Page Templates Available# Template 1: Insurance Service Page# Use for: Auto, Home, Life, Commercial insurance pages
+"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/documents/klm-migrate/new_page_template_guide/"><meta property="og:site_name" content="My Projects - Documentation Hub"><meta property="og:title" content="NEW_PAGE_TEMPLATE_GUIDE"><meta property="og:description" content="KLM Insurance - New Page & Menu Template Guide# Last Updated: December 22, 2025
+This guide explains how to create new pages and menu items in your KLM Insurance Hugo website.
+Table of Contents# Creating a New Page Adding to Navigation Menu Page Templates Available Step-by-Step Examples Troubleshooting Creating a New Page# Quick Start# Create the content file in klm-hugo-site/content/ Add menu item in klm-hugo-site/hugo.toml Run Hugo to see your changes File Naming Convention# Use lowercase Use hyphens (not spaces or underscores) End with .md Examples: ✅ boat-insurance.md ✅ privacy-policy.md ✅ claims-process.md ❌ Boat Insurance.md ❌ privacy_policy.md Page Templates Available# Template 1: Insurance Service Page# Use for: Auto, Home, Life, Commercial insurance pages"><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="documents"><meta property="article:published_time" content="2025-12-22T10:23:51+00:00"><meta property="article:modified_time" content="2025-12-22T10:23:51+00:00"><meta itemprop=name content="NEW_PAGE_TEMPLATE_GUIDE"><meta itemprop=description content="KLM Insurance - New Page & Menu Template Guide# Last Updated: December 22, 2025
+This guide explains how to create new pages and menu items in your KLM Insurance Hugo website.
+Table of Contents# Creating a New Page Adding to Navigation Menu Page Templates Available Step-by-Step Examples Troubleshooting Creating a New Page# Quick Start# Create the content file in klm-hugo-site/content/ Add menu item in klm-hugo-site/hugo.toml Run Hugo to see your changes File Naming Convention# Use lowercase Use hyphens (not spaces or underscores) End with .md Examples: ✅ boat-insurance.md ✅ privacy-policy.md ✅ claims-process.md ❌ Boat Insurance.md ❌ privacy_policy.md Page Templates Available# Template 1: Insurance Service Page# Use for: Auto, Home, Life, Commercial insurance pages"><meta itemprop=datePublished content="2025-12-22T10:23:51+00:00"><meta itemprop=dateModified content="2025-12-22T10:23:51+00:00"><meta itemprop=wordCount content="1475"><title>NEW_PAGE_TEMPLATE_GUIDE | My Projects - Documentation Hub</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/documents/klm-migrate/new_page_template_guide/><link rel=stylesheet href=/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj+RQ9XBXU=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.da5a5af27f9bdea67bd6f07f3142824ec301e0c7f9d37c0fc61aefc961834a9e.js integrity="sha256-2lpa8n+b3qZ71vB/MUKCTsMB4Mf503wPxhrvyWGDSp4=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-documents"><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>My Projects - Documentation Hub</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>NEW_PAGE_TEMPLATE_GUIDE</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#klm-insurance---new-page--menu-template-guide>KLM Insurance - New Page & Menu Template Guide</a><ul><li><a href=#table-of-contents>Table of Contents</a></li><li><a href=#creating-a-new-page>Creating a New Page</a><ul><li><a href=#quick-start>Quick Start</a></li><li><a href=#file-naming-convention>File Naming Convention</a></li></ul></li><li><a href=#page-templates-available>Page Templates Available</a><ul><li><a href=#template-1-insurance-service-page>Template 1: Insurance Service Page</a></li><li><a href=#template-2-informational-page>Template 2: Informational Page</a></li><li><a href=#template-3-contactform-page>Template 3: Contact/Form Page</a></li></ul></li><li><a href=#adding-to-navigation-menu>Adding to Navigation Menu</a><ul><li><a href=#step-1-edit-hugotoml>Step 1: Edit hugo.toml</a></li><li><a href=#step-2-add-your-menu-item>Step 2: Add Your Menu Item</a></li><li><a href=#example-adding-boat-insurance>Example: Adding &ldquo;Boat Insurance&rdquo;</a></li><li><a href=#menu-weight-guide>Menu Weight Guide</a></li></ul></li><li><a href=#step-by-step-examples>Step-by-Step Examples</a><ul><li><a href=#example-1-create-boat-insurance-page>Example 1: Create &ldquo;Boat Insurance&rdquo; Page</a></li><li><a href=#example-2-create-faq-page>Example 2: Create &ldquo;FAQ&rdquo; Page</a></li></ul></li><li><a href=#advanced-creating-dropdown-menus>Advanced: Creating Dropdown Menus</a><ul><li><a href=#step-1-create-parent-menu-item>Step 1: Create Parent Menu Item</a></li><li><a href=#step-2-add-child-items>Step 2: Add Child Items</a></li></ul></li><li><a href=#page-front-matter-reference>Page Front Matter Reference</a><ul><li><a href=#front-matter-fields>Front Matter Fields</a></li></ul></li><li><a href=#content-formatting-guide>Content Formatting Guide</a><ul><li><a href=#headings>Headings</a></li><li><a href=#text-formatting>Text Formatting</a></li><li><a href=#links>Links</a></li><li><a href=#lists>Lists</a></li><li><a href=#quotes>Quotes</a></li><li><a href=#images>Images</a></li></ul></li><li><a href=#file-structure-summary>File Structure Summary</a></li><li><a href=#quick-reference-commands>Quick Reference Commands</a><ul><li><a href=#start-development-server>Start Development Server</a></li><li><a href=#build-for-production>Build for Production</a></li><li><a href=#create-new-page-alternative-method>Create New Page (Alternative Method)</a></li></ul></li><li><a href=#troubleshooting>Troubleshooting</a><ul><li><a href=#page-not-showing-up>Page Not Showing Up</a></li><li><a href=#menu-item-not-appearing>Menu Item Not Appearing</a></li><li><a href=#broken-links>Broken Links</a></li><li><a href=#images-not-loading>Images Not Loading</a></li></ul></li><li><a href=#best-practices>Best Practices</a><ul><li><a href=#-do>✅ DO</a></li><li><a href=#-dont>❌ DON&rsquo;T</a></li></ul></li><li><a href=#getting-help>Getting Help</a><ul><li><a href=#resources>Resources</a></li><li><a href=#common-questions>Common Questions</a></li></ul></li><li><a href=#template-quick-copy>Template Quick Copy</a><ul><li><a href=#new-insurance-service-page>New Insurance Service Page</a></li></ul></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=klm-insurance---new-page--menu-template-guide>KLM Insurance - New Page & Menu Template Guide<a class=anchor href=#klm-insurance---new-page--menu-template-guide>#</a></h1><p><strong>Last Updated:</strong> December 22, 2025</p><p>This guide explains how to create new pages and menu items in your KLM Insurance Hugo website.</p><hr><h2 id=table-of-contents>Table of Contents<a class=anchor href=#table-of-contents>#</a></h2><ol><li><a href=#creating-a-new-page>Creating a New Page</a></li><li><a href=#adding-to-navigation-menu>Adding to Navigation Menu</a></li><li><a href=#page-templates-available>Page Templates Available</a></li><li><a href=#step-by-step-examples>Step-by-Step Examples</a></li><li><a href=#troubleshooting>Troubleshooting</a></li></ol><hr><h2 id=creating-a-new-page>Creating a New Page<a class=anchor href=#creating-a-new-page>#</a></h2><h3 id=quick-start>Quick Start<a class=anchor href=#quick-start>#</a></h3><ol><li><strong>Create the content file</strong> in <code>klm-hugo-site/content/</code></li><li><strong>Add menu item</strong> in <code>klm-hugo-site/hugo.toml</code></li><li><strong>Run Hugo</strong> to see your changes</li></ol><h3 id=file-naming-convention>File Naming Convention<a class=anchor href=#file-naming-convention>#</a></h3><ul><li>Use lowercase</li><li>Use hyphens (not spaces or underscores)</li><li>End with <code>.md</code></li><li>Examples:<ul><li>✅ <code>boat-insurance.md</code></li><li>✅ <code>privacy-policy.md</code></li><li>✅ <code>claims-process.md</code></li><li>❌ <code>Boat Insurance.md</code></li><li>❌ <code>privacy_policy.md</code></li></ul></li></ul><hr><h2 id=page-templates-available>Page Templates Available<a class=anchor href=#page-templates-available>#</a></h2><h3 id=template-1-insurance-service-page>Template 1: Insurance Service Page<a class=anchor href=#template-1-insurance-service-page>#</a></h3><p><strong>Use for:</strong> Auto, Home, Life, Commercial insurance pages</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Page Title Here&#34;
+</span></span><span style=display:flex><span>description: &#34;SEO description for this page&#34;
+</span></span><span style=display:flex><span>draft: false
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Main Heading
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Introduction paragraph explaining the insurance type.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Subheading 1
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Content about this topic.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Subheading 2
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>More content here.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### Sub-subheading
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Details and bullet points:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Point one
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Point two
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Point three
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Get a Quote
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Contact us today at <span style=font-weight:700>**610-429-1330**</span> for a free quote.</span></span></code></pre></div><p><strong>Example File:</strong> <code>content/auto-insurance.md</code></p><hr><h3 id=template-2-informational-page>Template 2: Informational Page<a class=anchor href=#template-2-informational-page>#</a></h3><p><strong>Use for:</strong> About Us, Privacy Policy, Terms of Service</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Page Title&#34;
+</span></span><span style=display:flex><span>description: &#34;Page description&#34;
+</span></span><span style=display:flex><span>draft: false
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## About Our Company
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Introduction text here.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Our Mission
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Mission statement text.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Our Values
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>List of values and explanations.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Contact Information
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=font-weight:700>**Address:**</span> 1554 Paoli Pike, West Chester, PA 19380
+</span></span><span style=display:flex><span><span style=font-weight:700>**Phone:**</span> 610-429-1330
+</span></span><span style=display:flex><span><span style=font-weight:700>**Email:**</span> info@klminsurance.com</span></span></code></pre></div><p><strong>Example File:</strong> <code>content/about.md</code></p><hr><h3 id=template-3-contactform-page>Template 3: Contact/Form Page<a class=anchor href=#template-3-contactform-page>#</a></h3><p><strong>Use for:</strong> Contact pages, quote request pages</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Contact Us&#34;
+</span></span><span style=display:flex><span>description: &#34;Get in touch with KLM Insurance&#34;
+</span></span><span style=display:flex><span>draft: false
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Get in Touch
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>We&#39;re here to help with all your insurance needs.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Contact Information
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=font-weight:700>**Phone:**</span> [<span style=color:#f92672>610-429-1330</span>](<span style=color:#a6e22e>tel:6104291330</span>)
+</span></span><span style=display:flex><span><span style=font-weight:700>**Email:**</span> [<span style=color:#f92672>info@klminsurance.com</span>](<span style=color:#a6e22e>mailto:info@klminsurance.com</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Office Location
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>KLM Insurance Solutions
+</span></span><span style=display:flex><span>1554 Paoli Pike
+</span></span><span style=display:flex><span>West Chester, PA 19380
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Office Hours
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Monday - Friday: 9:00 AM - 5:00 PM
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Saturday: By appointment
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Sunday: Closed
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Send Us a Message
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>&lt;div class=&#34;contact-form-container&#34;&gt;
+</span></span><span style=display:flex><span>&lt;form action=&#34;https://formspree.io/f/YOUR_FORM_ID&#34; method=&#34;POST&#34; class=&#34;contact-form&#34;&gt;
+</span></span><span style=display:flex><span>  &lt;div class=&#34;form-group&#34;&gt;
+</span></span><span style=display:flex><span>    &lt;label for=&#34;name&#34;&gt;Name&lt;/label&gt;
+</span></span><span style=display:flex><span>    &lt;input type=&#34;text&#34; id=&#34;name&#34; name=&#34;name&#34; required&gt;
+</span></span><span style=display:flex><span>  &lt;/div&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &lt;div class=&#34;form-group&#34;&gt;
+</span></span><span style=display:flex><span>    &lt;label for=&#34;email&#34;&gt;Email&lt;/label&gt;
+</span></span><span style=display:flex><span>    &lt;input type=&#34;email&#34; id=&#34;email&#34; name=&#34;email&#34; required&gt;
+</span></span><span style=display:flex><span>  &lt;/div&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &lt;div class=&#34;form-group&#34;&gt;
+</span></span><span style=display:flex><span>    &lt;label for=&#34;message&#34;&gt;Message&lt;/label&gt;
+</span></span><span style=display:flex><span>    &lt;textarea id=&#34;message&#34; name=&#34;message&#34; rows=&#34;5&#34;&gt;&lt;/textarea&gt;
+</span></span><span style=display:flex><span>  &lt;/div&gt;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  &lt;button type=&#34;submit&#34; class=&#34;btn btn-primary&#34;&gt;Send Message&lt;/button&gt;
+</span></span><span style=display:flex><span>&lt;/form&gt;
+</span></span><span style=display:flex><span>&lt;/div&gt;</span></span></code></pre></div><p><strong>Example File:</strong> <code>content/contact.md</code></p><hr><h2 id=adding-to-navigation-menu>Adding to Navigation Menu<a class=anchor href=#adding-to-navigation-menu>#</a></h2><h3 id=step-1-edit-hugotoml>Step 1: Edit hugo.toml<a class=anchor href=#step-1-edit-hugotoml>#</a></h3><p>Open <code>klm-hugo-site/hugo.toml</code> and find the <code>[[menu.main]]</code> section.</p><h3 id=step-2-add-your-menu-item>Step 2: Add Your Menu Item<a class=anchor href=#step-2-add-your-menu-item>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;Display Name&#34;</span>    <span style=color:#75715e># What users see</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/page-url/&#34;</span>       <span style=color:#75715e># URL path (must match filename)</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>10</span>              <span style=color:#75715e># Lower numbers appear first</span></span></span></code></pre></div><h3 id=example-adding-boat-insurance>Example: Adding &ldquo;Boat Insurance&rdquo;<a class=anchor href=#example-adding-boat-insurance>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;Boat Insurance&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/boat-insurance/&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>8</span></span></span></code></pre></div><h3 id=menu-weight-guide>Menu Weight Guide<a class=anchor href=#menu-weight-guide>#</a></h3><p>Current menu weights:</p><ul><li>Home: 1</li><li>Auto Insurance: 2</li><li>Home Insurance: 3</li><li>Commercial: 4</li><li>Life Insurance: 5</li><li>About Us: 6</li><li>Contact: 7</li></ul><p><strong>Add new items between existing items by using decimals:</strong></p><ul><li>3.5 would appear between &ldquo;Home Insurance&rdquo; and &ldquo;Commercial&rdquo;</li><li>7.5 would appear after &ldquo;Contact&rdquo;</li></ul><hr><h2 id=step-by-step-examples>Step-by-Step Examples<a class=anchor href=#step-by-step-examples>#</a></h2><h3 id=example-1-create-boat-insurance-page>Example 1: Create &ldquo;Boat Insurance&rdquo; Page<a class=anchor href=#example-1-create-boat-insurance-page>#</a></h3><p><strong>Step 1:</strong> Create the content file</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site</span></span></code></pre></div><p>Create <code>content/boat-insurance.md</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Boat and Watercraft Insurance&#34;
+</span></span><span style=display:flex><span>description: &#34;Protect your boat or watercraft with comprehensive insurance coverage&#34;
+</span></span><span style=display:flex><span>draft: false
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Boat and Watercraft Insurance in Pennsylvania
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Protect your investment on the water with comprehensive boat and watercraft insurance from KLM Insurance Solutions.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### What We Cover
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Boats and yachts
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Personal watercraft (jet skis)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Fishing boats
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Sailboats
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Coverage Options
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### Physical Damage
+</span></span></span><span style=display:flex><span>Covers damage to your boat from collisions, weather, theft, and vandalism.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### Liability Protection
+</span></span></span><span style=display:flex><span>Protects you if you&#39;re responsible for injury or property damage while operating your watercraft.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### Medical Payments
+</span></span></span><span style=display:flex><span>Covers medical expenses for you and your passengers.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Get a Quote
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Call us at <span style=font-weight:700>**610-429-1330**</span> for a free boat insurance quote.</span></span></code></pre></div><p><strong>Step 2:</strong> Add to menu in <code>hugo.toml</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;Boat Insurance&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/boat-insurance/&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>4.5</span></span></span></code></pre></div><p><strong>Step 3:</strong> View your changes</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>hugo server -D</span></span></code></pre></div><p>Open http://localhost:1313/boat-insurance/</p><hr><h3 id=example-2-create-faq-page>Example 2: Create &ldquo;FAQ&rdquo; Page<a class=anchor href=#example-2-create-faq-page>#</a></h3><p><strong>Step 1:</strong> Create <code>content/faq.md</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Frequently Asked Questions&#34;
+</span></span><span style=display:flex><span>description: &#34;Common questions about KLM Insurance Services&#34;
+</span></span><span style=display:flex><span>draft: false
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Frequently Asked Questions
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### General Questions
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### What types of insurance do you offer?
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>We offer auto, home, commercial, life, umbrella, and boat/watercraft insurance.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### Do you offer free quotes?
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Yes! All quotes are free and come with no obligation.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### How quickly can I get coverage?
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Coverage can often start the same day you apply.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### About Our Agency
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### Are you an independent agent?
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Yes, we&#39;re an independent insurance agency working with multiple carriers.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#### What areas do you serve?
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>We serve all of Pennsylvania, with our office in West Chester.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Contact Us
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=font-weight:700>**Can&#39;t find your answer?**</span> Call us at 610-429-1330 or [<span style=color:#f92672>contact us online</span>](<span style=color:#a6e22e>/contact/</span>).</span></span></code></pre></div><p><strong>Step 2:</strong> Add to menu (in footer or as dropdown):</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;FAQ&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/faq/&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>6.5</span></span></span></code></pre></div><hr><h2 id=advanced-creating-dropdown-menus>Advanced: Creating Dropdown Menus<a class=anchor href=#advanced-creating-dropdown-menus>#</a></h2><p>To create a dropdown menu (like &ldquo;Insurance Services&rdquo;):</p><h3 id=step-1-create-parent-menu-item>Step 1: Create Parent Menu Item<a class=anchor href=#step-1-create-parent-menu-item>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;Insurance Services&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/services/&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>2</span></span></span></code></pre></div><h3 id=step-2-add-child-items>Step 2: Add Child Items<a class=anchor href=#step-2-add-child-items>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-toml data-lang=toml><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;Auto Insurance&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/auto-insurance/&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>parent</span> = <span style=color:#e6db74>&#34;Insurance Services&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>[[<span style=color:#a6e22e>menu</span>.<span style=color:#a6e22e>main</span>]]
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>name</span> = <span style=color:#e6db74>&#34;Home Insurance&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>url</span> = <span style=color:#e6db74>&#34;/home-insurance/&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>parent</span> = <span style=color:#e6db74>&#34;Insurance Services&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>weight</span> = <span style=color:#ae81ff>2</span></span></span></code></pre></div><p><strong>Note:</strong> Current theme uses simple navigation. For dropdowns, you may need to customize the header template.</p><hr><h2 id=page-front-matter-reference>Page Front Matter Reference<a class=anchor href=#page-front-matter-reference>#</a></h2><p>Every page starts with &ldquo;front matter&rdquo; between <code>---</code> markers:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: &#34;Page Title&#34;          # Required - Appears in browser tab
+</span></span><span style=display:flex><span>description: &#34;SEO description&#34; # Recommended - For search engines
+</span></span><span style=display:flex><span>draft: false                  # Required - false = published, true = hidden
+</span></span><span style=display:flex><span>date: 2025-12-22             # Optional - Publication date
+</span></span><span style=display:flex><span>author: &#34;KLM Insurance&#34;       # Optional - Author name
+</span></span><span style=display:flex><span>tags: [&#34;insurance&#34;, &#34;pa&#34;]     # Optional - For categorization
+</span></span><span style=display:flex><span>---</span></span></code></pre></div><h3 id=front-matter-fields>Front Matter Fields<a class=anchor href=#front-matter-fields>#</a></h3><table><thead><tr><th>Field</th><th>Required</th><th>Purpose</th><th>Example</th></tr></thead><tbody><tr><td><code>title</code></td><td>Yes</td><td>Page title</td><td>&ldquo;Auto Insurance&rdquo;</td></tr><tr><td><code>description</code></td><td>Recommended</td><td>SEO meta description</td><td>&ldquo;Get affordable auto insurance in PA&rdquo;</td></tr><tr><td><code>draft</code></td><td>Yes</td><td>Publication status</td><td><code>false</code></td></tr><tr><td><code>date</code></td><td>No</td><td>Publication date</td><td><code>2025-12-22</code></td></tr><tr><td><code>author</code></td><td>No</td><td>Content author</td><td>&ldquo;KLM Insurance&rdquo;</td></tr><tr><td><code>tags</code></td><td>No</td><td>Content tags</td><td><code>["auto", "insurance"]</code></td></tr><tr><td><code>categories</code></td><td>No</td><td>Content categories</td><td><code>["Services"]</code></td></tr></tbody></table><hr><h2 id=content-formatting-guide>Content Formatting Guide<a class=anchor href=#content-formatting-guide>#</a></h2><h3 id=headings>Headings<a class=anchor href=#headings>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span># H1 - Page Title (use once per page)
+</span></span><span style=display:flex><span><span style=color:#75715e>## H2 - Major sections
+</span></span></span><span style=display:flex><span><span style=color:#75715e>### H3 - Subsections
+</span></span></span><span style=display:flex><span>#### H4 - Minor subsections</span></span></code></pre></div><h3 id=text-formatting>Text Formatting<a class=anchor href=#text-formatting>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>**Bold text**
+</span></span><span style=display:flex><span><span style=font-style:italic>*Italic text*</span>
+</span></span><span style=display:flex><span><span style=font-style:italic>**</span>*Bold and italic***
+</span></span><span style=display:flex><span><span style=color:#e6db74>`Code or technical term`</span></span></span></code></pre></div><h3 id=links>Links<a class=anchor href=#links>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>[<span style=color:#f92672>Link text</span>](<span style=color:#a6e22e>https://example.com</span>)
+</span></span><span style=display:flex><span>[<span style=color:#f92672>Internal link</span>](<span style=color:#a6e22e>/about/</span>)
+</span></span><span style=display:flex><span>[<span style=color:#f92672>Phone link</span>](<span style=color:#a6e22e>tel:6104291330</span>)
+</span></span><span style=display:flex><span>[<span style=color:#f92672>Email link</span>](<span style=color:#a6e22e>mailto:info@klminsurance.com</span>)</span></span></code></pre></div><h3 id=lists>Lists<a class=anchor href=#lists>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>Unordered list:
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Item one
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Item two
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>-</span> Nested item
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>-</span> Another nested item
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> Item three
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Ordered list:
+</span></span><span style=display:flex><span><span style=color:#66d9ef>1.</span> First item
+</span></span><span style=display:flex><span><span style=color:#66d9ef>2.</span> Second item
+</span></span><span style=display:flex><span>3. Third item</span></span></code></pre></div><h3 id=quotes>Quotes<a class=anchor href=#quotes>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span><span style=color:#66d9ef>&gt; </span><span style=font-style:italic>This is a blockquote
+</span></span></span><span style=display:flex><span>&gt; It can span multiple lines</span></span></code></pre></div><h3 id=images>Images<a class=anchor href=#images>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span>![<span style=color:#f92672>Alt text</span>](<span style=color:#a6e22e>/images/my-image.jpg</span>)</span></span></code></pre></div><p><strong>Note:</strong> Images go in <code>static/images/</code> folder</p><hr><h2 id=file-structure-summary>File Structure Summary<a class=anchor href=#file-structure-summary>#</a></h2><pre tabindex=0><code>klm-hugo-site/
+├── content/                  # Your pages go here
+│   ├── _index.md            # Homepage
+│   ├── auto-insurance.md    # Auto insurance page
+│   ├── boat-insurance.md    # Boat insurance page
+│   └── new-page.md          # Your new page
+├── static/
+│   └── images/              # Images for your pages
+│       └── new-image.jpg
+└── hugo.toml                # Site config &amp; menus</code></pre><hr><h2 id=quick-reference-commands>Quick Reference Commands<a class=anchor href=#quick-reference-commands>#</a></h2><h3 id=start-development-server>Start Development Server<a class=anchor href=#start-development-server>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site
+</span></span><span style=display:flex><span>hugo server -D</span></span></code></pre></div><h3 id=build-for-production>Build for Production<a class=anchor href=#build-for-production>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site
+</span></span><span style=display:flex><span>hugo --minify</span></span></code></pre></div><h3 id=create-new-page-alternative-method>Create New Page (Alternative Method)<a class=anchor href=#create-new-page-alternative-method>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site
+</span></span><span style=display:flex><span>hugo new content/page-name.md</span></span></code></pre></div><hr><h2 id=troubleshooting>Troubleshooting<a class=anchor href=#troubleshooting>#</a></h2><h3 id=page-not-showing-up>Page Not Showing Up<a class=anchor href=#page-not-showing-up>#</a></h3><p><strong>Check:</strong></p><ol><li>Is <code>draft: false</code> in front matter?</li><li>Is the file in <code>content/</code> folder?</li><li>Does filename match URL in menu?</li><li>Did you restart Hugo server?</li></ol><h3 id=menu-item-not-appearing>Menu Item Not Appearing<a class=anchor href=#menu-item-not-appearing>#</a></h3><p><strong>Check:</strong></p><ol><li>Correct syntax in <code>hugo.toml</code>?</li><li>URL matches page filename?</li><li>Did you save <code>hugo.toml</code>?</li><li>Did Hugo rebuild (check terminal)?</li></ol><h3 id=broken-links>Broken Links<a class=anchor href=#broken-links>#</a></h3><p><strong>Check:</strong></p><ol><li>URLs start with <code>/</code> for internal links</li><li>URLs end with <code>/</code> for pages</li><li>File exists in <code>content/</code> folder</li><li>Filename matches exactly (case-sensitive)</li></ol><h3 id=images-not-loading>Images Not Loading<a class=anchor href=#images-not-loading>#</a></h3><p><strong>Check:</strong></p><ol><li>Image is in <code>static/images/</code> folder</li><li>Path in markdown: <code>/images/filename.jpg</code></li><li>Filename is lowercase</li><li>File extension is correct (.jpg, .png, .gif)</li></ol><hr><h2 id=best-practices>Best Practices<a class=anchor href=#best-practices>#</a></h2><h3 id=-do>✅ DO<a class=anchor href=#-do>#</a></h3><ul><li>Use descriptive, SEO-friendly filenames</li><li>Include meta descriptions</li><li>Keep URLs simple and clean</li><li>Use heading hierarchy (H2, then H3, not H4 first)</li><li>Add alt text to images</li><li>Test pages before deploying</li></ul><h3 id=-dont>❌ DON&rsquo;T<a class=anchor href=#-dont>#</a></h3><ul><li>Use spaces in filenames</li><li>Skip the description field</li><li>Create overly long URLs</li><li>Use H1 tags in content (title is H1)</li><li>Forget to set <code>draft: false</code></li><li>Leave broken links</li></ul><hr><h2 id=getting-help>Getting Help<a class=anchor href=#getting-help>#</a></h2><h3 id=resources>Resources<a class=anchor href=#resources>#</a></h3><ul><li><strong>Hugo Documentation:</strong> <a href=https://gohugo.io/documentation/>https://gohugo.io/documentation/</a></li><li><strong>Markdown Guide:</strong> <a href=https://www.markdownguide.org/>https://www.markdownguide.org/</a></li><li><strong>Project README:</strong> <code>/Users/mark/PycharmProjects/klm-migrate/README.md</code></li></ul><h3 id=common-questions>Common Questions<a class=anchor href=#common-questions>#</a></h3><p><strong>Q: How do I change the homepage?</strong>
+A: Edit <code>content/_index.md</code> or <code>layouts/index.html</code></p><p><strong>Q: Can I use HTML in markdown files?</strong>
+A: Yes! Hugo&rsquo;s config has <code>unsafe = true</code> which allows HTML</p><p><strong>Q: How do I add a blog?</strong>
+A: Create <code>content/blog/</code> directory and add posts there</p><p><strong>Q: How do I change colors?</strong>
+A: Edit <code>static/css/style.css</code></p><hr><h2 id=template-quick-copy>Template Quick Copy<a class=anchor href=#template-quick-copy>#</a></h2><h3 id=new-insurance-service-page>New Insurance Service Page<a class=anchor href=#new-insurance-service-page>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Copy this template and customize it</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>title: <span style=color:#e6db74>&#34;Service Name Insurance&#34;</span>
+</span></span><span style=display:flex><span>description: <span style=color:#e6db74>&#34;Description for SEO&#34;</span>
+</span></span><span style=display:flex><span>draft: false
+</span></span><span style=display:flex><span>---
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Service Name Insurance</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Introduction paragraph.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Why You Need This Coverage</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Explanation of benefits.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### What We Cover</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>- Coverage point <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>- Coverage point <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>- Coverage point <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>### Get Your Free Quote</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Contact KLM Insurance at **610-429-1330** today.</span></span></code></pre></div><hr><p><strong>Happy page creating! 🎉</strong></p><p>For questions or issues, refer to the main project README.md or Hugo documentation.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#klm-insurance---new-page--menu-template-guide>KLM Insurance - New Page & Menu Template Guide</a><ul><li><a href=#table-of-contents>Table of Contents</a></li><li><a href=#creating-a-new-page>Creating a New Page</a><ul><li><a href=#quick-start>Quick Start</a></li><li><a href=#file-naming-convention>File Naming Convention</a></li></ul></li><li><a href=#page-templates-available>Page Templates Available</a><ul><li><a href=#template-1-insurance-service-page>Template 1: Insurance Service Page</a></li><li><a href=#template-2-informational-page>Template 2: Informational Page</a></li><li><a href=#template-3-contactform-page>Template 3: Contact/Form Page</a></li></ul></li><li><a href=#adding-to-navigation-menu>Adding to Navigation Menu</a><ul><li><a href=#step-1-edit-hugotoml>Step 1: Edit hugo.toml</a></li><li><a href=#step-2-add-your-menu-item>Step 2: Add Your Menu Item</a></li><li><a href=#example-adding-boat-insurance>Example: Adding &ldquo;Boat Insurance&rdquo;</a></li><li><a href=#menu-weight-guide>Menu Weight Guide</a></li></ul></li><li><a href=#step-by-step-examples>Step-by-Step Examples</a><ul><li><a href=#example-1-create-boat-insurance-page>Example 1: Create &ldquo;Boat Insurance&rdquo; Page</a></li><li><a href=#example-2-create-faq-page>Example 2: Create &ldquo;FAQ&rdquo; Page</a></li></ul></li><li><a href=#advanced-creating-dropdown-menus>Advanced: Creating Dropdown Menus</a><ul><li><a href=#step-1-create-parent-menu-item>Step 1: Create Parent Menu Item</a></li><li><a href=#step-2-add-child-items>Step 2: Add Child Items</a></li></ul></li><li><a href=#page-front-matter-reference>Page Front Matter Reference</a><ul><li><a href=#front-matter-fields>Front Matter Fields</a></li></ul></li><li><a href=#content-formatting-guide>Content Formatting Guide</a><ul><li><a href=#headings>Headings</a></li><li><a href=#text-formatting>Text Formatting</a></li><li><a href=#links>Links</a></li><li><a href=#lists>Lists</a></li><li><a href=#quotes>Quotes</a></li><li><a href=#images>Images</a></li></ul></li><li><a href=#file-structure-summary>File Structure Summary</a></li><li><a href=#quick-reference-commands>Quick Reference Commands</a><ul><li><a href=#start-development-server>Start Development Server</a></li><li><a href=#build-for-production>Build for Production</a></li><li><a href=#create-new-page-alternative-method>Create New Page (Alternative Method)</a></li></ul></li><li><a href=#troubleshooting>Troubleshooting</a><ul><li><a href=#page-not-showing-up>Page Not Showing Up</a></li><li><a href=#menu-item-not-appearing>Menu Item Not Appearing</a></li><li><a href=#broken-links>Broken Links</a></li><li><a href=#images-not-loading>Images Not Loading</a></li></ul></li><li><a href=#best-practices>Best Practices</a><ul><li><a href=#-do>✅ DO</a></li><li><a href=#-dont>❌ DON&rsquo;T</a></li></ul></li><li><a href=#getting-help>Getting Help</a><ul><li><a href=#resources>Resources</a></li><li><a href=#common-questions>Common Questions</a></li></ul></li><li><a href=#template-quick-copy>Template Quick Copy</a><ul><li><a href=#new-insurance-service-page>New Insurance Service Page</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>

@@ -88,7 +88,7 @@
         "last_commit": {
           "hash": "0af4fa4",
           "author": "Mark Malone",
-          "date": "12 hours ago",
+          "date": "13 hours ago",
           "message": "Initial commit: Project Portfolio Manager"
         },
         "has_changes": false
@@ -217,354 +217,12 @@
         },
         {
           "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/archetypes/default.md",
-          "relative_path": "archetypes/default.md",
-          "name": "default.md",
-          "size": 104,
-          "modified": "2026-01-02T22:53:02.535104",
-          "summary": "+++"
-        },
-        {
-          "project": "klm-plan",
           "file_path": "/Users/mark/PycharmProjects/klm-plan/content/_index.md",
           "relative_path": "content/_index.md",
           "name": "_index.md",
           "size": 1469,
           "modified": "2026-01-02T23:20:28.351161",
           "summary": "Welcome to the KLM business planning workspace. This site organizes our strategic thinking, product development, and operational planning across all business lines."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/README.md",
-          "relative_path": "themes/hugo-book/README.md",
-          "name": "README.md",
-          "size": 13289,
-          "modified": "2026-01-02T22:53:12.755040",
-          "summary": "[![Hugo](https://img.shields.io/badge/hugo-0.146-blue.svg)](https://gohugo.io)"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/archetypes/docs.md",
-          "relative_path": "themes/hugo-book/archetypes/docs.md",
-          "name": "docs.md",
-          "size": 227,
-          "modified": "2026-01-02T22:53:12.755122",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/archetypes/posts.md",
-          "relative_path": "themes/hugo-book/archetypes/posts.md",
-          "name": "posts.md",
-          "size": 148,
-          "modified": "2026-01-02T22:53:12.755172",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.zh/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.zh/_index.md",
-          "name": "_index.md",
-          "size": 3017,
-          "modified": "2026-01-02T22:53:12.759929",
-          "summary": "{{% columns %}}"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/showcases.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/showcases.md",
-          "name": "showcases.md",
-          "size": 120,
-          "modified": "2026-01-02T22:53:12.759733",
-          "summary": "<div class=\"book-hero text-center\">"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/_index.md",
-          "name": "_index.md",
-          "size": 2267,
-          "modified": "2026-01-02T22:53:12.757574",
-          "summary": "<div class=\"book-hero\">"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.he/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.he/_index.md",
-          "name": "_index.md",
-          "size": 1165,
-          "modified": "2026-01-02T22:53:12.759839",
-          "summary": "{{% columns %}}"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/creating-a-new-theme.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/posts/creating-a-new-theme.md",
-          "name": "creating-a-new-theme.md",
-          "size": 47390,
-          "modified": "2026-01-02T22:53:12.759384",
-          "summary": "This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I'l..."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/migrate-from-jekyll.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/posts/migrate-from-jekyll.md",
-          "name": "migrate-from-jekyll.md",
-          "size": 7135,
-          "modified": "2026-01-02T22:53:12.759672",
-          "summary": "Jekyll has a rule that any directory not starting with `_` will be copied as-is to the `_site` output. Hugo keeps all static content under `static`. You should therefore move it all there."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/hugoisforlovers.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/posts/hugoisforlovers.md",
-          "name": "hugoisforlovers.md",
-          "size": 2594,
-          "modified": "2026-01-02T22:53:12.759537",
-          "summary": "+++"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/goisforlovers.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/posts/goisforlovers.md",
-          "name": "goisforlovers.md",
-          "size": 9847,
-          "modified": "2026-01-02T22:53:12.759476",
-          "summary": "+++"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/posts/_index.md",
-          "name": "_index.md",
-          "size": 49,
-          "modified": "2026-01-02T22:53:12.759277",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/hidden.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/hidden.md",
-          "name": "hidden.md",
-          "size": 1737,
-          "modified": "2026-01-02T22:53:12.757981",
-          "summary": "Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/_index.md",
-          "name": "_index.md",
-          "size": 2786,
-          "modified": "2026-01-02T22:53:12.757697",
-          "summary": "Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/buttons.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/buttons.md",
-          "name": "buttons.md",
-          "size": 399,
-          "modified": "2026-01-02T22:53:12.758298",
-          "summary": "Buttons are styled links that can lead to local page or external link."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/columns.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/columns.md",
-          "name": "columns.md",
-          "size": 2061,
-          "modified": "2026-01-02T22:53:12.758347",
-          "summary": "Columns help organize shorter pieces of content horizontally for readability. `columns` shortcode styles markdown list as up to 3 columns."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/details.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/details.md",
-          "name": "details.md",
-          "size": 706,
-          "modified": "2026-01-02T22:53:12.758396",
-          "summary": "Details shortcode is a helper for `details` html5 element. To collapse the details either omit the `open`"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/hints.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/hints.md",
-          "name": "hints.md",
-          "size": 2528,
-          "modified": "2026-01-02T22:53:12.758750",
-          "summary": "Hint shortcode can be used as a hint/alert/notification block."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/tabs.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/tabs.md",
-          "name": "tabs.md",
-          "size": 1376,
-          "modified": "2026-01-02T22:53:12.759171",
-          "summary": "Tabs let you organize content by context, for example installation instructions for each supported platform."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/steps.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/steps.md",
-          "name": "steps.md",
-          "size": 1560,
-          "modified": "2026-01-02T22:53:12.759116",
-          "summary": "Steps shortcode styles numbered list as series of points for better content organization."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/katex.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/katex.md",
-          "name": "katex.md",
-          "size": 1915,
-          "modified": "2026-01-02T22:53:12.758800",
-          "summary": "KaTeX shortcode let you render math typesetting in markdown document. See [KaTeX](https://katex.org/)"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/mermaid.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/mermaid.md",
-          "name": "mermaid.md",
-          "size": 3820,
-          "modified": "2026-01-02T22:53:12.758856",
-          "summary": "[MermaidJS](https://mermaid-js.github.io/) is library for generating svg charts and diagrams from text."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/_index.md",
-          "name": "_index.md",
-          "size": 30,
-          "modified": "2026-01-02T22:53:12.758247",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/images.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/images.md",
-          "name": "images.md",
-          "size": 903,
-          "modified": "2026-01-02T22:53:12.758699",
-          "summary": "> [!WARNING]"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/badges.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/badges.md",
-          "name": "badges.md",
-          "size": 1764,
-          "modified": "2026-01-02T22:53:12.758585",
-          "summary": "> [!WARNING]"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/asciinema.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/asciinema.md",
-          "name": "asciinema.md",
-          "size": 770,
-          "modified": "2026-01-02T22:53:12.758528",
-          "summary": "> [!WARNING]"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/cards.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/cards.md",
-          "name": "cards.md",
-          "size": 723,
-          "modified": "2026-01-02T22:53:12.758646",
-          "summary": "> [!WARNING]"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/_index.md",
-          "name": "_index.md",
-          "size": 33,
-          "modified": "2026-01-02T22:53:12.758475",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/first-page.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/first-page.md",
-          "name": "first-page.md",
-          "size": 474,
-          "modified": "2026-01-02T22:53:12.758995",
-          "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u..."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/second-page.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/second-page.md",
-          "name": "second-page.md",
-          "size": 474,
-          "modified": "2026-01-02T22:53:12.759050",
-          "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u..."
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/_index.md",
-          "name": "_index.md",
-          "size": 288,
-          "modified": "2026-01-02T22:53:12.758941",
-          "summary": "Section renders pages in section as definition list, using title and description. Optional param `summary` can be used to show or hide page summary"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/with-toc.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/with-toc.md",
-          "name": "with-toc.md",
-          "size": 2802,
-          "modified": "2026-01-02T22:53:12.758117",
-          "summary": "Lorem markdownum pavent auras, surgit nunc cingentibus libet **Laomedonque que**"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/without-toc.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/without-toc.md",
-          "name": "without-toc.md",
-          "size": 2497,
-          "modified": "2026-01-02T22:53:12.758171",
-          "summary": "Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/_index.md",
-          "name": "_index.md",
-          "size": 3625,
-          "modified": "2026-01-02T22:53:12.758061",
-          "summary": "Lorem markdownum partu paterno Achillem. Habent amne generosi aderant ad pellem"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/collapsed/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/collapsed/_index.md",
-          "name": "_index.md",
-          "size": 45,
-          "modified": "2026-01-02T22:53:12.757927",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/4th-level.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/4th-level.md",
-          "name": "4th-level.md",
-          "size": 551,
-          "modified": "2026-01-02T22:53:12.757819",
-          "summary": "Inde aderam facti; Theseus vis de tauri illa peream. Oculos **uberaque** non"
-        },
-        {
-          "project": "klm-plan",
-          "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/_index.md",
-          "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/_index.md",
-          "name": "_index.md",
-          "size": 1387,
-          "modified": "2026-01-02T22:53:12.757876",
-          "summary": "Nefas discordemque domino montes numen tum humili nexilibusque exit, Iove. Quae"
         },
         {
           "project": "klm-plan",
@@ -765,17 +423,17 @@
           "summary": "Personal lines insurance protects individuals and families from financial loss."
         }
       ],
-      "size_mb": 20.85,
+      "size_mb": 20.86,
       "last_modified": null,
       "readme_content": "# KLM Business Plan\n\nA Hugo-based wiki for organizing business planning, product development, and strategic initiatives for KLM Insurance.\n\n## Quick Links\n\n- **\ud83d\udd12 Secure Site (HTTPS + Password)**: https://d1jrr6wppi7k7d.cloudfront.net\n  - Username: `klm`\n  - Password: `KLM2026Plan!`\n- **\ud83d\udd10 S3 Bucket**: PRIVATE - Only accessible via CloudFront (secured with OAC)\n- **Documentation**: See [claude.md](./claude.md) for complete workflow guide\n- **Security Setup**: See [SECURITY-SETUP.md](./SECURITY-SET...",
       "git": {
         "branch": "main",
         "remote_url": "https://github.com/emmalone/klm-plan",
         "last_commit": {
-          "hash": "2db671d",
+          "hash": "c6b97fe",
           "author": "Mark Malone",
-          "date": "5 minutes ago",
-          "message": "Add Hugo documentation site automation system"
+          "date": "2 hours ago",
+          "message": "Add automation summary documentation"
         },
         "has_changes": true
       }
@@ -1097,15 +755,6 @@
         },
         {
           "project": "klm-migrate",
-          "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/archetypes/default.md",
-          "relative_path": "klm-hugo-site/archetypes/default.md",
-          "name": "default.md",
-          "size": 104,
-          "modified": "2025-12-22T09:20:26.906402",
-          "summary": "+++"
-        },
-        {
-          "project": "klm-migrate",
           "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/insurance-insights.md",
           "relative_path": "klm-hugo-site/content/insurance-insights.md",
           "name": "insurance-insights.md",
@@ -1277,15 +926,6 @@
         },
         {
           "project": "klm-migrate",
-          "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/themes/klm-theme/archetypes/default.md",
-          "relative_path": "klm-hugo-site/themes/klm-theme/archetypes/default.md",
-          "name": "default.md",
-          "size": 104,
-          "modified": "2025-12-22T09:22:06.318966",
-          "summary": "+++"
-        },
-        {
-          "project": "klm-migrate",
           "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/guides/landing.md",
           "relative_path": "klm-hugo-site/content/guides/landing.md",
           "name": "landing.md",
@@ -1353,472 +993,11 @@
         "last_commit": {
           "hash": "5131bb7",
           "author": "Mark Malone",
-          "date": "12 hours ago",
+          "date": "13 hours ago",
           "message": "Initial commit: Natural Scrolling Toggle MenuBar App"
         },
         "has_changes": false
       }
-    },
-    {
-      "name": "klm-hugo-lab",
-      "path": "/Users/mark/PycharmProjects/klm-hugo-lab",
-      "is_git_repo": false,
-      "readme": null,
-      "tech_stack": [],
-      "markdown_files": [
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/README.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/README.md",
-          "name": "README.md",
-          "size": 1500,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "Business template for Hugo. Browse through a [live demo](https://timely-land.cloudvent.net/). This theme has been adapted from the MIT licensed [Megakit Bootstrap template from Theme Fisher](https:..."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/archetypes/default.md",
-          "relative_path": "klm-hugo/sites/hello-klm/archetypes/default.md",
-          "name": "default.md",
-          "size": 104,
-          "modified": "2025-08-13T09:53:28",
-          "summary": "+++"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/LICENSE.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/LICENSE.md",
-          "name": "LICENSE.md",
-          "size": 1082,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "Copyright (c) 2016-2024 Bud Parr"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/CHANGELOG.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/CHANGELOG.md",
-          "name": "CHANGELOG.md",
-          "size": 34831,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "* update README.md ([a001981](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/a0019812ff62d978781392c765addbaee1c1eddf))"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/README.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/README.md",
-          "name": "README.md",
-          "size": 12210,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "> [!WARNING]"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/archetypes/default.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/archetypes/default.md",
-          "name": "default.md",
-          "size": 131,
-          "modified": "2025-08-13T09:53:29",
-          "summary": ""
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/.github/pull_request_template.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/.github/pull_request_template.md",
-          "name": "pull_request_template.md",
-          "size": 771,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "<!---"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/.github/changelog-old.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/.github/changelog-old.md",
-          "name": "changelog-old.md",
-          "size": 14550,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "All notable changes to this project will be documented in this file."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/.github/ISSUE_TEMPLATE/bugs.md",
-          "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/.github/ISSUE_TEMPLATE/bugs.md",
-          "name": "bugs.md",
-          "size": 1881,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "<!---"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/content/posts/welcome.md",
-          "relative_path": "klm-hugo/sites/hello-klm/content/posts/welcome.md",
-          "name": "welcome.md",
-          "size": 139,
-          "modified": "2025-08-13T09:53:29",
-          "summary": "If you can read this, your Hugo setup is working. \u2705"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/archetypes/post.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/archetypes/post.md",
-          "name": "post.md",
-          "size": 208,
-          "modified": "2025-08-14T14:09:57",
-          "summary": ""
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/archetypes/service.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/archetypes/service.md",
-          "name": "service.md",
-          "size": 202,
-          "modified": "2025-08-14T14:09:57",
-          "summary": ""
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pricing.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pricing.md",
-          "name": "pricing.md",
-          "size": 1911,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/portfolio.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/portfolio.md",
-          "name": "portfolio.md",
-          "size": 1262,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/contact.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/contact.md",
-          "name": "contact.md",
-          "size": 666,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/services.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/services.md",
-          "name": "services.md",
-          "size": 1979,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/about.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/about.md",
-          "name": "about.md",
-          "size": 3056,
-          "modified": "2025-08-13T20:00:01",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/_index.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/_index.md",
-          "name": "_index.md",
-          "size": 3333,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/schemas/post.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/schemas/post.md",
-          "name": "post.md",
-          "size": 176,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "categories:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/schemas/page.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/schemas/page.md",
-          "name": "page.md",
-          "size": 380,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "SEO_options:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-08-interactivity-connect-consumer.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-08-interactivity-connect-consumer.md",
-          "name": "2022-03-08-interactivity-connect-consumer.md",
-          "size": 1128,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "categories:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-09-improve-design-with-typography.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-09-improve-design-with-typography.md",
-          "name": "2022-03-09-improve-design-with-typography.md",
-          "size": 1146,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "categories:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/_index.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/posts/_index.md",
-          "name": "_index.md",
-          "size": 229,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "No summary available"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-07-customer-marketing-strategy.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-07-customer-marketing-strategy.md",
-          "name": "2022-03-07-customer-marketing-strategy.md",
-          "size": 1134,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "categories:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-06-helping-small-businesses-grow.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-06-helping-small-businesses-grow.md",
-          "name": "2022-03-06-helping-small-businesses-grow.md",
-          "size": 1137,
-          "modified": "2025-08-13T16:40:07",
-          "summary": "categories:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/klm-test.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/klm-test.md",
-          "name": "klm-test.md",
-          "size": 204,
-          "modified": "2025-08-13T19:43:44",
-          "summary": "**KLM MARKER** \u2014 If you can read this, your local server is picking up changes."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/contact.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/contact.md",
-          "name": "contact.md",
-          "size": 937,
-          "modified": "2025-08-13T16:47:15",
-          "summary": "Need a quote or have a question? We\u2019ll get back to you quickly."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/client-center-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/client-center-html.md",
-          "name": "client-center-html.md",
-          "size": 1558,
-          "modified": "2025-08-14T15:52:39",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/client-center-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/compare-quotes-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/compare-quotes-html.md",
-          "name": "compare-quotes-html.md",
-          "size": 712,
-          "modified": "2025-08-14T15:52:41",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/compare-quotes-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/umbrella-insurance-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/umbrella-insurance-html.md",
-          "name": "umbrella-insurance-html.md",
-          "size": 3200,
-          "modified": "2025-08-14T15:52:37",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/umbrella-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/index.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/index.md",
-          "name": "index.md",
-          "size": 4074,
-          "modified": "2025-08-14T15:52:29",
-          "summary": "Your Zip Code:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/boat-watercraft-insurance-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/boat-watercraft-insurance-html.md",
-          "name": "boat-watercraft-insurance-html.md",
-          "size": 3070,
-          "modified": "2025-08-14T15:57:02",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/boat-watercraft-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/claims.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/claims.md",
-          "name": "claims.md",
-          "size": 262,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Need to file a claim? Call us for guidance, then we\u2019ll help you report to the carrier and track progress. Carrier 24/7 numbers can be added here."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/about.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/about.md",
-          "name": "about.md",
-          "size": 301,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "KLM Insurance Solutions is an independent agency based in Pennsylvania. We combine knowledgeable agents with modern technology to deliver fast, friendly, and reliable coverage options."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/index-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/index-html.md",
-          "name": "index-html.md",
-          "size": 4162,
-          "modified": "2025-08-14T15:52:30",
-          "summary": "Your Zip Code:"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/life.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/life.md",
-          "name": "life.md",
-          "size": 197,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Term and permanent life options to protect your family or key employees. We\u2019ll guide you on coverage amounts and riders."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/auto.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/auto.md",
-          "name": "auto.md",
-          "size": 203,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Coverage options for liability, collision, comprehensive, UM/UIM, and more. Ask us about multi-policy and safe-driver discounts."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/life-insurance-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/life-insurance-html.md",
-          "name": "life-insurance-html.md",
-          "size": 2979,
-          "modified": "2025-08-14T15:52:36",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/life-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/home-insurance-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/home-insurance-html.md",
-          "name": "home-insurance-html.md",
-          "size": 3203,
-          "modified": "2025-08-14T15:52:33",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/home-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/auto-insurance-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/auto-insurance-html.md",
-          "name": "auto-insurance-html.md",
-          "size": 3000,
-          "modified": "2025-08-14T15:52:32",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/auto-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/home.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/home.md",
-          "name": "home.md",
-          "size": 201,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Protect your home, condo, or apartment. We\u2019ll help you choose appropriate dwelling, personal property, and liability limits."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/_index.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/_index.md",
-          "name": "_index.md",
-          "size": 223,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "From auto and home to life insurance, our personal lines are tailored to your needs."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/commercial-insurance-html.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/commercial-insurance-html.md",
-          "name": "commercial-insurance-html.md",
-          "size": 3312,
-          "modified": "2025-08-14T15:52:34",
-          "summary": "[![KLM Insurance Solutions, Inc](/imported/commercial-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/buy-sell-agreements.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/buy-sell-agreements.md",
-          "name": "buy-sell-agreements.md",
-          "size": 2584,
-          "modified": "2025-09-28T16:38:59",
-          "summary": ""
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/cyber-liability.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/cyber-liability.md",
-          "name": "cyber-liability.md",
-          "size": 184,
-          "modified": "2025-08-14T14:12:43",
-          "summary": ""
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/commercial-auto.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/commercial-auto.md",
-          "name": "commercial-auto.md",
-          "size": 182,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Fleet or single vehicle\u2014get the right liability and physical damage coverage for your business vehicles."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/workers-comp.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/workers-comp.md",
-          "name": "workers-comp.md",
-          "size": 196,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Protect employees and meet state requirements with properly classified payroll and experience rating management."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/general-liability.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/general-liability.md",
-          "name": "general-liability.md",
-          "size": 192,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Core coverage for third-party bodily injury and property damage. Often the foundation of a small business program."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/_index.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/_index.md",
-          "name": "_index.md",
-          "size": 253,
-          "modified": "2025-08-13T16:47:04",
-          "summary": "Smart protection for small and mid-sized businesses in PA\u2014coverage tailored to your operations and risk profile."
-        },
-        {
-          "project": "klm-hugo-lab",
-          "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2025/08-announcing-our-new-coverage-options/index.md",
-          "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2025/08-announcing-our-new-coverage-options/index.md",
-          "name": "index.md",
-          "size": 191,
-          "modified": "2025-08-14T14:12:33",
-          "summary": ""
-        }
-      ],
-      "size_mb": 103.73,
-      "last_modified": null
     },
     {
       "name": "apollo",
@@ -1876,7 +1055,7 @@
         "last_commit": {
           "hash": "efc4c6b",
           "author": "Mark Malone",
-          "date": "12 hours ago",
+          "date": "13 hours ago",
           "message": "Initial commit: Sales Opportunity Manager"
         },
         "has_changes": false
@@ -1935,9 +1114,54 @@
           "size": 10864,
           "modified": "2026-01-03T10:55:17.026840",
           "summary": "**One-command deployment of secure Hugo documentation sites to AWS**"
+        },
+        {
+          "project": "hugo-docs-template",
+          "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/_index.md",
+          "relative_path": "my-projects/content/_index.md",
+          "name": "_index.md",
+          "size": 436,
+          "modified": "2026-01-03T11:17:12.060261",
+          "summary": "This is your project documentation site."
+        },
+        {
+          "project": "hugo-docs-template",
+          "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/about/_index.md",
+          "relative_path": "my-projects/content/about/_index.md",
+          "name": "_index.md",
+          "size": 115,
+          "modified": "2026-01-03T11:17:12.060343",
+          "summary": "Content goes here."
+        },
+        {
+          "project": "hugo-docs-template",
+          "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/docs/_index.md",
+          "relative_path": "my-projects/content/docs/_index.md",
+          "name": "_index.md",
+          "size": 105,
+          "modified": "2026-01-03T11:17:12.060427",
+          "summary": "Content goes here."
+        },
+        {
+          "project": "hugo-docs-template",
+          "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/guides/_index.md",
+          "relative_path": "my-projects/content/guides/_index.md",
+          "name": "_index.md",
+          "size": 91,
+          "modified": "2026-01-03T11:17:12.060501",
+          "summary": "Content goes here."
+        },
+        {
+          "project": "hugo-docs-template",
+          "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/reference/_index.md",
+          "relative_path": "my-projects/content/reference/_index.md",
+          "name": "_index.md",
+          "size": 97,
+          "modified": "2026-01-03T11:17:12.060575",
+          "summary": "Content goes here."
         }
       ],
-      "size_mb": 0.1,
+      "size_mb": 21.96,
       "last_modified": null,
       "readme_content": "# Hugo Documentation Site Deployment Automation\n\n**One-command deployment of secure Hugo documentation sites to AWS**\n\nThis automation system creates a complete, production-ready documentation site with:\n- \u2705 Hugo static site with hugo-book theme\n- \u2705 AWS S3 storage (completely private)\n- \u2705 CloudFront CDN with HTTPS\n- \u2705 Lambda@Edge password protection + URL rewriting\n- \u2705 GitHub repository with auto-deployment\n- \u2705 ~60-90 second deployment pipeline\n\n## Quick Start\n\n### 1. Prerequisites\n\n```bash\n# In...",
       "git": {
@@ -1945,10 +1169,10 @@
         "last_commit": {
           "hash": "925839f",
           "author": "Mark Malone",
-          "date": "5 minutes ago",
+          "date": "2 hours ago",
           "message": "Initial commit: Hugo docs automation system"
         },
-        "has_changes": false
+        "has_changes": true
       }
     },
     {
@@ -1988,15 +1212,6 @@
       "readme": null,
       "tech_stack": [],
       "markdown_files": [
-        {
-          "project": "backups",
-          "file_path": "/Users/mark/PycharmProjects/backups/klm-hugo-site/archetypes/default.md",
-          "relative_path": "klm-hugo-site/archetypes/default.md",
-          "name": "default.md",
-          "size": 104,
-          "modified": "2025-12-22T09:20:26.906402",
-          "summary": "+++"
-        },
         {
           "project": "backups",
           "file_path": "/Users/mark/PycharmProjects/backups/klm-hugo-site/content/insurance-insights.md",
@@ -2140,15 +1355,6 @@
           "size": 20060,
           "modified": "2025-12-28T13:23:20.231345",
           "summary": "This document provides a comprehensive overview of the Git/GitHub workflow you've mastered through building the Task Manager API demo application."
-        },
-        {
-          "project": "backups",
-          "file_path": "/Users/mark/PycharmProjects/backups/klm-hugo-site/themes/klm-theme/archetypes/default.md",
-          "relative_path": "klm-hugo-site/themes/klm-theme/archetypes/default.md",
-          "name": "default.md",
-          "size": 104,
-          "modified": "2025-12-22T09:22:06.318965",
-          "summary": "+++"
         }
       ],
       "size_mb": 3.15,
@@ -2194,6 +1400,15 @@
         },
         {
           "project": "klm-apartment-app",
+          "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/DATABASE_WORKFLOW.md",
+          "relative_path": "DATABASE_WORKFLOW.md",
+          "name": "DATABASE_WORKFLOW.md",
+          "size": 7738,
+          "modified": "2026-01-03T11:17:02.892379",
+          "summary": "The KAA database is designed to store all insurance application data in a flexible, normalized structure."
+        },
+        {
+          "project": "klm-apartment-app",
           "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/README.md",
           "relative_path": "README.md",
           "name": "README.md",
@@ -2215,8 +1430,8 @@
           "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/claude.md",
           "relative_path": "claude.md",
           "name": "claude.md",
-          "size": 19068,
-          "modified": "2026-01-02T18:01:42.644459",
+          "size": 26242,
+          "modified": "2026-01-03T11:27:11.043352",
           "summary": "**Complete Project Context & Technical Reference**"
         },
         {
@@ -2236,6 +1451,24 @@
           "size": 3612,
           "modified": "2026-01-02T16:50:57.034059",
           "summary": "**Created**: 2026-01-02"
+        },
+        {
+          "project": "klm-apartment-app",
+          "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/data/extracted/acord_140_extraction_summary.md",
+          "relative_path": "data/extracted/acord_140_extraction_summary.md",
+          "name": "acord_140_extraction_summary.md",
+          "size": 8734,
+          "modified": "2026-01-03T11:24:42.973876",
+          "summary": "**Date:** January 3, 2026"
+        },
+        {
+          "project": "klm-apartment-app",
+          "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/output/analysis/handwritten_application_complete_data.md",
+          "relative_path": "output/analysis/handwritten_application_complete_data.md",
+          "name": "handwritten_application_complete_data.md",
+          "size": 15879,
+          "modified": "2026-01-03T11:48:25.016055",
+          "summary": "**Source:** `2024_habit_supplemental_applications.pdf` (19 pages)"
         },
         {
           "project": "klm-apartment-app",
@@ -2265,17 +1498,17 @@
           "summary": "**Total Missing Fields:** 88"
         }
       ],
-      "size_mb": 26.02,
+      "size_mb": 34.44,
       "last_modified": null,
       "readme_content": "# KLM Apartment Application (KAA)\n\nInsurance application automation system for commercial apartment buildings.\n\n## Overview\n\nKAA automates the process of completing insurance applications across multiple carriers by:\n- Extracting data from filled PDF forms\n- Storing applicant and property data in a normalized database\n- Intelligently mapping form fields to database fields\n- Auto-generating completed PDF applications\n- Maintaining historical records of all submissions\n\n## Technology Stack\n\n- **Ba...",
       "git": {
         "branch": "main",
         "remote_url": "https://github.com/emmalone/klm-apartment-app",
         "last_commit": {
-          "hash": "58b3240",
+          "hash": "cb0d4e8",
           "author": "Mark Malone",
-          "date": "11 hours ago",
-          "message": "Fix form URL - use HTTPS direct S3 URL instead of website endpoint"
+          "date": "52 minutes ago",
+          "message": "Add comprehensive extraction from 2024 handwritten supplemental applications"
         },
         "has_changes": true
       }
@@ -2378,7 +1611,7 @@
         "last_commit": {
           "hash": "25c5e41",
           "author": "Mark Malone",
-          "date": "12 hours ago",
+          "date": "13 hours ago",
           "message": "Initial commit: Remote Development Documentation"
         },
         "has_changes": true
@@ -2514,354 +1747,12 @@
     },
     {
       "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/archetypes/default.md",
-      "relative_path": "archetypes/default.md",
-      "name": "default.md",
-      "size": 104,
-      "modified": "2026-01-02T22:53:02.535104",
-      "summary": "+++"
-    },
-    {
-      "project": "klm-plan",
       "file_path": "/Users/mark/PycharmProjects/klm-plan/content/_index.md",
       "relative_path": "content/_index.md",
       "name": "_index.md",
       "size": 1469,
       "modified": "2026-01-02T23:20:28.351161",
       "summary": "Welcome to the KLM business planning workspace. This site organizes our strategic thinking, product development, and operational planning across all business lines."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/README.md",
-      "relative_path": "themes/hugo-book/README.md",
-      "name": "README.md",
-      "size": 13289,
-      "modified": "2026-01-02T22:53:12.755040",
-      "summary": "[![Hugo](https://img.shields.io/badge/hugo-0.146-blue.svg)](https://gohugo.io)"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/archetypes/docs.md",
-      "relative_path": "themes/hugo-book/archetypes/docs.md",
-      "name": "docs.md",
-      "size": 227,
-      "modified": "2026-01-02T22:53:12.755122",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/archetypes/posts.md",
-      "relative_path": "themes/hugo-book/archetypes/posts.md",
-      "name": "posts.md",
-      "size": 148,
-      "modified": "2026-01-02T22:53:12.755172",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.zh/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.zh/_index.md",
-      "name": "_index.md",
-      "size": 3017,
-      "modified": "2026-01-02T22:53:12.759929",
-      "summary": "{{% columns %}}"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/showcases.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/showcases.md",
-      "name": "showcases.md",
-      "size": 120,
-      "modified": "2026-01-02T22:53:12.759733",
-      "summary": "<div class=\"book-hero text-center\">"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/_index.md",
-      "name": "_index.md",
-      "size": 2267,
-      "modified": "2026-01-02T22:53:12.757574",
-      "summary": "<div class=\"book-hero\">"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.he/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.he/_index.md",
-      "name": "_index.md",
-      "size": 1165,
-      "modified": "2026-01-02T22:53:12.759839",
-      "summary": "{{% columns %}}"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/creating-a-new-theme.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/posts/creating-a-new-theme.md",
-      "name": "creating-a-new-theme.md",
-      "size": 47390,
-      "modified": "2026-01-02T22:53:12.759384",
-      "summary": "This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I'l..."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/migrate-from-jekyll.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/posts/migrate-from-jekyll.md",
-      "name": "migrate-from-jekyll.md",
-      "size": 7135,
-      "modified": "2026-01-02T22:53:12.759672",
-      "summary": "Jekyll has a rule that any directory not starting with `_` will be copied as-is to the `_site` output. Hugo keeps all static content under `static`. You should therefore move it all there."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/hugoisforlovers.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/posts/hugoisforlovers.md",
-      "name": "hugoisforlovers.md",
-      "size": 2594,
-      "modified": "2026-01-02T22:53:12.759537",
-      "summary": "+++"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/goisforlovers.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/posts/goisforlovers.md",
-      "name": "goisforlovers.md",
-      "size": 9847,
-      "modified": "2026-01-02T22:53:12.759476",
-      "summary": "+++"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/posts/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/posts/_index.md",
-      "name": "_index.md",
-      "size": 49,
-      "modified": "2026-01-02T22:53:12.759277",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/hidden.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/hidden.md",
-      "name": "hidden.md",
-      "size": 1737,
-      "modified": "2026-01-02T22:53:12.757981",
-      "summary": "Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/_index.md",
-      "name": "_index.md",
-      "size": 2786,
-      "modified": "2026-01-02T22:53:12.757697",
-      "summary": "Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/buttons.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/buttons.md",
-      "name": "buttons.md",
-      "size": 399,
-      "modified": "2026-01-02T22:53:12.758298",
-      "summary": "Buttons are styled links that can lead to local page or external link."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/columns.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/columns.md",
-      "name": "columns.md",
-      "size": 2061,
-      "modified": "2026-01-02T22:53:12.758347",
-      "summary": "Columns help organize shorter pieces of content horizontally for readability. `columns` shortcode styles markdown list as up to 3 columns."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/details.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/details.md",
-      "name": "details.md",
-      "size": 706,
-      "modified": "2026-01-02T22:53:12.758396",
-      "summary": "Details shortcode is a helper for `details` html5 element. To collapse the details either omit the `open`"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/hints.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/hints.md",
-      "name": "hints.md",
-      "size": 2528,
-      "modified": "2026-01-02T22:53:12.758750",
-      "summary": "Hint shortcode can be used as a hint/alert/notification block."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/tabs.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/tabs.md",
-      "name": "tabs.md",
-      "size": 1376,
-      "modified": "2026-01-02T22:53:12.759171",
-      "summary": "Tabs let you organize content by context, for example installation instructions for each supported platform."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/steps.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/steps.md",
-      "name": "steps.md",
-      "size": 1560,
-      "modified": "2026-01-02T22:53:12.759116",
-      "summary": "Steps shortcode styles numbered list as series of points for better content organization."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/katex.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/katex.md",
-      "name": "katex.md",
-      "size": 1915,
-      "modified": "2026-01-02T22:53:12.758800",
-      "summary": "KaTeX shortcode let you render math typesetting in markdown document. See [KaTeX](https://katex.org/)"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/mermaid.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/mermaid.md",
-      "name": "mermaid.md",
-      "size": 3820,
-      "modified": "2026-01-02T22:53:12.758856",
-      "summary": "[MermaidJS](https://mermaid-js.github.io/) is library for generating svg charts and diagrams from text."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/_index.md",
-      "name": "_index.md",
-      "size": 30,
-      "modified": "2026-01-02T22:53:12.758247",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/images.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/images.md",
-      "name": "images.md",
-      "size": 903,
-      "modified": "2026-01-02T22:53:12.758699",
-      "summary": "> [!WARNING]"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/badges.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/badges.md",
-      "name": "badges.md",
-      "size": 1764,
-      "modified": "2026-01-02T22:53:12.758585",
-      "summary": "> [!WARNING]"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/asciinema.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/asciinema.md",
-      "name": "asciinema.md",
-      "size": 770,
-      "modified": "2026-01-02T22:53:12.758528",
-      "summary": "> [!WARNING]"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/cards.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/cards.md",
-      "name": "cards.md",
-      "size": 723,
-      "modified": "2026-01-02T22:53:12.758646",
-      "summary": "> [!WARNING]"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/experimental/_index.md",
-      "name": "_index.md",
-      "size": 33,
-      "modified": "2026-01-02T22:53:12.758475",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/first-page.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/first-page.md",
-      "name": "first-page.md",
-      "size": 474,
-      "modified": "2026-01-02T22:53:12.758995",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u..."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/second-page.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/second-page.md",
-      "name": "second-page.md",
-      "size": 474,
-      "modified": "2026-01-02T22:53:12.759050",
-      "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u..."
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/shortcodes/section/_index.md",
-      "name": "_index.md",
-      "size": 288,
-      "modified": "2026-01-02T22:53:12.758941",
-      "summary": "Section renders pages in section as definition list, using title and description. Optional param `summary` can be used to show or hide page summary"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/with-toc.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/with-toc.md",
-      "name": "with-toc.md",
-      "size": 2802,
-      "modified": "2026-01-02T22:53:12.758117",
-      "summary": "Lorem markdownum pavent auras, surgit nunc cingentibus libet **Laomedonque que**"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/without-toc.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/without-toc.md",
-      "name": "without-toc.md",
-      "size": 2497,
-      "modified": "2026-01-02T22:53:12.758171",
-      "summary": "Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/table-of-contents/_index.md",
-      "name": "_index.md",
-      "size": 3625,
-      "modified": "2026-01-02T22:53:12.758061",
-      "summary": "Lorem markdownum partu paterno Achillem. Habent amne generosi aderant ad pellem"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/collapsed/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/collapsed/_index.md",
-      "name": "_index.md",
-      "size": 45,
-      "modified": "2026-01-02T22:53:12.757927",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/4th-level.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/4th-level.md",
-      "name": "4th-level.md",
-      "size": 551,
-      "modified": "2026-01-02T22:53:12.757819",
-      "summary": "Inde aderam facti; Theseus vis de tauri illa peream. Oculos **uberaque** non"
-    },
-    {
-      "project": "klm-plan",
-      "file_path": "/Users/mark/PycharmProjects/klm-plan/themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/_index.md",
-      "relative_path": "themes/hugo-book/exampleSite/content.en/docs/example/collapsed/3rd-level/_index.md",
-      "name": "_index.md",
-      "size": 1387,
-      "modified": "2026-01-02T22:53:12.757876",
-      "summary": "Nefas discordemque domino montes numen tum humili nexilibusque exit, Iove. Quae"
     },
     {
       "project": "klm-plan",
@@ -3369,15 +2260,6 @@
     },
     {
       "project": "klm-migrate",
-      "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/archetypes/default.md",
-      "relative_path": "klm-hugo-site/archetypes/default.md",
-      "name": "default.md",
-      "size": 104,
-      "modified": "2025-12-22T09:20:26.906402",
-      "summary": "+++"
-    },
-    {
-      "project": "klm-migrate",
       "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/insurance-insights.md",
       "relative_path": "klm-hugo-site/content/insurance-insights.md",
       "name": "insurance-insights.md",
@@ -3549,15 +2431,6 @@
     },
     {
       "project": "klm-migrate",
-      "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/themes/klm-theme/archetypes/default.md",
-      "relative_path": "klm-hugo-site/themes/klm-theme/archetypes/default.md",
-      "name": "default.md",
-      "size": 104,
-      "modified": "2025-12-22T09:22:06.318966",
-      "summary": "+++"
-    },
-    {
-      "project": "klm-migrate",
       "file_path": "/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/guides/landing.md",
       "relative_path": "klm-hugo-site/content/guides/landing.md",
       "name": "landing.md",
@@ -3582,456 +2455,6 @@
       "size": 4198,
       "modified": "2026-01-02T23:16:52.121467",
       "summary": "**macOS MenuBar Application for Quick Natural Scrolling Control**"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/README.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/README.md",
-      "name": "README.md",
-      "size": 1500,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "Business template for Hugo. Browse through a [live demo](https://timely-land.cloudvent.net/). This theme has been adapted from the MIT licensed [Megakit Bootstrap template from Theme Fisher](https:..."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/archetypes/default.md",
-      "relative_path": "klm-hugo/sites/hello-klm/archetypes/default.md",
-      "name": "default.md",
-      "size": 104,
-      "modified": "2025-08-13T09:53:28",
-      "summary": "+++"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/LICENSE.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/LICENSE.md",
-      "name": "LICENSE.md",
-      "size": 1082,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "Copyright (c) 2016-2024 Bud Parr"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/CHANGELOG.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/CHANGELOG.md",
-      "name": "CHANGELOG.md",
-      "size": 34831,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "* update README.md ([a001981](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/a0019812ff62d978781392c765addbaee1c1eddf))"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/README.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/README.md",
-      "name": "README.md",
-      "size": 12210,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "> [!WARNING]"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/archetypes/default.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/archetypes/default.md",
-      "name": "default.md",
-      "size": 131,
-      "modified": "2025-08-13T09:53:29",
-      "summary": ""
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/.github/pull_request_template.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/.github/pull_request_template.md",
-      "name": "pull_request_template.md",
-      "size": 771,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "<!---"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/.github/changelog-old.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/.github/changelog-old.md",
-      "name": "changelog-old.md",
-      "size": 14550,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "All notable changes to this project will be documented in this file."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/themes/ananke/.github/ISSUE_TEMPLATE/bugs.md",
-      "relative_path": "klm-hugo/sites/hello-klm/themes/ananke/.github/ISSUE_TEMPLATE/bugs.md",
-      "name": "bugs.md",
-      "size": 1881,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "<!---"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/hello-klm/content/posts/welcome.md",
-      "relative_path": "klm-hugo/sites/hello-klm/content/posts/welcome.md",
-      "name": "welcome.md",
-      "size": 139,
-      "modified": "2025-08-13T09:53:29",
-      "summary": "If you can read this, your Hugo setup is working. \u2705"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/archetypes/post.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/archetypes/post.md",
-      "name": "post.md",
-      "size": 208,
-      "modified": "2025-08-14T14:09:57",
-      "summary": ""
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/archetypes/service.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/archetypes/service.md",
-      "name": "service.md",
-      "size": 202,
-      "modified": "2025-08-14T14:09:57",
-      "summary": ""
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pricing.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pricing.md",
-      "name": "pricing.md",
-      "size": 1911,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/portfolio.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/portfolio.md",
-      "name": "portfolio.md",
-      "size": 1262,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/contact.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/contact.md",
-      "name": "contact.md",
-      "size": 666,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/services.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/services.md",
-      "name": "services.md",
-      "size": 1979,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/about.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/about.md",
-      "name": "about.md",
-      "size": 3056,
-      "modified": "2025-08-13T20:00:01",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/_index.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/_index.md",
-      "name": "_index.md",
-      "size": 3333,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/schemas/post.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/schemas/post.md",
-      "name": "post.md",
-      "size": 176,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "categories:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/schemas/page.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/schemas/page.md",
-      "name": "page.md",
-      "size": 380,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "SEO_options:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-08-interactivity-connect-consumer.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-08-interactivity-connect-consumer.md",
-      "name": "2022-03-08-interactivity-connect-consumer.md",
-      "size": 1128,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "categories:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-09-improve-design-with-typography.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-09-improve-design-with-typography.md",
-      "name": "2022-03-09-improve-design-with-typography.md",
-      "size": 1146,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "categories:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/_index.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/posts/_index.md",
-      "name": "_index.md",
-      "size": 229,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "No summary available"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-07-customer-marketing-strategy.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-07-customer-marketing-strategy.md",
-      "name": "2022-03-07-customer-marketing-strategy.md",
-      "size": 1134,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "categories:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2022-03-06-helping-small-businesses-grow.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2022-03-06-helping-small-businesses-grow.md",
-      "name": "2022-03-06-helping-small-businesses-grow.md",
-      "size": 1137,
-      "modified": "2025-08-13T16:40:07",
-      "summary": "categories:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/klm-test.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/klm-test.md",
-      "name": "klm-test.md",
-      "size": 204,
-      "modified": "2025-08-13T19:43:44",
-      "summary": "**KLM MARKER** \u2014 If you can read this, your local server is picking up changes."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/contact.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/contact.md",
-      "name": "contact.md",
-      "size": 937,
-      "modified": "2025-08-13T16:47:15",
-      "summary": "Need a quote or have a question? We\u2019ll get back to you quickly."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/client-center-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/client-center-html.md",
-      "name": "client-center-html.md",
-      "size": 1558,
-      "modified": "2025-08-14T15:52:39",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/client-center-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/compare-quotes-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/compare-quotes-html.md",
-      "name": "compare-quotes-html.md",
-      "size": 712,
-      "modified": "2025-08-14T15:52:41",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/compare-quotes-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/umbrella-insurance-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/umbrella-insurance-html.md",
-      "name": "umbrella-insurance-html.md",
-      "size": 3200,
-      "modified": "2025-08-14T15:52:37",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/umbrella-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/index.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/index.md",
-      "name": "index.md",
-      "size": 4074,
-      "modified": "2025-08-14T15:52:29",
-      "summary": "Your Zip Code:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/boat-watercraft-insurance-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/boat-watercraft-insurance-html.md",
-      "name": "boat-watercraft-insurance-html.md",
-      "size": 3070,
-      "modified": "2025-08-14T15:57:02",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/boat-watercraft-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/claims.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/claims.md",
-      "name": "claims.md",
-      "size": 262,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Need to file a claim? Call us for guidance, then we\u2019ll help you report to the carrier and track progress. Carrier 24/7 numbers can be added here."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/about.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/about.md",
-      "name": "about.md",
-      "size": 301,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "KLM Insurance Solutions is an independent agency based in Pennsylvania. We combine knowledgeable agents with modern technology to deliver fast, friendly, and reliable coverage options."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/index-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/index-html.md",
-      "name": "index-html.md",
-      "size": 4162,
-      "modified": "2025-08-14T15:52:30",
-      "summary": "Your Zip Code:"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/life.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/life.md",
-      "name": "life.md",
-      "size": 197,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Term and permanent life options to protect your family or key employees. We\u2019ll guide you on coverage amounts and riders."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/auto.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/auto.md",
-      "name": "auto.md",
-      "size": 203,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Coverage options for liability, collision, comprehensive, UM/UIM, and more. Ask us about multi-policy and safe-driver discounts."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/life-insurance-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/life-insurance-html.md",
-      "name": "life-insurance-html.md",
-      "size": 2979,
-      "modified": "2025-08-14T15:52:36",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/life-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/home-insurance-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/home-insurance-html.md",
-      "name": "home-insurance-html.md",
-      "size": 3203,
-      "modified": "2025-08-14T15:52:33",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/home-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/auto-insurance-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/auto-insurance-html.md",
-      "name": "auto-insurance-html.md",
-      "size": 3000,
-      "modified": "2025-08-14T15:52:32",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/auto-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/home.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/home.md",
-      "name": "home.md",
-      "size": 201,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Protect your home, condo, or apartment. We\u2019ll help you choose appropriate dwelling, personal property, and liability limits."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/personal/_index.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/personal/_index.md",
-      "name": "_index.md",
-      "size": 223,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "From auto and home to life insurance, our personal lines are tailored to your needs."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/commercial-insurance-html.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/commercial-insurance-html.md",
-      "name": "commercial-insurance-html.md",
-      "size": 3312,
-      "modified": "2025-08-14T15:52:34",
-      "summary": "[![KLM Insurance Solutions, Inc](/imported/commercial-insurance-html/klm-insurance-png.png)](https://www.klminsurance.com/index.html \"KLM Insurance Solutions, Inc\")"
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/buy-sell-agreements.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/buy-sell-agreements.md",
-      "name": "buy-sell-agreements.md",
-      "size": 2584,
-      "modified": "2025-09-28T16:38:59",
-      "summary": ""
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/cyber-liability.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/cyber-liability.md",
-      "name": "cyber-liability.md",
-      "size": 184,
-      "modified": "2025-08-14T14:12:43",
-      "summary": ""
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/commercial-auto.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/commercial-auto.md",
-      "name": "commercial-auto.md",
-      "size": 182,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Fleet or single vehicle\u2014get the right liability and physical damage coverage for your business vehicles."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/workers-comp.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/workers-comp.md",
-      "name": "workers-comp.md",
-      "size": 196,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Protect employees and meet state requirements with properly classified payroll and experience rating management."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/general-liability.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/general-liability.md",
-      "name": "general-liability.md",
-      "size": 192,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Core coverage for third-party bodily injury and property damage. Often the foundation of a small business program."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/pages/business/_index.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/pages/business/_index.md",
-      "name": "_index.md",
-      "size": 253,
-      "modified": "2025-08-13T16:47:04",
-      "summary": "Smart protection for small and mid-sized businesses in PA\u2014coverage tailored to your operations and risk profile."
-    },
-    {
-      "project": "klm-hugo-lab",
-      "file_path": "/Users/mark/PycharmProjects/klm-hugo-lab/klm-hugo/sites/klm-megakit/content/posts/2025/08-announcing-our-new-coverage-options/index.md",
-      "relative_path": "klm-hugo/sites/klm-megakit/content/posts/2025/08-announcing-our-new-coverage-options/index.md",
-      "name": "index.md",
-      "size": 191,
-      "modified": "2025-08-14T14:12:33",
-      "summary": ""
     },
     {
       "project": "OppManagement",
@@ -4088,13 +2511,49 @@
       "summary": "**One-command deployment of secure Hugo documentation sites to AWS**"
     },
     {
-      "project": "backups",
-      "file_path": "/Users/mark/PycharmProjects/backups/klm-hugo-site/archetypes/default.md",
-      "relative_path": "klm-hugo-site/archetypes/default.md",
-      "name": "default.md",
-      "size": 104,
-      "modified": "2025-12-22T09:20:26.906402",
-      "summary": "+++"
+      "project": "hugo-docs-template",
+      "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/_index.md",
+      "relative_path": "my-projects/content/_index.md",
+      "name": "_index.md",
+      "size": 436,
+      "modified": "2026-01-03T11:17:12.060261",
+      "summary": "This is your project documentation site."
+    },
+    {
+      "project": "hugo-docs-template",
+      "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/about/_index.md",
+      "relative_path": "my-projects/content/about/_index.md",
+      "name": "_index.md",
+      "size": 115,
+      "modified": "2026-01-03T11:17:12.060343",
+      "summary": "Content goes here."
+    },
+    {
+      "project": "hugo-docs-template",
+      "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/docs/_index.md",
+      "relative_path": "my-projects/content/docs/_index.md",
+      "name": "_index.md",
+      "size": 105,
+      "modified": "2026-01-03T11:17:12.060427",
+      "summary": "Content goes here."
+    },
+    {
+      "project": "hugo-docs-template",
+      "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/guides/_index.md",
+      "relative_path": "my-projects/content/guides/_index.md",
+      "name": "_index.md",
+      "size": 91,
+      "modified": "2026-01-03T11:17:12.060501",
+      "summary": "Content goes here."
+    },
+    {
+      "project": "hugo-docs-template",
+      "file_path": "/Users/mark/PycharmProjects/hugo-docs-template/my-projects/content/reference/_index.md",
+      "relative_path": "my-projects/content/reference/_index.md",
+      "name": "_index.md",
+      "size": 97,
+      "modified": "2026-01-03T11:17:12.060575",
+      "summary": "Content goes here."
     },
     {
       "project": "backups",
@@ -4241,15 +2700,6 @@
       "summary": "This document provides a comprehensive overview of the Git/GitHub workflow you've mastered through building the Task Manager API demo application."
     },
     {
-      "project": "backups",
-      "file_path": "/Users/mark/PycharmProjects/backups/klm-hugo-site/themes/klm-theme/archetypes/default.md",
-      "relative_path": "klm-hugo-site/themes/klm-theme/archetypes/default.md",
-      "name": "default.md",
-      "size": 104,
-      "modified": "2025-12-22T09:22:06.318965",
-      "summary": "+++"
-    },
-    {
       "project": "klm-apartment-app",
       "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/CLAUDE_CODE_INSTRUCTIONS.md",
       "relative_path": "CLAUDE_CODE_INSTRUCTIONS.md",
@@ -4266,6 +2716,15 @@
       "size": 17951,
       "modified": "2026-01-02T16:34:02.247042",
       "summary": "**Date**: January 2, 2026"
+    },
+    {
+      "project": "klm-apartment-app",
+      "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/DATABASE_WORKFLOW.md",
+      "relative_path": "DATABASE_WORKFLOW.md",
+      "name": "DATABASE_WORKFLOW.md",
+      "size": 7738,
+      "modified": "2026-01-03T11:17:02.892379",
+      "summary": "The KAA database is designed to store all insurance application data in a flexible, normalized structure."
     },
     {
       "project": "klm-apartment-app",
@@ -4290,8 +2749,8 @@
       "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/claude.md",
       "relative_path": "claude.md",
       "name": "claude.md",
-      "size": 19068,
-      "modified": "2026-01-02T18:01:42.644459",
+      "size": 26242,
+      "modified": "2026-01-03T11:27:11.043352",
       "summary": "**Complete Project Context & Technical Reference**"
     },
     {
@@ -4311,6 +2770,24 @@
       "size": 3612,
       "modified": "2026-01-02T16:50:57.034059",
       "summary": "**Created**: 2026-01-02"
+    },
+    {
+      "project": "klm-apartment-app",
+      "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/data/extracted/acord_140_extraction_summary.md",
+      "relative_path": "data/extracted/acord_140_extraction_summary.md",
+      "name": "acord_140_extraction_summary.md",
+      "size": 8734,
+      "modified": "2026-01-03T11:24:42.973876",
+      "summary": "**Date:** January 3, 2026"
+    },
+    {
+      "project": "klm-apartment-app",
+      "file_path": "/Users/mark/PycharmProjects/klm-apartment-app/output/analysis/handwritten_application_complete_data.md",
+      "relative_path": "output/analysis/handwritten_application_complete_data.md",
+      "name": "handwritten_application_complete_data.md",
+      "size": 15879,
+      "modified": "2026-01-03T11:48:25.016055",
+      "summary": "**Source:** `2024_habit_supplemental_applications.pdf` (19 pages)"
     },
     {
       "project": "klm-apartment-app",
@@ -4421,5 +2898,5 @@
       "summary": "This directory contains data from the pytest's cache plugin,"
     }
   ],
-  "scan_date": "2026-01-03T11:03:15.430876"
+  "scan_date": "2026-01-03T12:40:49.813579"
 }

@@ -7,13 +7,13 @@ type: docs
 
 Welcome to the central documentation hub for all projects in PycharmProjects.
 
-**Last Updated**: 2026-01-03 11:03
+**Last Updated**: 2026-01-03 12:40
 
 ## Quick Stats
 
-- **Total Projects**: 23
-- **Total Documents**: 226
-- **Last Scan**: 2026-01-03T11:03:15.430876
+- **Total Projects**: 22
+- **Total Documents**: 142
+- **Last Scan**: 2026-01-03T12:40:49.813579
 
 ## Navigation
 
@@ -24,10 +24,10 @@ Welcome to the central documentation hub for all projects in PycharmProjects.
 ## Recent Projects
 
 - **[klmdnc]({{< relref "/projects/klmdnc" >}})** - Initial commit. This works and data loaded (1 year, 10 months ago)
-- **[test]({{< relref "/projects/test" >}})** - Initial commit: Project Portfolio Manager (12 hours ago)
-- **[klm-plan]({{< relref "/projects/klm-plan" >}})** - Add Hugo documentation site automation system (5 minutes ago)
-- **[mouse]({{< relref "/projects/mouse" >}})** - Initial commit: Natural Scrolling Toggle MenuBar App (12 hours ago)
-- **[OppManagement]({{< relref "/projects/OppManagement" >}})** - Initial commit: Sales Opportunity Manager (12 hours ago)
+- **[test]({{< relref "/projects/test" >}})** - Initial commit: Project Portfolio Manager (13 hours ago)
+- **[klm-plan]({{< relref "/projects/klm-plan" >}})** - Add automation summary documentation (2 hours ago)
+- **[mouse]({{< relref "/projects/mouse" >}})** - Initial commit: Natural Scrolling Toggle MenuBar App (13 hours ago)
+- **[OppManagement]({{< relref "/projects/OppManagement" >}})** - Initial commit: Sales Opportunity Manager (13 hours ago)
 
 ## Tech Stack Used
 

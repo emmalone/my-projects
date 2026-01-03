@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reference on My Projects - Documentation Hub</title><link>http://localhost:1313/documents/hugo-docs-template/</link><description>Recent content in Reference on My Projects - Documentation Hub</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 03 Jan 2026 10:57:53 +0000</lastBuildDate><atom:link href="http://localhost:1313/documents/hugo-docs-template/index.xml" rel="self" type="application/rss+xml"/><item><title>QUICKSTART</title><link>http://localhost:1313/documents/hugo-docs-template/quickstart/</link><pubDate>Sat, 03 Jan 2026 10:57:53 +0000</pubDate><guid>http://localhost:1313/documents/hugo-docs-template/quickstart/</guid><description>&lt;h1 id="hugo-docs-automation---quick-start"&gt;Hugo Docs Automation - Quick Start&lt;a class="anchor" href="#hugo-docs-automation---quick-start"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Deploy a secure Hugo documentation site in 3 steps.&lt;/p&gt;
+&lt;h2 id="1-prerequisites-one-time-setup"&gt;1. Prerequisites (One-Time Setup)&lt;a class="anchor" href="#1-prerequisites-one-time-setup"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install tools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install hugo awscli gh python3
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Configure AWS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Enter your AWS access key, secret key, region (us-east-1)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Authenticate GitHub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gh auth login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install Python dependency&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip3 install boto3&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="2-deploy-your-site"&gt;2. Deploy Your Site&lt;a class="anchor" href="#2-deploy-your-site"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/hugo-docs-template
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 deploy-hugo-docs.py &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --project-name my-awesome-project &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --username admin &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --password SuperSecret123!&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Wait 15-20 minutes&lt;/strong&gt; while the script:&lt;/p&gt;</description></item><item><title>USAGE-EXAMPLES</title><link>http://localhost:1313/documents/hugo-docs-template/usage-examples/</link><pubDate>Sat, 03 Jan 2026 10:56:20 +0000</pubDate><guid>http://localhost:1313/documents/hugo-docs-template/usage-examples/</guid><description>&lt;h1 id="hugo-docs-automation---usage-examples"&gt;Hugo Docs Automation - Usage Examples&lt;a class="anchor" href="#hugo-docs-automation---usage-examples"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Real-world examples of deploying documentation sites with the automation system.&lt;/p&gt;
+&lt;h2 id="example-1-deploy-klm-business-plan-documentation"&gt;Example 1: Deploy KLM Business Plan Documentation&lt;a class="anchor" href="#example-1-deploy-klm-business-plan-documentation"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Navigate to template directory&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/hugo-docs-template
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Deploy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 deploy-hugo-docs.py &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --project-name klm-business-plan &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --username klm &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --password KLM2026Plan!
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Output:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🚀 Starting deployment for klm-business-plan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 📦 Bucket: klm-business-plan-docs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 👤 GitHub: emmalone/klm-business-plan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🔐 Auth: klm:***************&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ... (deployment process)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🎉 DEPLOYMENT COMPLETE!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ============================================================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 📦 Project: klm-business-plan&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🪣 S3 Bucket: klm-business-plan-docs (private)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ☁️ CloudFront: E1Z0GEJNAKEO42&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🌐 URL: https://d1jrr6wppi7k7d.cloudfront.net&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🔐 Username: klm&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 🔐 Password: KLM2026Plan!&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 📚 GitHub: https://github.com/emmalone/klm-business-plan&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="what-this-creates"&gt;What This Creates&lt;a class="anchor" href="#what-this-creates"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Local Structure&lt;/strong&gt;:&lt;/p&gt;</description></item><item><title>README</title><link>http://localhost:1313/documents/hugo-docs-template/readme/</link><pubDate>Sat, 03 Jan 2026 10:55:17 +0000</pubDate><guid>http://localhost:1313/documents/hugo-docs-template/readme/</guid><description>&lt;h1 id="hugo-documentation-site-deployment-automation"&gt;Hugo Documentation Site Deployment Automation&lt;a class="anchor" href="#hugo-documentation-site-deployment-automation"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;One-command deployment of secure Hugo documentation sites to AWS&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This automation system creates a complete, production-ready documentation site with:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Hugo static site with hugo-book theme&lt;/li&gt;
+&lt;li&gt;✅ AWS S3 storage (completely private)&lt;/li&gt;
+&lt;li&gt;✅ CloudFront CDN with HTTPS&lt;/li&gt;
+&lt;li&gt;✅ Lambda@Edge password protection + URL rewriting&lt;/li&gt;
+&lt;li&gt;✅ GitHub repository with auto-deployment&lt;/li&gt;
+&lt;li&gt;✅ ~60-90 second deployment pipeline&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="quick-start"&gt;Quick Start&lt;a class="anchor" href="#quick-start"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-prerequisites"&gt;1. Prerequisites&lt;a class="anchor" href="#1-prerequisites"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install tools (macOS)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install hugo awscli gh python3
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Configure AWS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws configure
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Enter: Access Key ID, Secret Key, Region, Output format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Authenticate with GitHub&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gh auth login
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install Python dependencies&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pip3 install boto3&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-deploy-a-new-docs-site"&gt;2. Deploy a New Docs Site&lt;a class="anchor" href="#2-deploy-a-new-docs-site"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Clone or download this template&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /path/to/hugo-docs-template
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Run deployment script&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 deploy-hugo-docs.py &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --project-name my-awesome-project &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --username admin &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --password SuperSecret123!&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it! The script will:&lt;/p&gt;</description></item></channel></rss>

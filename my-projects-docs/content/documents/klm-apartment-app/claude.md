@@ -2,7 +2,7 @@
 title: "claude"
 project: klm-apartment-app
 original_path: claude.md
-modified: 2026-01-02T18:01:42.644459
+modified: 2026-01-03T11:27:11.043352
 ---
 
 # KLM Apartment Application (KAA) - Insurance Application Automation
@@ -17,7 +17,216 @@ modified: 2026-01-02T18:01:42.644459
 **Repository:** https://github.com/emmalone/klm-apartment-app
 **Developer:** Mark (mark@emm-associates.com)
 **Company:** KLM Insurance Solutions, Inc.
-**Last Updated:** January 2, 2026
+**Last Updated:** January 3, 2026
+
+---
+
+## 🤖 Agent Usage Best Practices
+
+### When to Use Agents
+
+**ALWAYS use agents for:**
+- **Data Extraction Tasks:** Extracting data from multiple PDFs, documents, or data sources
+- **Parallel Processing:** When multiple independent tasks can run simultaneously
+- **Complex Analysis:** Deep code exploration, codebase analysis, or multi-file research
+- **Domain-Specific Tasks:** Tasks requiring specialized knowledge or reasoning (e.g., insurance forms, legal documents)
+- **Time-Intensive Operations:** Long-running tasks that benefit from background processing
+
+### Agent Types and Selection
+
+#### 1. **Explore Agent** (Fast, codebase-focused)
+- **Use for:** Finding files by patterns, searching code for keywords, understanding codebase structure
+- **Thoroughness levels:** "quick", "medium", "very thorough"
+- **Example:** "Explore the codebase to find all database models"
+
+#### 2. **General-Purpose Agent** (Multi-step tasks)
+- **Use for:** Complex multi-step workflows, data extraction, analysis tasks
+- **Best with:** Sonnet model for reasoning-heavy tasks
+- **Example:** "Extract all data from these 5 PDF documents and consolidate findings"
+
+#### 3. **Plan Agent** (Architecture and design)
+- **Use for:** Planning implementation strategies, designing system architecture
+- **Returns:** Step-by-step plans, identifies critical files, considers trade-offs
+- **Example:** "Plan the implementation of a new PDF form processing pipeline"
+
+### Parallel Agent Execution
+
+**Maximum Efficiency Pattern:**
+```python
+# Launch multiple agents in a single message block
+Task(agent_a7a1888, "Extract ACORD 125 data")  # Agent 1
+Task(agent_a5e7481, "Extract ACORD 140 data")  # Agent 2
+Task(agent_a50f6b2, "Extract apartment app data")  # Agent 3
+Task(agent_ac66a3e, "Extract quote data")  # Agent 4
+Task(agent_a27410f, "Extract commercial app data")  # Agent 5
+
+# All 5 agents run in parallel, completing in fraction of sequential time
+```
+
+**When to run agents in parallel:**
+- Processing multiple independent documents/files
+- Extracting data from different sources simultaneously
+- Analyzing different parts of a codebase concurrently
+- Running tests while performing other operations
+
+### Agent Best Practices from This Project
+
+**Real-world example from this session:**
+
+1. **Initial Task:** Extract data from 17 PDF documents and identify missing fields
+2. **Solution:** Launched 5 parallel agents with Sonnet for intelligent reasoning
+3. **Results:**
+   - All 5 agents completed successfully
+   - Processed 7 data sources (including previous extractions)
+   - Consolidated 211 unique fields
+   - Mapped 41 fields to canonical names
+   - Identified 75 missing required fields
+   - Generated targeted form with only missing fields
+
+**Key Success Factors:**
+- Used Sonnet model for intelligent data extraction and reasoning
+- Ran agents in true parallel (single message, multiple Task calls)
+- Allowed agents to complete independently before consolidation
+- Created consolidation script to merge results intelligently
+
+### Creating Domain-Specific "Persistent" Agents
+
+**Approach for building specialized agents that improve over time:**
+
+#### 1. **Knowledge Base Pattern**
+```
+Project Structure:
+/agents/
+  /insurance-forms/
+    knowledge-base.md      # Domain knowledge about ACORD forms
+    extraction-patterns.json  # Known field patterns
+    field-mappings.json    # Canonical field mappings
+    agents/
+      extract-acord.py     # Reusable extraction logic
+      consolidate.py       # Consolidation logic
+```
+
+#### 2. **Iterative Refinement**
+- Start with general-purpose agent for initial extraction
+- Document successful patterns in knowledge base
+- Create reusable scripts encoding learned patterns
+- Each run adds to the knowledge base
+
+#### 3. **Building "Memory" Through Documentation**
+```markdown
+# agents/insurance-forms/knowledge-base.md
+
+## ACORD 125 Extraction Patterns
+
+**Known Field Locations:**
+- Applicant Name: Usually in upper left, line 2-3
+- FEIN/SSN: Center header area
+- Producer info: Top of page, right side
+
+**Common Issues:**
+- Blank template forms labeled as "filled"
+- Multiple properties on single form
+- Handwritten vs. digital signatures
+
+**Successful Extraction Methods:**
+1. Use pdfplumber for table extraction
+2. Fall back to pypdf for text extraction
+3. Pattern matching with regex for structured fields
+```
+
+#### 4. **Agent Skill Progression**
+
+**Level 1: Basic Agent** (Session 1)
+- Extract text from PDF
+- Return raw text and basic fields
+
+**Level 2: Pattern-Aware Agent** (Session 2)
+- Use documented patterns from knowledge base
+- Apply known field mappings
+- Return structured data
+
+**Level 3: Intelligent Agent** (Session 3+)
+- Reference previous successful extractions
+- Handle edge cases from knowledge base
+- Self-improve by adding new patterns
+
+#### 5. **Implementation Strategy**
+
+**For this project (insurance forms):**
+
+```python
+# Create domain-specific extraction agent
+class InsuranceFormAgent:
+    def __init__(self):
+        self.knowledge_base = load_knowledge_base()
+        self.field_mappings = load_field_mappings()
+        self.extraction_patterns = load_patterns()
+
+    def extract(self, pdf_path, form_type):
+        # Use accumulated knowledge
+        patterns = self.extraction_patterns[form_type]
+        mappings = self.field_mappings[form_type]
+
+        # Extract with learned patterns
+        data = intelligent_extract(pdf_path, patterns, mappings)
+
+        # Update knowledge base with new findings
+        self.update_knowledge_base(data)
+
+        return data
+```
+
+**Knowledge Base Updates After Each Session:**
+```bash
+# After successful extraction
+python3 scripts/update_knowledge_base.py \
+  --session-id=2026-01-03 \
+  --extractions=data/extracted/*.json \
+  --confidence=high
+```
+
+### Practical Agent Usage Guidelines
+
+**DO:**
+- ✅ Use agents proactively for multi-step tasks
+- ✅ Launch parallel agents for independent operations
+- ✅ Choose appropriate agent type (Explore, General, Plan)
+- ✅ Use Sonnet model for reasoning-intensive tasks
+- ✅ Document successful patterns for future reference
+- ✅ Let agents complete before processing results
+
+**DON'T:**
+- ❌ Run agents sequentially when they could run in parallel
+- ❌ Use agents for simple single-step tasks (use tools directly)
+- ❌ Interrupt agents before completion
+- ❌ Forget to consolidate/process agent results
+
+### Agent Model Selection
+
+**Sonnet (Default):**
+- Best for reasoning, analysis, complex extraction
+- Use for: Data extraction, code analysis, planning
+- Cost: Moderate
+
+**Haiku (Fast):**
+- Best for simple, quick tasks
+- Use for: Basic file operations, simple searches
+- Cost: Low
+
+**Opus (Maximum Capability):**
+- Best for most complex reasoning tasks
+- Use for: Critical analysis, complex decision-making
+- Cost: High
+
+### Real-World Agent Performance
+
+**This Session's Results:**
+- **Task:** Extract data from 17 PDFs
+- **Agents:** 5 parallel Sonnet agents
+- **Total Time:** ~3 minutes (vs. 15+ minutes sequential)
+- **Success Rate:** 100% (5/5 agents completed)
+- **Data Quality:** 211 fields extracted, 41 mapped to canonical names
+- **Cost Efficiency:** 5x speedup with parallel execution
 
 ---
 

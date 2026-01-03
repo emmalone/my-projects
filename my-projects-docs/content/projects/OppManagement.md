@@ -47,7 +47,7 @@ A desktop application for managing and visualizing your sales pipeline with an i
 
 **Last Commit**: Initial commit: Sales Opportunity Manager
 
-**Author**: Mark Malone (12 hours ago)
+**Author**: Mark Malone (13 hours ago)
 
 
 **Path**: `/Users/mark/PycharmProjects/OppManagement`

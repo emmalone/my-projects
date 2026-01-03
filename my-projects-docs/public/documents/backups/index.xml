@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KLM Insurance Solutions on My Projects - Documentation Hub</title><link>http://localhost:1313/documents/backups/</link><description>Recent content in KLM Insurance Solutions on My Projects - Documentation Hub</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 28 Dec 2025 14:16:44 +0000</lastBuildDate><atom:link href="http://localhost:1313/documents/backups/index.xml" rel="self" type="application/rss+xml"/><item><title>MIGRATE_TO_GITHUB_CHECKLIST</title><link>http://localhost:1313/documents/backups/migrate_to_github_checklist/</link><pubDate>Sun, 28 Dec 2025 14:16:44 +0000</pubDate><guid>http://localhost:1313/documents/backups/migrate_to_github_checklist/</guid><description>&lt;h1 id="migrating-website-to-github---safety-checklist"&gt;Migrating Website to GitHub - Safety Checklist&lt;a class="anchor" href="#migrating-website-to-github---safety-checklist"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="before-you-start---critical-security-checks"&gt;BEFORE YOU START - CRITICAL SECURITY CHECKS&lt;a class="anchor" href="#before-you-start---critical-security-checks"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="-step-1-identify-sensitive-files"&gt;☐ Step 1: Identify Sensitive Files&lt;a class="anchor" href="#-step-1-identify-sensitive-files"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Navigate to your project directory and look for:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Search for potential secret files&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find . -name &lt;span style="color:#e6db74"&gt;&amp;#34;.env*&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;*.key&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;*.pem&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;config.php&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;settings.py&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Look for files with &amp;#34;password&amp;#34; or &amp;#34;secret&amp;#34; in them&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grep -r &lt;span style="color:#e6db74"&gt;&amp;#34;password\|secret\|api_key&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.php&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.py&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.js&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.env&amp;#34;&lt;/span&gt; .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Common secret files by technology:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WordPress:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wp-config.php&lt;/code&gt; (has database credentials!)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.htaccess&lt;/code&gt; (might have passwords)&lt;/li&gt;
+&lt;li&gt;Upload directories with customer data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Django/Python:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>SESSION_HANDOFF</title><link>http://localhost:1313/documents/backups/session_handoff/</link><pubDate>Sun, 28 Dec 2025 14:16:44 +0000</pubDate><guid>http://localhost:1313/documents/backups/session_handoff/</guid><description>&lt;h1 id="claude-code-session-handoff---website-migration"&gt;Claude Code Session Handoff - Website Migration&lt;a class="anchor" href="#claude-code-session-handoff---website-migration"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 28, 2025
+&lt;strong&gt;From:&lt;/strong&gt; demo-task-api learning session
+&lt;strong&gt;To:&lt;/strong&gt; klm-migrate website project session&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="what-youve-learned-quick-reference"&gt;What You&amp;rsquo;ve Learned (Quick Reference)&lt;a class="anchor" href="#what-youve-learned-quick-reference"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="git-setup-complete"&gt;Git Setup Complete&lt;a class="anchor" href="#git-setup-complete"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Git configured with &lt;code&gt;emmalone&lt;/code&gt; username&lt;/li&gt;
+&lt;li&gt;✅ Email: &lt;code&gt;mark@emm-associates.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;✅ GitHub credentials cached in macOS Keychain&lt;/li&gt;
+&lt;li&gt;✅ Personal Access Token created and working&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="completed-projects"&gt;Completed Projects&lt;a class="anchor" href="#completed-projects"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;demo-task-api&lt;/strong&gt; - Task Manager with web interface
+&lt;ul&gt;
+&lt;li&gt;Repo: &lt;a href="https://github.com/emmalone/demo-task-api"&gt;https://github.com/emmalone/demo-task-api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2 successful PRs merged&lt;/li&gt;
+&lt;li&gt;Full git workflow practiced&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="-critical-security-checks-before-committing"&gt;🚨 CRITICAL: Security Checks Before Committing&lt;a class="anchor" href="#-critical-security-checks-before-committing"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="run-these-commands-first-in-your-website-directory"&gt;Run These Commands First (In Your Website Directory)&lt;a class="anchor" href="#run-these-commands-first-in-your-website-directory"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. Search for API keys and passwords:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>GITOVERVIEW</title><link>http://localhost:1313/documents/backups/gitoverview/</link><pubDate>Sun, 28 Dec 2025 13:23:20 +0000</pubDate><guid>http://localhost:1313/documents/backups/gitoverview/</guid><description>&lt;h1 id="git--github-workflow---complete-reference-guide"&gt;Git &amp;amp; GitHub Workflow - Complete Reference Guide&lt;a class="anchor" href="#git--github-workflow---complete-reference-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This document provides a comprehensive overview of the Git/GitHub workflow you&amp;rsquo;ve mastered through building the Task Manager API demo application.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="git-concepts-you-mastered"&gt;Git Concepts You Mastered&lt;a class="anchor" href="#git-concepts-you-mastered"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-branches"&gt;1. &lt;strong&gt;Branches&lt;/strong&gt;&lt;a class="anchor" href="#1-branches"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;main branch (stable)
+ └─ feature branch (experimental)&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Isolate work without affecting stable code&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Types:&lt;/strong&gt; main (production), feature (new work), hotfix (urgent fixes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-commits"&gt;2. &lt;strong&gt;Commits&lt;/strong&gt;&lt;a class="anchor" href="#2-commits"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;3b18d45 - Add web interface with task table view&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;What:&lt;/strong&gt; Snapshot of your code at a point in time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hash:&lt;/strong&gt; Unique ID (3b18d45)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Message:&lt;/strong&gt; Description of what changed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-remote-vs-local"&gt;3. &lt;strong&gt;Remote vs Local&lt;/strong&gt;&lt;a class="anchor" href="#3-remote-vs-local"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Local (Your Computer) Remote (GitHub)
+├─ main ├─ origin/main
+└─ add-web-task-table └─ origin/add-web-task-table&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Local:&lt;/strong&gt; Your machine&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Remote:&lt;/strong&gt; GitHub (cloud)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sync:&lt;/strong&gt; push (upload), pull (download), fetch (check)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-pull-requests-prs"&gt;4. &lt;strong&gt;Pull Requests (PRs)&lt;/strong&gt;&lt;a class="anchor" href="#4-pull-requests-prs"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Feature Branch → Review → Merge → Main Branch&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Code review before merging&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Benefits:&lt;/strong&gt; Catch bugs, share knowledge, document changes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Process:&lt;/strong&gt; Create → Review → Discuss → Approve → Merge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="5-fast-forward-merge"&gt;5. &lt;strong&gt;Fast-Forward Merge&lt;/strong&gt;&lt;a class="anchor" href="#5-fast-forward-merge"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Before: After:
+main: A─B main: A─B─C─D
+feature: └─C─D&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Clean merge:&lt;/strong&gt; No conflicts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Linear history:&lt;/strong&gt; Easy to understand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="key-git-commands-reference"&gt;Key Git Commands Reference&lt;a class="anchor" href="#key-git-commands-reference"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Command&lt;/th&gt;
+ &lt;th&gt;What It Does&lt;/th&gt;
+ &lt;th&gt;When to Use&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git pull origin main&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Download &amp;amp; merge latest from GitHub&lt;/td&gt;
+ &lt;td&gt;Start of work session&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git checkout -b name&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Create new branch&lt;/td&gt;
+ &lt;td&gt;Start new feature&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show changed files&lt;/td&gt;
+ &lt;td&gt;Check what&amp;rsquo;s modified&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git add &amp;lt;files&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Stage changes for commit&lt;/td&gt;
+ &lt;td&gt;Prepare to commit&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git commit -m &amp;quot;msg&amp;quot;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Save snapshot&lt;/td&gt;
+ &lt;td&gt;After testing changes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git push -u origin branch&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Upload branch to GitHub&lt;/td&gt;
+ &lt;td&gt;Share your work&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git fetch origin&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Check for updates&lt;/td&gt;
+ &lt;td&gt;See what&amp;rsquo;s on GitHub&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git log --oneline&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show commit history&lt;/td&gt;
+ &lt;td&gt;Review what happened&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git branch -a&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;List all branches&lt;/td&gt;
+ &lt;td&gt;See what exists&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git branch -d name&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Delete local branch&lt;/td&gt;
+ &lt;td&gt;After merging&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git remote prune origin&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Clean stale references&lt;/td&gt;
+ &lt;td&gt;After branch deletion&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="additional-useful-commands"&gt;Additional Useful Commands&lt;a class="anchor" href="#additional-useful-commands"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Command&lt;/th&gt;
+ &lt;th&gt;What It Does&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git diff&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show unstaged changes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git diff --staged&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show staged changes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git log --graph --oneline&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Visual commit history&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git branch -v&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show branches with last commit&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git remote -v&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show remote repository URLs&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git checkout main&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Switch to main branch&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git restore &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Discard changes in file&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git restore --staged &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Unstage file&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="the-workflow-visualized"&gt;The Workflow Visualized&lt;a class="anchor" href="#the-workflow-visualized"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────────────────────────────────────┐
+│ LOCAL MACHINE (Your Computer) │
+├─────────────────────────────────────────────────────────────┤
+│ │
+│ 1. git pull origin main │
+│ ↓ │
+│ 2. git checkout -b add-web-task-table │
+│ ↓ │
+│ 3. Write Code (HTML, CSS, Python) │
+│ ↓ │
+│ 4. Test Locally (uvicorn app.main:app) │
+│ ↓ │
+│ 5. git add app/main.py app/templates/ app/static/ │
+│ ↓ │
+│ 6. git commit -m &amp;#34;Add web interface...&amp;#34; │
+│ ↓ │
+│ 7. git push -u origin add-web-task-table │
+│ │
+└───────────────────────────┬──────────────────────────────────┘
+ │
+ │ Push
+ ↓
+┌─────────────────────────────────────────────────────────────┐
+│ GITHUB (Cloud) │
+├─────────────────────────────────────────────────────────────┤
+│ │
+│ 8. Create Pull Request (Web Interface) │
+│ ↓ │
+│ 9. Review Code (See Diffs) │
+│ ↓ │
+│ 10. Merge PR (Green Button) │
+│ ↓ │
+│ 11. Delete Branch (Cleanup) │
+│ │
+└───────────────────────────┬──────────────────────────────────┘
+ │
+ │ Pull
+ ↓
+┌─────────────────────────────────────────────────────────────┐
+│ LOCAL MACHINE (Sync Back) │
+├─────────────────────────────────────────────────────────────┤
+│ │
+│ 12. git checkout main │
+│ 13. git fetch origin │
+│ 14. git pull origin main │
+│ 15. git branch -d add-web-task-table │
+│ 16. git remote prune origin │
+│ │
+│ ✅ COMPLETE CYCLE! │
+│ │
+└─────────────────────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="state-changes-throughout-the-workflow"&gt;State Changes Throughout the Workflow&lt;a class="anchor" href="#state-changes-throughout-the-workflow"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="your-repositorys-evolution"&gt;Your Repository&amp;rsquo;s Evolution:&lt;a class="anchor" href="#your-repositorys-evolution"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Commit 1 (Initial):
+├─ app/main.py (basic API)
+├─ app/models.py
+├─ tests/test_api.py
+└─ README.md
+
+ ↓ [You create feature branch]
+
+Commit 2 (On feature branch):
+├─ app/main.py (+ web endpoint)
+├─ app/models.py
+├─ app/templates/index.html ← NEW
+├─ app/static/style.css ← NEW
+├─ tests/test_api.py
+└─ README.md
+
+ ↓ [You merge PR]
+
+Commit 3 (Merged to main):
+├─ app/main.py (+ web endpoint) ✅
+├─ app/models.py
+├─ app/templates/index.html ✅
+├─ app/static/style.css ✅
+├─ tests/test_api.py
+└─ README.md&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="how-this-differs-with-claude-code-iphone"&gt;How This Differs with Claude Code (iPhone)&lt;a class="anchor" href="#how-this-differs-with-claude-code-iphone"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="traditional-workflow"&gt;Traditional Workflow:&lt;a class="anchor" href="#traditional-workflow"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;You: Write HTML → Write CSS → Write Python → Test → Debug → Commit
+Time: 2-3 hours&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="with-claude-code-what-youll-do-next-from-iphone"&gt;With Claude Code (What you&amp;rsquo;ll do next from iPhone):&lt;a class="anchor" href="#with-claude-code-what-youll-do-next-from-iphone"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;You: &amp;#34;Add a search bar to filter tasks by title&amp;#34;
+Claude: [Reads code] [Writes HTML] [Updates CSS] [Modifies Python]
+ [Adds tests] [Runs tests] [Commits] [Creates PR]
+Time: 5 minutes&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Key Difference:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>About KLM Insurance Solutions, Inc</title><link>http://localhost:1313/documents/backups/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/about/</guid><description>&lt;p&gt;KLM Insurance Agency has been a family run independent agency proudly serving the Greater Philadelphia region since 1980. We pride ourselves on customer service and providing prompt, fair and efficient problem resolution in simple and easy to understand. We will take the time to understand your needs and your goals and will help you understand your decisions and options.&lt;/p&gt;
+&lt;p&gt;At KLM Insurance Solutions everything we do is focused on making insurance easy, understandable and effective. We want to help find you the solution that best fits your situation. We will look for pricing advantages you may qualify for that the right insurance company. Insurance is an ongoing investment designed to protect your primary investments, your health and your income. It is important to select a local agent who will listen when needed and will save the time to understand the details of your situation.&lt;/p&gt;</description></item><item><title>Auto Insurance</title><link>http://localhost:1313/documents/backups/auto-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/auto-insurance/</guid><description>&lt;p&gt;Driving on the open road can be thrilling but can also pose a wide variety of risks that require the right type and level of insurance protection. KLM Insurance Solutions Inc. is here to help with top-quality insurance products to protect you and your vehicle. We offer premium insurance options that our clients can rely on to get the exact coverage they need.&lt;/p&gt;
+&lt;h2 id="find-the-right-auto-insurance-protection"&gt;Find the Right Auto Insurance Protection&lt;a class="anchor" href="#find-the-right-auto-insurance-protection"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We are proudly serving the insurance needs of customers just like you in the Greater Philadelphia region and across the state of Pennsylvania. We can help potential clients discover what their individual needs are currently and even help them make any changes to the policy as their needs change along the way. Additionally, we can help you get the right coverage to meet financing requirements so you can drive away from the dealership or car lot.&lt;/p&gt;</description></item><item><title>Boat/Watercraft Insurance</title><link>http://localhost:1313/documents/backups/boat-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/boat-insurance/</guid><description>&lt;p&gt;Owning a boat or other vessel in Pennsylvania is a large, fun investment and can come with the need for insurance. Boat owner should consider finding a high-quality, comprehensive boat and watercraft insurance policy. There can be use there ways to stay on the water, and you may be able to ruin a family structure. There can use use there ways to stay, or may be able to ruin a great day on the water, so do what you can to stay protected.&lt;/p&gt;</description></item><item><title>Client Center - Customer Service Portal</title><link>http://localhost:1313/documents/backups/client-center/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/client-center/</guid><description/></item><item><title>Commercial Insurance</title><link>http://localhost:1313/documents/backups/commercial-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/commercial-insurance/</guid><description>&lt;p&gt;Every business and company comes with risks that are in place for your employees as well as assets that are imperative to protect. KLM Insurance Solutions Inc. can tell you more about that you have the commercial insurance that you need.&lt;/p&gt;
+&lt;h2 id="protect-your-livelihood"&gt;Protect Your Livelihood&lt;a class="anchor" href="#protect-your-livelihood"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your business needs to be protected against everything that could happen. As your agent, we can&amp;rsquo;t make sure that nothing bad ever happens to your business and assets, but we can make sure that you will recover from any incident that may happen. This is why you need the right insurance. You will need to think about what you need. We are here to help you decide. Common insurance policies include:&lt;/p&gt;</description></item><item><title>Compare Quotes - Get Insurance Quotes</title><link>http://localhost:1313/documents/backups/compare-quotes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/compare-quotes/</guid><description/></item><item><title>Contact KLM Insurance Solutions, Inc</title><link>http://localhost:1313/documents/backups/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/contact/</guid><description>&lt;p&gt;KLM Insurance Solutions, Inc&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1554 Paoli Pike #306&lt;/strong&gt;
+West Chester, PA 19380
+United States&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; 610-429-1330
+&lt;strong&gt;Fax:&lt;/strong&gt; 610-429-1388
+&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href="mailto:sales@klminsurance.com"&gt;sales@klminsurance.com&lt;/a&gt;
+&lt;strong&gt;Website:&lt;/strong&gt; &lt;a href="https://www.klminsurance.com"&gt;www.klminsurance.com&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Home Insurance</title><link>http://localhost:1313/documents/backups/home-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/home-insurance/</guid><description>&lt;p&gt;Insurance is one of the best tools available to help protect people&amp;rsquo;s belongings and investments. There are many different types of insurance available including home insurance. While a lot of people are familiar with basic insurance products such as home insurance, but there are many more designed to offer unique protection from a variety of risks. Let our knowledgeable, experienced insurance agents help you discover insurance products designed to fit your lifestyle.&lt;/p&gt;</description></item><item><title>Insurance Insights</title><link>http://localhost:1313/documents/backups/insurance-insights/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/insurance-insights/</guid><description>&lt;p&gt;Welcome to the KLM Insurance Solutions Insurance Insights center, your trusted resource for insurance knowledge, tips, and industry updates. Whether you&amp;rsquo;re protecting your family, securing your business, or planning for life&amp;rsquo;s important moments, our blog provides valuable information to help you make informed decisions about your insurance coverage.&lt;/p&gt;
+&lt;h2 id="protect-what-matters"&gt;Protect What Matters&lt;a class="anchor" href="#protect-what-matters"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Understanding insurance is the first step to protecting what matters most in your life. From your home and vehicles to your family&amp;rsquo;s financial future, the right insurance coverage provides peace of mind and security when you need it most.&lt;/p&gt;</description></item><item><title>Life Insurance</title><link>http://localhost:1313/documents/backups/life-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/life-insurance/</guid><description>&lt;p&gt;Have you thought about what happens in the event of your death? While you hope that you don&amp;rsquo;t have to worry about such a thing, it&amp;rsquo;s always best to plan for the inevitable. With the help of us at KLM Insurance Solutions Inc., we can be sure that you have reliable life insurance in Pennsylvania.&lt;/p&gt;
+&lt;h2 id="types-of-life-insurance"&gt;Types of Life Insurance&lt;a class="anchor" href="#types-of-life-insurance"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Did you know that there are different types of life insurance? Shopping for a policy on your own can be overwhelming. How much coverage do you need? Should you choose term or whole?&lt;/p&gt;</description></item><item><title>Umbrella Insurance</title><link>http://localhost:1313/documents/backups/umbrella-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/umbrella-insurance/</guid><description>&lt;p&gt;You never know what could happen or how expensive it will be to recover. Although you may have plenty of insurance in place in Pennsylvania, you can never have enough. Umbrella insurance can be just what you need to prevent financial ruin. At KLM Insurance Solutions Inc., we&amp;rsquo;ll help you discover how helpful it can be.&lt;/p&gt;
+&lt;h2 id="how-umbrella-insurance-is-used"&gt;How Umbrella Insurance is Used&lt;a class="anchor" href="#how-umbrella-insurance-is-used"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Throughout Pennsylvania, you need to be covered for all that could happen. What happens when you are in an incident and the bills start to add up, don&amp;rsquo;t which much to exhaust the coverage limits when there&amp;rsquo;s a major accident. Once coverage levels are exceeded, the remaining costs are yours to shoulder.&lt;/p&gt;</description></item><item><title>What is the Difference Between Term, Whole and Permanent Insurance</title><link>http://localhost:1313/documents/backups/term-whole-permanent-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/backups/term-whole-permanent-insurance/</guid><description>&lt;p&gt;Choosing the right life insurance policy can feel overwhelming, especially when you&amp;rsquo;re faced with terms like &amp;ldquo;term life,&amp;rdquo; &amp;ldquo;whole life,&amp;rdquo; and &amp;ldquo;permanent insurance.&amp;rdquo; At KLM Insurance Solutions Inc., we believe understanding your options should be straightforward. Let&amp;rsquo;s break down the key differences between these three types of life insurance in plain English.&lt;/p&gt;
+&lt;h2 id="term-life-insurance-protection-for-a-specific-period"&gt;Term Life Insurance: Protection for a Specific Period&lt;a class="anchor" href="#term-life-insurance-protection-for-a-specific-period"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Think of term life insurance as renting coverage for a set period of time. You choose how long you need protection—typically 10, 20, or 30 years—and if you pass away during that term, your beneficiaries receive the death benefit.&lt;/p&gt;</description></item></channel></rss>

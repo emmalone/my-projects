@@ -7,14 +7,14 @@ type: docs
 
 Complete inventory of all projects in PycharmProjects.
 
-**Scan Date**: 2026-01-03T11:03:15.430876
+**Scan Date**: 2026-01-03T12:40:49.813579
 
 ## Summary
 
-- **Total Projects**: 23
+- **Total Projects**: 22
 - **Git Repositories**: 8
-- **Total Markdown Files**: 226
-- **Combined Size**: 944.88 MB
+- **Total Markdown Files**: 142
+- **Combined Size**: 871.44 MB
 
 ## Projects by Tech Stack
 
@@ -91,8 +91,8 @@ Complete inventory of all projects in PycharmProjects.
 - **Path**: `/Users/mark/PycharmProjects/klm-plan`
 - **Type**: Git Repository
 - **Tech**: Hugo, AWS Lambda, AWS CloudFront, GitHub Actions
-- **Size**: 20.85 MB
-- **Documents**: 72
+- **Size**: 20.86 MB
+- **Documents**: 34
 
 ### klm-migrate
 
@@ -100,7 +100,7 @@ Complete inventory of all projects in PycharmProjects.
 - **Type**: Directory
 - **Tech**: Python
 - **Size**: 196.93 MB
-- **Documents**: 57
+- **Documents**: 55
 
 ### klm
 
@@ -122,13 +122,6 @@ Complete inventory of all projects in PycharmProjects.
 - **Type**: Git Repository
 - **Size**: 0.11 MB
 - **Documents**: 1
-
-### klm-hugo-lab
-
-- **Path**: `/Users/mark/PycharmProjects/klm-hugo-lab`
-- **Type**: Directory
-- **Size**: 103.73 MB
-- **Documents**: 50
 
 ### apollo
 
@@ -163,8 +156,8 @@ Complete inventory of all projects in PycharmProjects.
 
 - **Path**: `/Users/mark/PycharmProjects/hugo-docs-template`
 - **Type**: Git Repository
-- **Size**: 0.1 MB
-- **Documents**: 3
+- **Size**: 21.96 MB
+- **Documents**: 8
 
 ### hello
 
@@ -191,7 +184,7 @@ Complete inventory of all projects in PycharmProjects.
 - **Path**: `/Users/mark/PycharmProjects/backups`
 - **Type**: Directory
 - **Size**: 3.15 MB
-- **Documents**: 18
+- **Documents**: 16
 
 ### questions
 
@@ -204,8 +197,8 @@ Complete inventory of all projects in PycharmProjects.
 - **Path**: `/Users/mark/PycharmProjects/klm-apartment-app`
 - **Type**: Git Repository
 - **Tech**: Python (Poetry), GitHub Actions
-- **Size**: 26.02 MB
-- **Documents**: 10
+- **Size**: 34.44 MB
+- **Documents**: 13
 
 ### remote
 

@@ -33,7 +33,7 @@ KAA automates the process of completing insurance applications across multiple c
 
 ## Files
 
-**Total Markdown Files**: 10
+**Total Markdown Files**: 13
 
 
 ### Documentation
@@ -42,6 +42,8 @@ KAA automates the process of completing insurance applications across multiple c
   - Build working MVP by end of day: Single property → PDF generation workflow
 - [CONVERSATION_SUMMARY.md](CONVERSATION_SUMMARY.md)
   - **Date**: January 2, 2026
+- [DATABASE_WORKFLOW.md](DATABASE_WORKFLOW.md)
+  - The KAA database is designed to store all insurance application data in a flexible, normalized structure.
 - [README.md](README.md)
   - Insurance application automation system for commercial apartment buildings.
 - [begin.md](begin.md)
@@ -52,6 +54,10 @@ KAA automates the process of completing insurance applications across multiple c
   - KAA is an insurance application automation system designed to streamline the process of completing commercial apartment building insurance applications across multiple carriers. The system extracts...
 - [MVP_SCOPE.md](planning/MVP_SCOPE.md)
   - **Created**: 2026-01-02
+- [acord_140_extraction_summary.md](data/extracted/acord_140_extraction_summary.md)
+  - **Date:** January 3, 2026
+- [handwritten_application_complete_data.md](output/analysis/handwritten_application_complete_data.md)
+  - **Source:** `2024_habit_supplemental_applications.pdf` (19 pages)
 - [JOTFORM_MANUAL_SETUP.md](output/jotform/JOTFORM_MANUAL_SETUP.md)
   - Due to API limitations with programmatically creating JotForm forms with many questions, we've provided multiple alternatives for collecting the missing insurance application data.
 - [DEPLOYMENT_SUMMARY.md](output/jotform/DEPLOYMENT_SUMMARY.md)
@@ -65,8 +71,8 @@ KAA automates the process of completing insurance applications across multiple c
 
 **Branch**: main
 
-**Last Commit**: Fix form URL - use HTTPS direct S3 URL instead of website endpoint (11 hours ago) by Mark Malone
+**Last Commit**: Add comprehensive extraction from 2024 handwritten supplemental applications (52 minutes ago) by Mark Malone
 
 
 **Path**: `/Users/mark/PycharmProjects/klm-apartment-app`
-**Size**: 26.02 MB
+**Size**: 34.44 MB

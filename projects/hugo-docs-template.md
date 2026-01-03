@@ -35,7 +35,7 @@ This automation system creates a complete, production-ready documentation site w
 
 ## Files
 
-**Total Markdown Files**: 3
+**Total Markdown Files**: 8
 
 
 ### Documentation
@@ -46,13 +46,23 @@ This automation system creates a complete, production-ready documentation site w
   - Real-world examples of deploying documentation sites with the automation system.
 - [README.md](README.md)
   - **One-command deployment of secure Hugo documentation sites to AWS**
+- [_index.md](my-projects/content/_index.md)
+  - This is your project documentation site.
+- [_index.md](my-projects/content/about/_index.md)
+  - Content goes here.
+- [_index.md](my-projects/content/docs/_index.md)
+  - Content goes here.
+- [_index.md](my-projects/content/guides/_index.md)
+  - Content goes here.
+- [_index.md](my-projects/content/reference/_index.md)
+  - Content goes here.
 
 ## Git Repository
 
 **Branch**: main
 
-**Last Commit**: Initial commit: Hugo docs automation system (5 minutes ago) by Mark Malone
+**Last Commit**: Initial commit: Hugo docs automation system (2 hours ago) by Mark Malone
 
 
 **Path**: `/Users/mark/PycharmProjects/hugo-docs-template`
-**Size**: 0.1 MB
+**Size**: 21.96 MB

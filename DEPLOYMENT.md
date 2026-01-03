@@ -42,11 +42,13 @@
 
 The site aggregates all documentation from all projects in PycharmProjects:
 
-- **23 Projects** tracked
-- **226 Markdown Files** indexed and searchable
+- **22 Projects** tracked (excluding klm-hugo-lab due to Hugo compatibility issues)
+- **142 Markdown Files** indexed and searchable
 - **Project Profiles** with tech stack and Git info
 - **Cross-Project Search** enabled
 - **Inventory** with statistics and breakdowns
+
+**Note**: klm-hugo-lab project is excluded from the scan due to Hugo template incompatibility. The HTML import files from that project cause build failures.
 
 ## Deployment Process
 

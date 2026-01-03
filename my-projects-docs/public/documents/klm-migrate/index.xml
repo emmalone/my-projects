@@ -1,0 +1,1458 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KLM Insurance Solutions on My Projects - Documentation Hub</title><link>http://localhost:1313/documents/klm-migrate/</link><description>Recent content in KLM Insurance Solutions on My Projects - Documentation Hub</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 02 Jan 2026 01:16:28 +0000</lastBuildDate><atom:link href="http://localhost:1313/documents/klm-migrate/index.xml" rel="self" type="application/rss+xml"/><item><title>claude</title><link>http://localhost:1313/documents/klm-migrate/claude/</link><pubDate>Fri, 02 Jan 2026 01:16:28 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/claude/</guid><description>&lt;h1 id="klm-insurance-website-migration-project"&gt;KLM Insurance Website Migration Project&lt;a class="anchor" href="#klm-insurance-website-migration-project"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Complete Project Context &amp;amp; Technical Reference&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-quick-reference"&gt;📋 Quick Reference&lt;a class="anchor" href="#-quick-reference"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Project Location:&lt;/strong&gt; &lt;code&gt;/Users/mark/PycharmProjects/klm-migrate&lt;/code&gt;
+&lt;strong&gt;Hugo Site:&lt;/strong&gt; &lt;code&gt;/Users/mark/PycharmProjects/klm-migrate/klm-hugo-site&lt;/code&gt;
+&lt;strong&gt;Repository:&lt;/strong&gt; &lt;a href="https://github.com/emmalone/klm-migrate"&gt;https://github.com/emmalone/klm-migrate&lt;/a&gt;
+&lt;strong&gt;Developer:&lt;/strong&gt; Mark (&lt;a href="mailto:mark@emm-associates.com"&gt;mark@emm-associates.com&lt;/a&gt;)
+&lt;strong&gt;Company:&lt;/strong&gt; KLM Insurance Solutions, Inc.
+&lt;strong&gt;Last Updated:&lt;/strong&gt; January 2, 2026&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-claude-code-permission-configuration"&gt;⚙️ Claude Code Permission Configuration&lt;a class="anchor" href="#-claude-code-permission-configuration"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="settings-file-location"&gt;Settings File Location&lt;a class="anchor" href="#settings-file-location"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Project Settings:&lt;/strong&gt; &lt;code&gt;.claude/settings.json&lt;/code&gt; (committed to git)
+&lt;strong&gt;Local Overrides:&lt;/strong&gt; &lt;code&gt;.claude/settings.local.json&lt;/code&gt; (gitignored)&lt;/p&gt;
+&lt;h3 id="current-configuration"&gt;Current Configuration&lt;a class="anchor" href="#current-configuration"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The project has pre-configured permissions in &lt;code&gt;.claude/settings.json&lt;/code&gt; that allow:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ All git commands (status, add, commit, push, etc.)&lt;/li&gt;
+&lt;li&gt;✅ Hugo commands (server, build)&lt;/li&gt;
+&lt;li&gt;✅ AWS CLI commands (S3, CloudFront, Route53)&lt;/li&gt;
+&lt;li&gt;✅ GitHub CLI commands (gh run, gh secret, gh pr)&lt;/li&gt;
+&lt;li&gt;✅ Reading all project files&lt;/li&gt;
+&lt;li&gt;✅ Editing content files (md, html, css, js, py, yml)&lt;/li&gt;
+&lt;li&gt;✅ WebSearch and approved domain fetches&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Default Mode:&lt;/strong&gt; &lt;code&gt;acceptEdits&lt;/code&gt; - Auto-accepts file edits without prompting&lt;/p&gt;</description></item><item><title>DEVELOPMENT_WORKFLOW</title><link>http://localhost:1313/documents/klm-migrate/development_workflow/</link><pubDate>Thu, 01 Jan 2026 23:45:19 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/development_workflow/</guid><description>&lt;h1 id="development-workflow---from-iteration-to-production"&gt;Development Workflow - From Iteration to Production&lt;a class="anchor" href="#development-workflow---from-iteration-to-production"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="overview-three-development-scenarios"&gt;Overview: Three Development Scenarios&lt;a class="anchor" href="#overview-three-development-scenarios"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Updated:&lt;/strong&gt; The workflow has been reconfigured for 3 distinct development scenarios:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Scenario&lt;/th&gt;
+ &lt;th&gt;Branch&lt;/th&gt;
+ &lt;th&gt;Testing&lt;/th&gt;
+ &lt;th&gt;Deploy to Dev&lt;/th&gt;
+ &lt;th&gt;Deploy to Staging&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Laptop/Desktop&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;main&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Local (hugo server)&lt;/td&gt;
+ &lt;td&gt;✅ Auto (on push to main)&lt;/td&gt;
+ &lt;td&gt;Manual (Python script)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;iPhone/Claude Code&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;claude/**&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Dev environment&lt;/td&gt;
+ &lt;td&gt;✅ Auto (on push to claude/**)&lt;/td&gt;
+ &lt;td&gt;Manual (Python script)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Staging&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;N/A&lt;/td&gt;
+ &lt;td&gt;N/A&lt;/td&gt;
+ &lt;td&gt;N/A&lt;/td&gt;
+ &lt;td&gt;Manual (Python script)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="environment-details"&gt;Environment Details&lt;a class="anchor" href="#environment-details"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Environment&lt;/th&gt;
+ &lt;th&gt;Purpose&lt;/th&gt;
+ &lt;th&gt;Deployed How&lt;/th&gt;
+ &lt;th&gt;Who Uses It&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Local&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;Laptop/desktop development&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;hugo server&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;You (developer) on laptop/desktop&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Dev&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;Remote preview (iPhone work)&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;claude/*&lt;/code&gt; branches (auto)&lt;/td&gt;
+ &lt;td&gt;You (developer) on iPhone&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Staging&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;Business review&lt;/td&gt;
+ &lt;td&gt;Manual Python script ONLY&lt;/td&gt;
+ &lt;td&gt;Business users for final review&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Production&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;Live site&lt;/td&gt;
+ &lt;td&gt;Manual Python script ONLY&lt;/td&gt;
+ &lt;td&gt;Public customers&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="key-changes-from-previous-workflow"&gt;Key Changes from Previous Workflow&lt;a class="anchor" href="#key-changes-from-previous-workflow"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;❌ &lt;strong&gt;No staging branch&lt;/strong&gt; - Removed auto-deploy to staging&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Manual staging control&lt;/strong&gt; - You decide when staging updates via Python script&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Dev auto-deploys from main AND claude/&lt;/strong&gt; - Dev reflects all committed code&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Always-current dev environment&lt;/strong&gt; - Whether working on laptop or iPhone, dev stays in sync&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;Laptop work auto-deploys to dev&lt;/strong&gt; - Push to main triggers dev deployment&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;iPhone work auto-deploys to dev&lt;/strong&gt; - Push to &lt;code&gt;claude/**&lt;/code&gt; triggers dev deployment&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="the-complete-workflow"&gt;The Complete Workflow&lt;a class="anchor" href="#the-complete-workflow"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="scenario-1-laptopdesktop-development"&gt;Scenario 1: Laptop/Desktop Development&lt;a class="anchor" href="#scenario-1-laptopdesktop-development"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Develop and test locally, auto-deploy to dev, manual control over staging&lt;/p&gt;</description></item><item><title>WORKFLOW</title><link>http://localhost:1313/documents/klm-migrate/workflow/</link><pubDate>Thu, 01 Jan 2026 23:43:57 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/workflow/</guid><description>&lt;h1 id="klm-hugo-site---development-workflow"&gt;KLM Hugo Site - Development Workflow&lt;a class="anchor" href="#klm-hugo-site---development-workflow"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;Complete guide for working with the KLM Insurance Hugo site across multiple devices.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Repository:&lt;/strong&gt; &lt;a href="https://github.com/emmalone/klm-migrate"&gt;https://github.com/emmalone/klm-migrate&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="table-of-contents"&gt;Table of Contents&lt;a class="anchor" href="#table-of-contents"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#working-on-another-computer"&gt;Working on Another Computer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#working-from-iphone-with-claude-code"&gt;Working from iPhone with Claude Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#syncing-between-devices"&gt;Syncing Between Devices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#daily-workflow"&gt;Daily Workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#hugo-specific-setup"&gt;Hugo-Specific Setup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#quick-reference"&gt;Quick Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="working-on-another-computer"&gt;Working on Another Computer&lt;a class="anchor" href="#working-on-another-computer"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="step-by-step-setup-guide"&gt;Step-by-Step Setup Guide&lt;a class="anchor" href="#step-by-step-setup-guide"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Important: Always create a NEW, CLEAN folder&lt;/strong&gt; - this is the best practice!&lt;/p&gt;
+&lt;h4 id="step-1-choose-a-location"&gt;Step 1: Choose a Location&lt;a class="anchor" href="#step-1-choose-a-location"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Navigate to where you want the project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~/Documents/Projects
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd ~/Desktop
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# or wherever you prefer&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="step-2-clone-the-repository"&gt;Step 2: Clone the Repository&lt;a class="anchor" href="#step-2-clone-the-repository"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# This creates a new folder called &amp;#39;klm-migrate&amp;#39; and downloads everything&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/emmalone/klm-migrate.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Navigate into it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd klm-migrate&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="step-3-verify-what-you-got"&gt;Step 3: Verify What You Got&lt;a class="anchor" href="#step-3-verify-what-you-got"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Check the files&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls -la
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# You should see:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# - content/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# - layouts/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# - static/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# - themes/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# - hugo.toml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# - .gitignore&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# etc.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# The API key files WON&amp;#39;T be there (they were excluded)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="step-4-configure-git-first-time-only"&gt;Step 4: Configure Git (First Time Only)&lt;a class="anchor" href="#step-4-configure-git-first-time-only"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Set your identity&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config user.name &lt;span style="color:#e6db74"&gt;&amp;#34;emmalone&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config user.email &lt;span style="color:#e6db74"&gt;&amp;#34;mark@emm-associates.com&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Verify&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config user.name
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git config user.email&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="step-5-start-working"&gt;Step 5: Start Working!&lt;a class="anchor" href="#step-5-start-working"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Make sure you&amp;#39;re up to date&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git pull origin main
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Create a branch for changes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git checkout -b update-homepage
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Edit files, make changes...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# When done:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git commit -m &lt;span style="color:#e6db74"&gt;&amp;#34;Update homepage content&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git push -u origin update-homepage
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Create PR on GitHub, review, merge&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="about-the-api-key-files"&gt;About the API Key Files&lt;a class="anchor" href="#about-the-api-key-files"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="what-happened-to-the-api-key-files"&gt;What Happened to the API Key Files?&lt;a class="anchor" href="#what-happened-to-the-api-key-files"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;When you clone on a new computer, you&amp;rsquo;ll notice these files are missing:&lt;/p&gt;</description></item><item><title>LANDING_PAGES_GUIDE</title><link>http://localhost:1313/documents/klm-migrate/landing_pages_guide/</link><pubDate>Thu, 01 Jan 2026 22:37:14 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/landing_pages_guide/</guid><description>&lt;h1 id="landing-pages--form-tracking-guide"&gt;Landing Pages &amp;amp; Form Tracking Guide&lt;a class="anchor" href="#landing-pages--form-tracking-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This guide explains how to create landing pages and track which page users submitted forms from.&lt;/p&gt;
+&lt;h2 id="-table-of-contents"&gt;📋 Table of Contents&lt;a class="anchor" href="#-table-of-contents"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#overview"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#setting-up-jotform-hidden-field"&gt;Setting Up JotForm Hidden Field&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#creating-new-landing-pages"&gt;Creating New Landing Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#how-form-tracking-works"&gt;How Form Tracking Works&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#viewing-submission-data"&gt;Viewing Submission Data&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#examples"&gt;Examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="overview"&gt;Overview&lt;a class="anchor" href="#overview"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="the-strategy"&gt;The Strategy&lt;a class="anchor" href="#the-strategy"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;We use &lt;strong&gt;ONE JotForm&lt;/strong&gt; for all pages with a &lt;strong&gt;hidden field&lt;/strong&gt; that captures which page the user came from.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Benefits:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ All submissions in one place&lt;/li&gt;
+&lt;li&gt;✅ Easy to filter by landing page&lt;/li&gt;
+&lt;li&gt;✅ No need to create multiple forms&lt;/li&gt;
+&lt;li&gt;✅ Automatically tracks page source&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="setting-up-jotform-hidden-field"&gt;Setting Up JotForm Hidden Field&lt;a class="anchor" href="#setting-up-jotform-hidden-field"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;You only need to do this ONCE for your main quote form.&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>DEPLOYMENT</title><link>http://localhost:1313/documents/klm-migrate/deployment/</link><pubDate>Thu, 01 Jan 2026 17:26:07 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/deployment/</guid><description>&lt;h1 id="deployment-guide---three-environment-setup"&gt;Deployment Guide - Three Environment Setup&lt;a class="anchor" href="#deployment-guide---three-environment-setup"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="overview"&gt;Overview&lt;a class="anchor" href="#overview"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your repository is configured with &lt;strong&gt;three separate environments&lt;/strong&gt; for a professional development workflow:&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Environment&lt;/th&gt;
+ &lt;th&gt;S3 Bucket&lt;/th&gt;
+ &lt;th&gt;Deploys From&lt;/th&gt;
+ &lt;th&gt;Purpose&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;DEV&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;S3_DEV_BUCKET&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;claude/*&lt;/code&gt; branches&lt;/td&gt;
+ &lt;td&gt;Your iteration &amp;amp; testing&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;STAGING&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;S3_STAGING_BUCKET&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;staging&lt;/code&gt; branch&lt;/td&gt;
+ &lt;td&gt;Business review&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;PRODUCTION&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;S3_PROD_BUCKET&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;code&gt;main&lt;/code&gt; branch&lt;/td&gt;
+ &lt;td&gt;Live customer site&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="how-it-works"&gt;How It Works&lt;a class="anchor" href="#how-it-works"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="dev-environment-rapid-iteration"&gt;DEV Environment (Rapid Iteration)&lt;a class="anchor" href="#dev-environment-rapid-iteration"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;You make changes&lt;/strong&gt; via Claude Code on your iPhone&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Changes are pushed&lt;/strong&gt; to a &lt;code&gt;claude/*&lt;/code&gt; branch (automatic)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Actions triggers&lt;/strong&gt; and builds the Hugo site&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Site is deployed&lt;/strong&gt; to your S3 DEV bucket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You preview&lt;/strong&gt; immediately on your iPhone at dev.klm-insurance.com&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="staging-environment-business-review"&gt;STAGING Environment (Business Review)&lt;a class="anchor" href="#staging-environment-business-review"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;You create a PR&lt;/strong&gt; from your &lt;code&gt;claude/*&lt;/code&gt; branch to &lt;code&gt;staging&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You review and merge&lt;/strong&gt; the PR&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Actions deploys&lt;/strong&gt; to S3 STAGING bucket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Business users review&lt;/strong&gt; at staging.klm-insurance.com&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="production-environment-live-site"&gt;PRODUCTION Environment (Live Site)&lt;a class="anchor" href="#production-environment-live-site"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Business approves&lt;/strong&gt; features on staging&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You create PR&lt;/strong&gt; from &lt;code&gt;staging&lt;/code&gt; to &lt;code&gt;main&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;You merge&lt;/strong&gt; after final review&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;GitHub Actions deploys&lt;/strong&gt; to S3 PRODUCTION bucket&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Site is live&lt;/strong&gt; at klm-insurance.com&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;See DEVELOPMENT_WORKFLOW.md for complete workflow details.&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>SIDEBAR_IMAGES_NEEDED</title><link>http://localhost:1313/documents/klm-migrate/sidebar_images_needed/</link><pubDate>Sun, 28 Dec 2025 18:58:16 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/sidebar_images_needed/</guid><description>&lt;h1 id="sidebar-images-needed"&gt;Sidebar Images Needed&lt;a class="anchor" href="#sidebar-images-needed"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This document lists the sidebar images that need to be sourced from royalty-free image sites.&lt;/p&gt;
+&lt;h2 id="current-issues"&gt;Current Issues&lt;a class="anchor" href="#current-issues"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The following pages are using incorrect sidebar images:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Boat/Watercraft Insurance&lt;/strong&gt; (&lt;code&gt;content/boat-insurance.md&lt;/code&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently using: &lt;code&gt;featured-commercial-insurance-thumbnail.png&lt;/code&gt; (WRONG)&lt;/li&gt;
+&lt;li&gt;Needs: Boat/watercraft-specific sidebar image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Umbrella Insurance&lt;/strong&gt; (&lt;code&gt;content/umbrella-insurance.md&lt;/code&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently using: &lt;code&gt;featured-life-insurance-thumbnail.png&lt;/code&gt; (WRONG)&lt;/li&gt;
+&lt;li&gt;Needs: Umbrella/protection-specific sidebar image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="recommended-sources"&gt;Recommended Sources&lt;a class="anchor" href="#recommended-sources"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="free-royalty-free-image-sites"&gt;Free Royalty-Free Image Sites:&lt;a class="anchor" href="#free-royalty-free-image-sites"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://unsplash.com/"&gt;Unsplash&lt;/a&gt;&lt;/strong&gt; - Free commercial use, no attribution required&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href="https://www.pexels.com/"&gt;Pexels&lt;/a&gt;&lt;/strong&gt; - Free commercial use, no attribution required&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="image-specifications"&gt;Image Specifications&lt;a class="anchor" href="#image-specifications"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dimensions&lt;/strong&gt;: Approximately 300-400px wide (will be displayed in sidebar)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Orientation&lt;/strong&gt;: Portrait or square preferred&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quality&lt;/strong&gt;: Professional, high-resolution&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Style&lt;/strong&gt;: Clean, insurance-appropriate, matches brand aesthetic&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="search-terms--download-instructions"&gt;Search Terms &amp;amp; Download Instructions&lt;a class="anchor" href="#search-terms--download-instructions"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="for-boatwatercraft-insurance-sidebar"&gt;For Boat/Watercraft Insurance Sidebar:&lt;a class="anchor" href="#for-boatwatercraft-insurance-sidebar"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Search terms:&lt;/strong&gt; &lt;code&gt;boat water&lt;/code&gt;, &lt;code&gt;sailing boat&lt;/code&gt;, &lt;code&gt;yacht water&lt;/code&gt;, &lt;code&gt;motorboat lake&lt;/code&gt;&lt;/p&gt;</description></item><item><title>PRODUCTION_DEPLOYMENT_PLAN</title><link>http://localhost:1313/documents/klm-migrate/production_deployment_plan/</link><pubDate>Sun, 28 Dec 2025 17:44:38 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/production_deployment_plan/</guid><description>&lt;h1 id="klm-insurance---production-deployment-plan"&gt;KLM Insurance - Production Deployment Plan&lt;a class="anchor" href="#klm-insurance---production-deployment-plan"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 28, 2025
+&lt;strong&gt;Goal:&lt;/strong&gt; Deploy Hugo site to production and migrate DNS from current hosting&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="current-state"&gt;Current State&lt;a class="anchor" href="#current-state"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="staging-complete"&gt;Staging (Complete)&lt;a class="anchor" href="#staging-complete"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ URL: &lt;a href="https://www.klmcrm.com"&gt;https://www.klmcrm.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;✅ S3 Bucket: klmcrm.com&lt;/li&gt;
+&lt;li&gt;✅ CloudFront ID: E3HA8770RGET6T&lt;/li&gt;
+&lt;li&gt;✅ SSL Certificate: *.klmcrm.com (ISSUED)&lt;/li&gt;
+&lt;li&gt;✅ Route53 Hosted Zone: ZNUGG3NYBSQJ8&lt;/li&gt;
+&lt;li&gt;✅ Status: Working perfectly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="production-in-progress"&gt;Production (In Progress)&lt;a class="anchor" href="#production-in-progress"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;🎯 URL: &lt;a href="https://www.klminsurance.com"&gt;https://www.klminsurance.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;✅ S3 Bucket: klminsurance.com (exists, website hosting enabled)&lt;/li&gt;
+&lt;li&gt;❌ CloudFront: Not created yet&lt;/li&gt;
+&lt;li&gt;❌ SSL Certificate: None for klminsurance.com&lt;/li&gt;
+&lt;li&gt;❌ Route53 Hosted Zone: None (DNS hosted elsewhere)&lt;/li&gt;
+&lt;li&gt;❌ Current hosting: External provider (needs migration)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="deployment-strategy-phased-approach"&gt;Deployment Strategy: Phased Approach&lt;a class="anchor" href="#deployment-strategy-phased-approach"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="phase-1-deploy-to-s3--test-30-minutes"&gt;Phase 1: Deploy to S3 &amp;amp; Test (30 minutes)&lt;a class="anchor" href="#phase-1-deploy-to-s3--test-30-minutes"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Goal:&lt;/strong&gt; Get site deployed and testable without affecting DNS&lt;/p&gt;</description></item><item><title>SECURITY_REVIEW</title><link>http://localhost:1313/documents/klm-migrate/security_review/</link><pubDate>Sun, 28 Dec 2025 15:06:20 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/security_review/</guid><description>&lt;h1 id="security-review-report---klm-hugo-site-migration"&gt;Security Review Report - KLM Hugo Site Migration&lt;a class="anchor" href="#security-review-report---klm-hugo-site-migration"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 28, 2025
+&lt;strong&gt;Reviewed by:&lt;/strong&gt; Claude Code
+&lt;strong&gt;Repository:&lt;/strong&gt; &lt;a href="https://github.com/emmalone/klm-migrate"&gt;https://github.com/emmalone/klm-migrate&lt;/a&gt;
+&lt;strong&gt;Status:&lt;/strong&gt; ⚠️ SECURITY ISSUES FOUND - DO NOT COMMIT YET&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="critical-security-issues-found"&gt;Critical Security Issues Found&lt;a class="anchor" href="#critical-security-issues-found"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="-issue-1-hardcoded-jotform-api-keys"&gt;🚨 Issue #1: Hardcoded JotForm API Keys&lt;a class="anchor" href="#-issue-1-hardcoded-jotform-api-keys"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Severity:&lt;/strong&gt; CRITICAL
+&lt;strong&gt;Files Affected:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;create_form3_fields.py&lt;/code&gt; (line 5)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setup_form3_conditions.py&lt;/code&gt; (line 5)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;API Key Found:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;api_key &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;d250db3b489a19b5b1ed8f7e68bb9e79&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Risk:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If committed to GitHub, this API key will be publicly visible&lt;/li&gt;
+&lt;li&gt;Anyone could use this key to access/modify your JotForm forms&lt;/li&gt;
+&lt;li&gt;The key would remain in git history even if deleted later&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Required Actions BEFORE Committing:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>MIGRATE_TO_GITHUB_CHECKLIST</title><link>http://localhost:1313/documents/klm-migrate/migrate_to_github_checklist/</link><pubDate>Sun, 28 Dec 2025 14:16:44 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/migrate_to_github_checklist/</guid><description>&lt;h1 id="migrating-website-to-github---safety-checklist"&gt;Migrating Website to GitHub - Safety Checklist&lt;a class="anchor" href="#migrating-website-to-github---safety-checklist"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="before-you-start---critical-security-checks"&gt;BEFORE YOU START - CRITICAL SECURITY CHECKS&lt;a class="anchor" href="#before-you-start---critical-security-checks"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="-step-1-identify-sensitive-files"&gt;☐ Step 1: Identify Sensitive Files&lt;a class="anchor" href="#-step-1-identify-sensitive-files"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Navigate to your project directory and look for:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Search for potential secret files&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;find . -name &lt;span style="color:#e6db74"&gt;&amp;#34;.env*&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;*.key&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;*.pem&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;config.php&amp;#34;&lt;/span&gt; -o -name &lt;span style="color:#e6db74"&gt;&amp;#34;settings.py&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Look for files with &amp;#34;password&amp;#34; or &amp;#34;secret&amp;#34; in them&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;grep -r &lt;span style="color:#e6db74"&gt;&amp;#34;password\|secret\|api_key&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.php&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.py&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.js&amp;#34;&lt;/span&gt; --include&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;*.env&amp;#34;&lt;/span&gt; .&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Common secret files by technology:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WordPress:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wp-config.php&lt;/code&gt; (has database credentials!)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.htaccess&lt;/code&gt; (might have passwords)&lt;/li&gt;
+&lt;li&gt;Upload directories with customer data&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Django/Python:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>SESSION_HANDOFF</title><link>http://localhost:1313/documents/klm-migrate/session_handoff/</link><pubDate>Sun, 28 Dec 2025 14:16:44 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/session_handoff/</guid><description>&lt;h1 id="claude-code-session-handoff---website-migration"&gt;Claude Code Session Handoff - Website Migration&lt;a class="anchor" href="#claude-code-session-handoff---website-migration"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 28, 2025
+&lt;strong&gt;From:&lt;/strong&gt; demo-task-api learning session
+&lt;strong&gt;To:&lt;/strong&gt; klm-migrate website project session&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="what-youve-learned-quick-reference"&gt;What You&amp;rsquo;ve Learned (Quick Reference)&lt;a class="anchor" href="#what-youve-learned-quick-reference"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="git-setup-complete"&gt;Git Setup Complete&lt;a class="anchor" href="#git-setup-complete"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ Git configured with &lt;code&gt;emmalone&lt;/code&gt; username&lt;/li&gt;
+&lt;li&gt;✅ Email: &lt;code&gt;mark@emm-associates.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;✅ GitHub credentials cached in macOS Keychain&lt;/li&gt;
+&lt;li&gt;✅ Personal Access Token created and working&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="completed-projects"&gt;Completed Projects&lt;a class="anchor" href="#completed-projects"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;demo-task-api&lt;/strong&gt; - Task Manager with web interface
+&lt;ul&gt;
+&lt;li&gt;Repo: &lt;a href="https://github.com/emmalone/demo-task-api"&gt;https://github.com/emmalone/demo-task-api&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;2 successful PRs merged&lt;/li&gt;
+&lt;li&gt;Full git workflow practiced&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="-critical-security-checks-before-committing"&gt;🚨 CRITICAL: Security Checks Before Committing&lt;a class="anchor" href="#-critical-security-checks-before-committing"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="run-these-commands-first-in-your-website-directory"&gt;Run These Commands First (In Your Website Directory)&lt;a class="anchor" href="#run-these-commands-first-in-your-website-directory"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;1. Search for API keys and passwords:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>GITOVERVIEW</title><link>http://localhost:1313/documents/klm-migrate/gitoverview/</link><pubDate>Sun, 28 Dec 2025 13:23:20 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/gitoverview/</guid><description>&lt;h1 id="git--github-workflow---complete-reference-guide"&gt;Git &amp;amp; GitHub Workflow - Complete Reference Guide&lt;a class="anchor" href="#git--github-workflow---complete-reference-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This document provides a comprehensive overview of the Git/GitHub workflow you&amp;rsquo;ve mastered through building the Task Manager API demo application.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="git-concepts-you-mastered"&gt;Git Concepts You Mastered&lt;a class="anchor" href="#git-concepts-you-mastered"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-branches"&gt;1. &lt;strong&gt;Branches&lt;/strong&gt;&lt;a class="anchor" href="#1-branches"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;main branch (stable)
+ └─ feature branch (experimental)&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Isolate work without affecting stable code&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Types:&lt;/strong&gt; main (production), feature (new work), hotfix (urgent fixes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-commits"&gt;2. &lt;strong&gt;Commits&lt;/strong&gt;&lt;a class="anchor" href="#2-commits"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;3b18d45 - Add web interface with task table view&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;What:&lt;/strong&gt; Snapshot of your code at a point in time&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hash:&lt;/strong&gt; Unique ID (3b18d45)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Message:&lt;/strong&gt; Description of what changed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-remote-vs-local"&gt;3. &lt;strong&gt;Remote vs Local&lt;/strong&gt;&lt;a class="anchor" href="#3-remote-vs-local"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Local (Your Computer) Remote (GitHub)
+├─ main ├─ origin/main
+└─ add-web-task-table └─ origin/add-web-task-table&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Local:&lt;/strong&gt; Your machine&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Remote:&lt;/strong&gt; GitHub (cloud)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sync:&lt;/strong&gt; push (upload), pull (download), fetch (check)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-pull-requests-prs"&gt;4. &lt;strong&gt;Pull Requests (PRs)&lt;/strong&gt;&lt;a class="anchor" href="#4-pull-requests-prs"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Feature Branch → Review → Merge → Main Branch&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Code review before merging&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Benefits:&lt;/strong&gt; Catch bugs, share knowledge, document changes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Process:&lt;/strong&gt; Create → Review → Discuss → Approve → Merge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="5-fast-forward-merge"&gt;5. &lt;strong&gt;Fast-Forward Merge&lt;/strong&gt;&lt;a class="anchor" href="#5-fast-forward-merge"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Before: After:
+main: A─B main: A─B─C─D
+feature: └─C─D&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Clean merge:&lt;/strong&gt; No conflicts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Linear history:&lt;/strong&gt; Easy to understand&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="key-git-commands-reference"&gt;Key Git Commands Reference&lt;a class="anchor" href="#key-git-commands-reference"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Command&lt;/th&gt;
+ &lt;th&gt;What It Does&lt;/th&gt;
+ &lt;th&gt;When to Use&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git pull origin main&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Download &amp;amp; merge latest from GitHub&lt;/td&gt;
+ &lt;td&gt;Start of work session&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git checkout -b name&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Create new branch&lt;/td&gt;
+ &lt;td&gt;Start new feature&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git status&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show changed files&lt;/td&gt;
+ &lt;td&gt;Check what&amp;rsquo;s modified&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git add &amp;lt;files&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Stage changes for commit&lt;/td&gt;
+ &lt;td&gt;Prepare to commit&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git commit -m &amp;quot;msg&amp;quot;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Save snapshot&lt;/td&gt;
+ &lt;td&gt;After testing changes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git push -u origin branch&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Upload branch to GitHub&lt;/td&gt;
+ &lt;td&gt;Share your work&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git fetch origin&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Check for updates&lt;/td&gt;
+ &lt;td&gt;See what&amp;rsquo;s on GitHub&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git log --oneline&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show commit history&lt;/td&gt;
+ &lt;td&gt;Review what happened&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git branch -a&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;List all branches&lt;/td&gt;
+ &lt;td&gt;See what exists&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git branch -d name&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Delete local branch&lt;/td&gt;
+ &lt;td&gt;After merging&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git remote prune origin&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Clean stale references&lt;/td&gt;
+ &lt;td&gt;After branch deletion&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="additional-useful-commands"&gt;Additional Useful Commands&lt;a class="anchor" href="#additional-useful-commands"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Command&lt;/th&gt;
+ &lt;th&gt;What It Does&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git diff&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show unstaged changes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git diff --staged&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show staged changes&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git log --graph --oneline&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Visual commit history&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git branch -v&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show branches with last commit&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git remote -v&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Show remote repository URLs&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git checkout main&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Switch to main branch&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git restore &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Discard changes in file&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;git restore --staged &amp;lt;file&amp;gt;&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;Unstage file&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="the-workflow-visualized"&gt;The Workflow Visualized&lt;a class="anchor" href="#the-workflow-visualized"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;┌─────────────────────────────────────────────────────────────┐
+│ LOCAL MACHINE (Your Computer) │
+├─────────────────────────────────────────────────────────────┤
+│ │
+│ 1. git pull origin main │
+│ ↓ │
+│ 2. git checkout -b add-web-task-table │
+│ ↓ │
+│ 3. Write Code (HTML, CSS, Python) │
+│ ↓ │
+│ 4. Test Locally (uvicorn app.main:app) │
+│ ↓ │
+│ 5. git add app/main.py app/templates/ app/static/ │
+│ ↓ │
+│ 6. git commit -m &amp;#34;Add web interface...&amp;#34; │
+│ ↓ │
+│ 7. git push -u origin add-web-task-table │
+│ │
+└───────────────────────────┬──────────────────────────────────┘
+ │
+ │ Push
+ ↓
+┌─────────────────────────────────────────────────────────────┐
+│ GITHUB (Cloud) │
+├─────────────────────────────────────────────────────────────┤
+│ │
+│ 8. Create Pull Request (Web Interface) │
+│ ↓ │
+│ 9. Review Code (See Diffs) │
+│ ↓ │
+│ 10. Merge PR (Green Button) │
+│ ↓ │
+│ 11. Delete Branch (Cleanup) │
+│ │
+└───────────────────────────┬──────────────────────────────────┘
+ │
+ │ Pull
+ ↓
+┌─────────────────────────────────────────────────────────────┐
+│ LOCAL MACHINE (Sync Back) │
+├─────────────────────────────────────────────────────────────┤
+│ │
+│ 12. git checkout main │
+│ 13. git fetch origin │
+│ 14. git pull origin main │
+│ 15. git branch -d add-web-task-table │
+│ 16. git remote prune origin │
+│ │
+│ ✅ COMPLETE CYCLE! │
+│ │
+└─────────────────────────────────────────────────────────────┘&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="state-changes-throughout-the-workflow"&gt;State Changes Throughout the Workflow&lt;a class="anchor" href="#state-changes-throughout-the-workflow"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="your-repositorys-evolution"&gt;Your Repository&amp;rsquo;s Evolution:&lt;a class="anchor" href="#your-repositorys-evolution"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Commit 1 (Initial):
+├─ app/main.py (basic API)
+├─ app/models.py
+├─ tests/test_api.py
+└─ README.md
+
+ ↓ [You create feature branch]
+
+Commit 2 (On feature branch):
+├─ app/main.py (+ web endpoint)
+├─ app/models.py
+├─ app/templates/index.html ← NEW
+├─ app/static/style.css ← NEW
+├─ tests/test_api.py
+└─ README.md
+
+ ↓ [You merge PR]
+
+Commit 3 (Merged to main):
+├─ app/main.py (+ web endpoint) ✅
+├─ app/models.py
+├─ app/templates/index.html ✅
+├─ app/static/style.css ✅
+├─ tests/test_api.py
+└─ README.md&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="how-this-differs-with-claude-code-iphone"&gt;How This Differs with Claude Code (iPhone)&lt;a class="anchor" href="#how-this-differs-with-claude-code-iphone"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="traditional-workflow"&gt;Traditional Workflow:&lt;a class="anchor" href="#traditional-workflow"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;You: Write HTML → Write CSS → Write Python → Test → Debug → Commit
+Time: 2-3 hours&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="with-claude-code-what-youll-do-next-from-iphone"&gt;With Claude Code (What you&amp;rsquo;ll do next from iPhone):&lt;a class="anchor" href="#with-claude-code-what-youll-do-next-from-iphone"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;You: &amp;#34;Add a search bar to filter tasks by title&amp;#34;
+Claude: [Reads code] [Writes HTML] [Updates CSS] [Modifies Python]
+ [Adds tests] [Runs tests] [Commits] [Creates PR]
+Time: 5 minutes&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Key Difference:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>QUICK_START</title><link>http://localhost:1313/documents/klm-migrate/quick_start/</link><pubDate>Fri, 26 Dec 2025 10:05:04 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/quick_start/</guid><description>&lt;h1 id="klm-insurance-website---quick-start-guide"&gt;KLM Insurance Website - Quick Start Guide&lt;a class="anchor" href="#klm-insurance-website---quick-start-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Fast reference for common tasks&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="publishing-commands"&gt;Publishing Commands&lt;a class="anchor" href="#publishing-commands"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="work-locally-development"&gt;Work Locally (Development)&lt;a class="anchor" href="#work-locally-development"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo server -D --bind 0.0.0.0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;View at:&lt;/strong&gt; http://localhost:1313
+&lt;strong&gt;Stop:&lt;/strong&gt; Press &lt;code&gt;Ctrl+C&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="publish-to-staging"&gt;Publish to Staging&lt;a class="anchor" href="#publish-to-staging"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 publish_to_staging.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;View at:&lt;/strong&gt; &lt;a href="https://www.klmcrm.com"&gt;https://www.klmcrm.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="publish-to-production"&gt;Publish to Production&lt;a class="anchor" href="#publish-to-production"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 publish_to_production.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Type:&lt;/strong&gt; &lt;code&gt;DEPLOY TO PRODUCTION&lt;/code&gt;
+&lt;strong&gt;View at:&lt;/strong&gt; &lt;a href="https://www.klminsurance.com"&gt;https://www.klminsurance.com&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="create-a-new-page"&gt;Create a New Page&lt;a class="anchor" href="#create-a-new-page"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Create content file:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nano my-new-page.md&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Add content:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;title: &amp;#34;My New Page&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;description: &amp;#34;Description for SEO&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;draft: false
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hero_image: &amp;#34;/images/featured-banner.png&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sidebar_image: &amp;#34;/images/content-banner.png&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;form_type: &amp;#34;full&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;## Heading
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Your content here...&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test locally:&lt;/strong&gt; &lt;code&gt;hugo server -D&lt;/code&gt;&lt;/p&gt;</description></item><item><title>COMPACT_FORM_CSS</title><link>http://localhost:1313/documents/klm-migrate/compact_form_css/</link><pubDate>Thu, 25 Dec 2025 23:23:55 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/compact_form_css/</guid><description>&lt;h1 id="compact-form-css---reduced-height"&gt;Compact Form CSS - Reduced Height&lt;a class="anchor" href="#compact-form-css---reduced-height"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="apply-this-compact-css-in-jotform-designer"&gt;Apply This Compact CSS in JotForm Designer&lt;a class="anchor" href="#apply-this-compact-css-in-jotform-designer"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Go to: &lt;a href="https://www.jotform.com/build/253585658329169"&gt;https://www.jotform.com/build/253585658329169&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Click &lt;strong&gt;&amp;ldquo;Advanced Designer&amp;rdquo;&lt;/strong&gt; → Delete all existing CSS → Paste this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-css" data-lang="css"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Main form container - minimal padding */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-all&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background-color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#00A6CE&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;15&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;box-shadow&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;width&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;%&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;max-width&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;%&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Remove borders from all nested containers */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-section&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-header-group&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;formFooter&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;li&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;form-line&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;transparent&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;box-shadow&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin-bottom&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Hide form header */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-header&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;display&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Form body - transparent, no borders, no spacing */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-body&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;transparent&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Labels - white, uppercase, bold, minimal spacing */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-label&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-label-top&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#FFFFFF&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-weight&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;700&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;text-transform&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;uppercase&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-size&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;letter-spacing&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0.3&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;line-height&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Input fields - white background, compact padding */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-textbox&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-textarea&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-dropdown&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;input&lt;/span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;&lt;span style="color:#f92672"&gt;type&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;text&amp;#34;&lt;/span&gt;&lt;span style="color:#f92672"&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;input&lt;/span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;&lt;span style="color:#f92672"&gt;type&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;email&amp;#34;&lt;/span&gt;&lt;span style="color:#f92672"&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;input&lt;/span&gt;&lt;span style="color:#f92672"&gt;[&lt;/span&gt;&lt;span style="color:#f92672"&gt;type&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;tel&amp;#34;&lt;/span&gt;&lt;span style="color:#f92672"&gt;]&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background-color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#FFFFFF&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;solid&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;#DDDDDD&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border-radius&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-size&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;13&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#333333&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;width&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;%&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;box-sizing&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;border-box&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Textarea - smaller height */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-textarea&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;min-height&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;50&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;max-height&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;50&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-family&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;inherit&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;resize&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Submit button - orange, compact */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-submit-button&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background-color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#FF6B35&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#FFFFFF&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border-radius&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-size&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;13&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-weight&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;700&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;text-transform&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;uppercase&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;cursor&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;pointer&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;width&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;%&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin-top&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;5&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-submit-button&lt;/span&gt;:&lt;span style="color:#a6e22e"&gt;hover&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background-color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#E55A2B&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Button container - minimal spacing */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-button-wrapper&lt;/span&gt;&lt;span style="color:#f92672"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-submit-container&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;transparent&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;border&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Hide JotForm branding */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;poweredby&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;display&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;none&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Required asterisk - RED */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-required&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;color&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;#FF0000&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Phone field sublabels - minimal spacing */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-sub-label&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;font-size&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;9&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin-top&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;px&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;/* Remove extra spacing from sublabel containers */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;.&lt;span style="color:#a6e22e"&gt;form-sub-label-container&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;background&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;transparent&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;margin&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;padding&lt;/span&gt;: &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#75715e"&gt;!important&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Click &amp;ldquo;Save&amp;rdquo;!&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>FINAL_FORM_FIX_SUMMARY</title><link>http://localhost:1313/documents/klm-migrate/final_form_fix_summary/</link><pubDate>Thu, 25 Dec 2025 23:04:17 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/final_form_fix_summary/</guid><description>&lt;h1 id="final-form-fix-summary"&gt;Final Form Fix Summary&lt;a class="anchor" href="#final-form-fix-summary"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="what-i-just-fixed-via-api"&gt;What I Just Fixed (via API)&lt;a class="anchor" href="#what-i-just-fixed-via-api"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="-field-labels-updated"&gt;✅ Field Labels Updated&lt;a class="anchor" href="#-field-labels-updated"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Before:&lt;/strong&gt; &amp;ldquo;First Name*&amp;rdquo;, &amp;ldquo;Last Name*&amp;rdquo;, &amp;ldquo;Email*&amp;rdquo;, &amp;ldquo;Phone*&amp;rdquo;, &amp;ldquo;Comments*&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;After:&lt;/strong&gt; &amp;ldquo;First Name&amp;rdquo;, &amp;ldquo;Last Name&amp;rdquo;, &amp;ldquo;Email&amp;rdquo;, &amp;ldquo;Phone&amp;rdquo;, &amp;ldquo;Comments&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; Only ONE asterisk will show (the JotForm required indicator)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-comments-field-made-optional"&gt;✅ Comments Field Made Optional&lt;a class="anchor" href="#-comments-field-made-optional"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Before:&lt;/strong&gt; Required field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;After:&lt;/strong&gt; Optional field (no asterisk will show)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-submit-button-added"&gt;✅ Submit Button Added&lt;a class="anchor" href="#-submit-button-added"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Form now has all 6 elements (5 fields + submit button)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="what-you-need-to-do-in-jotform"&gt;What YOU Need to Do in JotForm&lt;a class="anchor" href="#what-you-need-to-do-in-jotform"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;To complete the fix and eliminate the white/gray bars on the sides, apply this updated CSS in JotForm Designer:&lt;/p&gt;</description></item><item><title>APPLY_CSS_MANUALLY</title><link>http://localhost:1313/documents/klm-migrate/apply_css_manually/</link><pubDate>Thu, 25 Dec 2025 23:03:47 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/apply_css_manually/</guid><description>&lt;h1 id="apply-css-to-jotform-manually---final-fix"&gt;Apply CSS to JotForm Manually - FINAL FIX&lt;a class="anchor" href="#apply-css-to-jotform-manually---final-fix"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="what-ive-fixed"&gt;What I&amp;rsquo;ve Fixed&lt;a class="anchor" href="#what-ive-fixed"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;✅ &lt;strong&gt;Submit button added&lt;/strong&gt; - Form now has all 6 elements (5 fields + submit button)
+✅ &lt;strong&gt;Website CSS fixed&lt;/strong&gt; - No more white padding around iframe
+✅ &lt;strong&gt;iframe height increased&lt;/strong&gt; - 750px to show all fields&lt;/p&gt;
+&lt;h2 id="what-you-need-to-do"&gt;What YOU Need to Do&lt;a class="anchor" href="#what-you-need-to-do"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The JotForm API won&amp;rsquo;t let me set custom CSS, so you must apply it manually in JotForm Designer.&lt;/p&gt;</description></item><item><title>FORM_COMPLETE_FIX</title><link>http://localhost:1313/documents/klm-migrate/form_complete_fix/</link><pubDate>Thu, 25 Dec 2025 22:19:33 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/form_complete_fix/</guid><description>&lt;h1 id="complete-form-fix---double-borders--missing-fields"&gt;Complete Form Fix - Double Borders &amp;amp; Missing Fields&lt;a class="anchor" href="#complete-form-fix---double-borders--missing-fields"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="problems-identified"&gt;Problems Identified&lt;a class="anchor" href="#problems-identified"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;❌ Two blue borders (different shades)&lt;/li&gt;
+&lt;li&gt;❌ Top of form not visible (First Name field cut off)&lt;/li&gt;
+&lt;li&gt;❌ Submit button missing&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="root-causes"&gt;Root Causes&lt;a class="anchor" href="#root-causes"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Default JotForm theme&lt;/strong&gt; conflicting with custom CSS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;iFrame height too short&lt;/strong&gt; (550px - needs 700-800px)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multiple containers&lt;/strong&gt; creating nested borders&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="-complete-fix-step-by-step"&gt;✅ COMPLETE FIX (Step-by-Step)&lt;a class="anchor" href="#-complete-fix-step-by-step"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="part-1-reset-jotform-styling-first"&gt;Part 1: Reset JotForm Styling FIRST&lt;a class="anchor" href="#part-1-reset-jotform-styling-first"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Before applying any CSS, we need to reset the form to defaults:&lt;/p&gt;</description></item><item><title>JOTFORM_STYLING_STEPS</title><link>http://localhost:1313/documents/klm-migrate/jotform_styling_steps/</link><pubDate>Thu, 25 Dec 2025 22:06:57 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/jotform_styling_steps/</guid><description>&lt;h1 id="jotform-styling---correct-steps"&gt;JotForm Styling - Correct Steps&lt;a class="anchor" href="#jotform-styling---correct-steps"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-important-where-to-apply-the-css"&gt;⚠️ IMPORTANT: Where to Apply the CSS&lt;a class="anchor" href="#-important-where-to-apply-the-css"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;DO NOT&lt;/strong&gt; add CSS to your website or use the JavaScript embed code!&lt;/p&gt;
+&lt;p&gt;The CSS needs to be applied &lt;strong&gt;INSIDE JotForm&lt;/strong&gt; using their Form Designer tool.&lt;/p&gt;
+&lt;p&gt;Your website already has the correct iframe embeds - you just need to style the form in JotForm.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-correct-process-step-by-step"&gt;✅ Correct Process (Step-by-Step)&lt;a class="anchor" href="#-correct-process-step-by-step"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="step-1-open-jotform-form-designer"&gt;Step 1: Open JotForm Form Designer&lt;a class="anchor" href="#step-1-open-jotform-form-designer"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to: &lt;a href="https://www.jotform.com"&gt;https://www.jotform.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Log in with your account&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;&amp;ldquo;My Forms&amp;rdquo;&lt;/strong&gt; at the top&lt;/li&gt;
+&lt;li&gt;Find &lt;strong&gt;&amp;ldquo;KLM Contact Form - Full&amp;rdquo;&lt;/strong&gt; (ID: 253585658329169)&lt;/li&gt;
+&lt;li&gt;Hover over the form&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;&amp;ldquo;Form Designer&amp;rdquo;&lt;/strong&gt; button (it&amp;rsquo;s a paint palette icon)
+&lt;ul&gt;
+&lt;li&gt;NOT the &amp;ldquo;Edit&amp;rdquo; button&lt;/li&gt;
+&lt;li&gt;NOT the &amp;ldquo;Settings&amp;rdquo; button&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;&amp;ldquo;Form Designer&amp;rdquo;&lt;/strong&gt; button specifically&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="step-2-access-custom-css-section"&gt;Step 2: Access Custom CSS Section&lt;a class="anchor" href="#step-2-access-custom-css-section"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Once in Form Designer, look at the top toolbar&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;&amp;quot;&amp;lt;&amp;gt; Advanced Designer&amp;quot;&lt;/strong&gt; button
+&lt;ul&gt;
+&lt;li&gt;Or look for &lt;strong&gt;&amp;ldquo;Inject Custom CSS&amp;rdquo;&lt;/strong&gt; in the designer menu&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;You should see a text box for entering custom CSS&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="step-3-paste-the-css-code"&gt;Step 3: Paste the CSS Code&lt;a class="anchor" href="#step-3-paste-the-css-code"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Copy and paste this CSS into the Custom CSS box:&lt;/p&gt;</description></item><item><title>JOTFORM_EMAIL_SETUP_GUIDE</title><link>http://localhost:1313/documents/klm-migrate/jotform_email_setup_guide/</link><pubDate>Thu, 25 Dec 2025 21:46:47 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/jotform_email_setup_guide/</guid><description>&lt;h1 id="jotform-email-notifications-setup-guide"&gt;JotForm Email Notifications Setup Guide&lt;a class="anchor" href="#jotform-email-notifications-setup-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="overview"&gt;Overview&lt;a class="anchor" href="#overview"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You need to configure email notifications for &lt;strong&gt;2 forms&lt;/strong&gt; so you receive submissions at &lt;a href="mailto:sales@klminsurance.com"&gt;sales@klminsurance.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Forms requiring setup:&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;KLM Contact Form - Full (ID: 253585658329169) - Used on most pages&lt;/li&gt;
+&lt;li&gt;Detailed Insurance Quote Form (ID: 253584401906155) - Used on Compare Quotes page&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Estimated Time:&lt;/strong&gt; 10-15 minutes per form (20-30 minutes total)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="form-1-klm-contact-form---full"&gt;Form 1: KLM Contact Form - Full&lt;a class="anchor" href="#form-1-klm-contact-form---full"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="step-1-open-form-settings"&gt;Step 1: Open Form Settings&lt;a class="anchor" href="#step-1-open-form-settings"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to JotForm: &lt;a href="https://www.jotform.com"&gt;https://www.jotform.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;&amp;ldquo;My Forms&amp;rdquo;&lt;/strong&gt; in the top menu&lt;/li&gt;
+&lt;li&gt;Find &lt;strong&gt;&amp;ldquo;KLM Contact Form - Full&amp;rdquo;&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Or go directly to: &lt;a href="https://www.jotform.com/build/253585658329169"&gt;https://www.jotform.com/build/253585658329169&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;&amp;ldquo;Settings&amp;rdquo;&lt;/strong&gt; button (gear icon at top right)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="step-2-configure-email-notifications"&gt;Step 2: Configure Email Notifications&lt;a class="anchor" href="#step-2-configure-email-notifications"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;In the left sidebar, click &lt;strong&gt;&amp;ldquo;Emails&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;You should see a section called &lt;strong&gt;&amp;ldquo;Notification Emails&amp;rdquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="add-notification-email"&gt;Add Notification Email:&lt;a class="anchor" href="#add-notification-email"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;Look for existing notification emails or click &lt;strong&gt;&amp;ldquo;Add Email&amp;rdquo;&lt;/strong&gt; button&lt;/li&gt;
+&lt;li&gt;If there&amp;rsquo;s an existing notification, click &lt;strong&gt;&amp;ldquo;Edit&amp;rdquo;&lt;/strong&gt; (pencil icon)&lt;/li&gt;
+&lt;li&gt;Configure the following settings:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Recipient Email:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>JOTFORM_STYLING_GUIDE</title><link>http://localhost:1313/documents/klm-migrate/jotform_styling_guide/</link><pubDate>Thu, 25 Dec 2025 21:44:06 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/jotform_styling_guide/</guid><description>&lt;h1 id="jotform-styling-guide---match-screenshot"&gt;JotForm Styling Guide - Match Screenshot&lt;a class="anchor" href="#jotform-styling-guide---match-screenshot"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-basic-styling-applied-via-api"&gt;✅ Basic Styling Applied via API&lt;a class="anchor" href="#-basic-styling-applied-via-api"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve already applied these colors to your form (253585658329169):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form Background:&lt;/strong&gt; #00A6CE (Blue/Cyan)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Label Text:&lt;/strong&gt; #FFFFFF (White)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Input Fields:&lt;/strong&gt; #FFFFFF (White background)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submit Button:&lt;/strong&gt; #FF6B35 (Orange/Coral)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Button Text:&lt;/strong&gt; #FFFFFF (White)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="manual-fine-tuning-required"&gt;Manual Fine-Tuning Required&lt;a class="anchor" href="#manual-fine-tuning-required"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Some styling options require manual configuration in the JotForm Form Designer. Follow these steps:&lt;/p&gt;
+&lt;h3 id="step-1-open-form-designer"&gt;Step 1: Open Form Designer&lt;a class="anchor" href="#step-1-open-form-designer"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Log in to JotForm: &lt;a href="https://www.jotform.com"&gt;https://www.jotform.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Go to &amp;ldquo;My Forms&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Find &amp;ldquo;KLM Contact Form - Full&amp;rdquo; (ID: 253585658329169)&lt;/li&gt;
+&lt;li&gt;Click the &lt;strong&gt;&amp;ldquo;Form Designer&amp;rdquo;&lt;/strong&gt; button (paint palette icon)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id="step-2-apply-form-styling"&gt;Step 2: Apply Form Styling&lt;a class="anchor" href="#step-2-apply-form-styling"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="form-background--container"&gt;Form Background &amp;amp; Container&lt;a class="anchor" href="#form-background--container"&gt;#&lt;/a&gt;&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;In Form Designer, select &lt;strong&gt;&amp;ldquo;Styles&amp;rdquo;&lt;/strong&gt; tab&lt;/p&gt;</description></item><item><title>FINAL_FORM_UPDATE</title><link>http://localhost:1313/documents/klm-migrate/final_form_update/</link><pubDate>Thu, 25 Dec 2025 14:18:36 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/final_form_update/</guid><description>&lt;h1 id="final-form-update---life-insurance-form-site-wide"&gt;Final Form Update - Life Insurance Form Site-Wide&lt;a class="anchor" href="#final-form-update---life-insurance-form-site-wide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-all-forms-updated---december-25-2025"&gt;✅ All Forms Updated - December 25, 2025&lt;a class="anchor" href="#-all-forms-updated---december-25-2025"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All forms across the site now use the same form structure as the life-insurance page (5 fields with comments).&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="what-changed"&gt;What Changed&lt;a class="anchor" href="#what-changed"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="new-form-created"&gt;New Form Created&lt;a class="anchor" href="#new-form-created"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253585658329169
+&lt;strong&gt;Form Name:&lt;/strong&gt; KLM Contact Form - Full
+&lt;strong&gt;JotForm URL:&lt;/strong&gt; &lt;a href="https://form.jotform.com/253585658329169"&gt;https://form.jotform.com/253585658329169&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fields (5 total):&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;First Name&lt;/strong&gt; - Text field, required&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Last Name&lt;/strong&gt; - Text field, required&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email&lt;/strong&gt; - Email field, required&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Phone&lt;/strong&gt; - Phone field, required&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comments&lt;/strong&gt; - Textarea field, required&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Settings:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>FORM_UPDATE_SUMMARY</title><link>http://localhost:1313/documents/klm-migrate/form_update_summary/</link><pubDate>Thu, 25 Dec 2025 11:31:02 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/form_update_summary/</guid><description>&lt;h1 id="form-update-summary---quick-contact-form-site-wide"&gt;Form Update Summary - Quick Contact Form Site-Wide&lt;a class="anchor" href="#form-update-summary---quick-contact-form-site-wide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-changes-completed---december-25-2025"&gt;✅ Changes Completed - December 25, 2025&lt;a class="anchor" href="#-changes-completed---december-25-2025"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All Quick Quote forms have been replaced with the Quick Contact form across the entire website.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="what-changed"&gt;What Changed&lt;a class="anchor" href="#what-changed"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="forms-removed"&gt;Forms Removed:&lt;a class="anchor" href="#forms-removed"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;❌ &lt;strong&gt;Quick Quote Form&lt;/strong&gt; (ID: 253584303516153)
+&lt;ul&gt;
+&lt;li&gt;Previously on: Homepage, Contact page hero&lt;/li&gt;
+&lt;li&gt;Status: &lt;strong&gt;ELIMINATED SITE-WIDE&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="forms-now-used"&gt;Forms Now Used:&lt;a class="anchor" href="#forms-now-used"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;✅ &lt;strong&gt;Quick Contact Form&lt;/strong&gt; (ID: 253583828842166)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;3 locations:&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Homepage hero section&lt;/li&gt;
+&lt;li&gt;Contact page hero section&lt;/li&gt;
+&lt;li&gt;Contact page sidebar&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submit button:&lt;/strong&gt; &amp;ldquo;SUBMIT&amp;rdquo; (configured)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fields:&lt;/strong&gt; Name, Zip Code, Phone, Email&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;✅ &lt;strong&gt;Detailed Insurance Quote Form&lt;/strong&gt; (ID: 253584401906155)&lt;/p&gt;</description></item><item><title>SITE_RETESTING_RESULTS</title><link>http://localhost:1313/documents/klm-migrate/site_retesting_results/</link><pubDate>Thu, 25 Dec 2025 11:07:14 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/site_retesting_results/</guid><description>&lt;h1 id="site-retesting-results---december-25-2025"&gt;Site Retesting Results - December 25, 2025&lt;a class="anchor" href="#site-retesting-results---december-25-2025"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-all-issues-fixed"&gt;✅ All Issues Fixed!&lt;a class="anchor" href="#-all-issues-fixed"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The homepage loading issues and contact page form jumping have been resolved.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="issues-identified--fixed"&gt;Issues Identified &amp;amp; Fixed&lt;a class="anchor" href="#issues-identified--fixed"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="issue-1-contact-page-form-jumping"&gt;Issue 1: Contact Page Form Jumping&lt;a class="anchor" href="#issue-1-contact-page-form-jumping"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Page was jumping/scrolling when forms loaded
+&lt;strong&gt;Root Cause:&lt;/strong&gt; &lt;code&gt;onload=&amp;quot;window.parent.scrollTo(0,0)&amp;quot;&lt;/code&gt; attribute on iframes
+&lt;strong&gt;Fix:&lt;/strong&gt; Removed onload scroll attribute from all form iframes
+&lt;strong&gt;Status:&lt;/strong&gt; ✅ FIXED&lt;/p&gt;
+&lt;h3 id="issue-2-homepage-not-loading-properly"&gt;Issue 2: Homepage Not Loading Properly&lt;a class="anchor" href="#issue-2-homepage-not-loading-properly"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; JotForm scripts loading multiple times, potential conflicts
+&lt;strong&gt;Root Cause:&lt;/strong&gt; JotForm embed script included separately with each form
+&lt;strong&gt;Fix:&lt;/strong&gt; Moved script to load once globally in baseof.html header
+&lt;strong&gt;Status:&lt;/strong&gt; ✅ FIXED&lt;/p&gt;</description></item><item><title>FORM_TESTING_RESULTS</title><link>http://localhost:1313/documents/klm-migrate/form_testing_results/</link><pubDate>Thu, 25 Dec 2025 10:28:18 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/form_testing_results/</guid><description>&lt;h1 id="jotform-testing-results---december-25-2025"&gt;JotForm Testing Results - December 25, 2025&lt;a class="anchor" href="#jotform-testing-results---december-25-2025"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-all-forms-successfully-tested"&gt;✅ All Forms Successfully Tested&lt;a class="anchor" href="#-all-forms-successfully-tested"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All 3 forms have been tested with sample data and submissions verified in JotForm.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="test-results-summary"&gt;Test Results Summary&lt;a class="anchor" href="#test-results-summary"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="-form-1-quick-quote-form"&gt;✓ Form 1: Quick Quote Form&lt;a class="anchor" href="#-form-1-quick-quote-form"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253584303516153&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submission ID:&lt;/strong&gt; 6424855761408279150&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status:&lt;/strong&gt; ACTIVE ✓&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created:&lt;/strong&gt; December 25, 2025 at 10:26:16 AM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Data Submitted:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Zip Code: 19380&lt;/li&gt;
+&lt;li&gt;Insurance Type: Auto Insurance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; ✅ SUCCESS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-form-2-quick-contact-form"&gt;✓ Form 2: Quick Contact Form&lt;a class="anchor" href="#-form-2-quick-contact-form"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253583828842166&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submission ID:&lt;/strong&gt; 6424855851406252288&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status:&lt;/strong&gt; ACTIVE ✓&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created:&lt;/strong&gt; December 25, 2025 at 10:26:25 AM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Data Submitted:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Name: John Smith&lt;/li&gt;
+&lt;li&gt;Zip Code: 19380&lt;/li&gt;
+&lt;li&gt;Phone: 610-555-1234&lt;/li&gt;
+&lt;li&gt;Email: &lt;a href="mailto:john.smith@example.com"&gt;john.smith@example.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; ✅ SUCCESS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="-form-3-detailed-insurance-quote-form"&gt;✓ Form 3: Detailed Insurance Quote Form&lt;a class="anchor" href="#-form-3-detailed-insurance-quote-form"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253584401906155&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submission ID:&lt;/strong&gt; 6424856051405136535&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Status:&lt;/strong&gt; ACTIVE ✓&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Created:&lt;/strong&gt; December 25, 2025 at 10:26:45 AM&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Data Submitted:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Personal: Jane Doe, &lt;a href="mailto:jane.doe@example.com"&gt;jane.doe@example.com&lt;/a&gt;, 610-555-9876&lt;/li&gt;
+&lt;li&gt;Date of Birth: March 15, 1985&lt;/li&gt;
+&lt;li&gt;Address: 123 Main Street, West Chester, PA 19380&lt;/li&gt;
+&lt;li&gt;Insurance Types: Auto Insurance + Home Insurance&lt;/li&gt;
+&lt;li&gt;Currently Insured: Yes (State Farm, expires June 30, 2026)&lt;/li&gt;
+&lt;li&gt;Auto Info: 2 vehicles, 2022 Toyota Camry, 2 drivers&lt;/li&gt;
+&lt;li&gt;Home Info: Single Family Home, built 2005, 2400 sqft, $450,000 value&lt;/li&gt;
+&lt;li&gt;Additional: &amp;ldquo;Looking to bundle auto and home insurance for better rates&amp;hellip;&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Contact Preference: Email, Morning (8am-12pm)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Result:&lt;/strong&gt; ✅ SUCCESS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="data-verification"&gt;Data Verification&lt;a class="anchor" href="#data-verification"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All submitted data was successfully retrieved from JotForm API and matches the test inputs:&lt;/p&gt;</description></item><item><title>JOTFORM_INTEGRATION_SUMMARY</title><link>http://localhost:1313/documents/klm-migrate/jotform_integration_summary/</link><pubDate>Thu, 25 Dec 2025 10:24:56 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/jotform_integration_summary/</guid><description>&lt;h1 id="jotform-integration-summary---klm-insurance-website"&gt;JotForm Integration Summary - KLM Insurance Website&lt;a class="anchor" href="#jotform-integration-summary---klm-insurance-website"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="-completed---all-forms-created-and-integrated"&gt;✓ COMPLETED - All Forms Created and Integrated&lt;a class="anchor" href="#-completed---all-forms-created-and-integrated"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;All 3 JotForm forms have been successfully created via API and integrated into your Hugo website.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="forms-created"&gt;Forms Created&lt;a class="anchor" href="#forms-created"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="form-1-quick-quote-form"&gt;Form 1: Quick Quote Form&lt;a class="anchor" href="#form-1-quick-quote-form"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253584303516153&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Form URL:&lt;/strong&gt; &lt;a href="https://form.jotform.com/253584303516153"&gt;https://form.jotform.com/253584303516153&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Location on Website:&lt;/strong&gt; Homepage hero section, Contact page hero section&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fields:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Zip Code (required, 5 digits)&lt;/li&gt;
+&lt;li&gt;Type of Insurance (dropdown with 7 options)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email Notifications:&lt;/strong&gt; &lt;a href="mailto:sales@klminsurance.com"&gt;sales@klminsurance.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submit Button:&lt;/strong&gt; &amp;ldquo;QUOTE ME&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Thank You Message:&lt;/strong&gt; &amp;ldquo;Thank you! We will contact you shortly with your quote.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="form-2-quick-contact-form"&gt;Form 2: Quick Contact Form&lt;a class="anchor" href="#form-2-quick-contact-form"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253583828842166&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Form URL:&lt;/strong&gt; &lt;a href="https://form.jotform.com/253583828842166"&gt;https://form.jotform.com/253583828842166&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Location on Website:&lt;/strong&gt; Contact page sidebar&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fields:&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Full Name (required)&lt;/li&gt;
+&lt;li&gt;Zip Code (required, 5 digits)&lt;/li&gt;
+&lt;li&gt;Phone Number (required, validated)&lt;/li&gt;
+&lt;li&gt;Email Address (required, validated)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email Notifications:&lt;/strong&gt; &lt;a href="mailto:sales@klminsurance.com"&gt;sales@klminsurance.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submit Button:&lt;/strong&gt; &amp;ldquo;SUBMIT&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Thank You Message:&lt;/strong&gt; &amp;ldquo;Thank you for contacting us! We will respond within 24 hours.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="form-3-detailed-insurance-quote-form"&gt;Form 3: Detailed Insurance Quote Form&lt;a class="anchor" href="#form-3-detailed-insurance-quote-form"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Form ID:&lt;/strong&gt; 253584401906155&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Form URL:&lt;/strong&gt; &lt;a href="https://form.jotform.com/253584401906155"&gt;https://form.jotform.com/253584401906155&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Location on Website:&lt;/strong&gt; Compare Quotes page (replaces EZLynx integration)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Total Fields:&lt;/strong&gt; 29 comprehensive fields&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Email Notifications:&lt;/strong&gt; &lt;a href="mailto:sales@klminsurance.com"&gt;sales@klminsurance.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Submit Button:&lt;/strong&gt; &amp;ldquo;Get My Quote&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Thank You Message:&lt;/strong&gt; &amp;ldquo;Thank you! Your quote request has been submitted. We will contact you within 1 business day via your preferred contact method. If you need immediate assistance, please call us at 610-429-1330.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Field Groups in Form 3:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>JOTFORM_SETUP_GUIDE</title><link>http://localhost:1313/documents/klm-migrate/jotform_setup_guide/</link><pubDate>Thu, 25 Dec 2025 10:07:38 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/jotform_setup_guide/</guid><description>&lt;h1 id="jotform-setup-guide-for-klm-insurance-website"&gt;JotForm Setup Guide for KLM Insurance Website&lt;a class="anchor" href="#jotform-setup-guide-for-klm-insurance-website"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;This guide provides detailed instructions for creating and integrating JotForm forms for the KLM Insurance website.&lt;/p&gt;
+&lt;h2 id="overview"&gt;Overview&lt;a class="anchor" href="#overview"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You need to create &lt;strong&gt;3 forms&lt;/strong&gt; in JotForm to replace the existing form placeholders:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Quick Quote Form&lt;/strong&gt; - Simple quote request (homepage + contact page hero)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Quick Contact Form&lt;/strong&gt; - Contact inquiry (contact page sidebar)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Detailed Insurance Quote Form&lt;/strong&gt; - Comprehensive quote (compare-quotes page)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="form-1-quick-quote-form"&gt;Form 1: Quick Quote Form&lt;a class="anchor" href="#form-1-quick-quote-form"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Fast lead capture on homepage and contact page hero section
+&lt;strong&gt;Current Location:&lt;/strong&gt; Homepage hero section, Contact page hero section&lt;/p&gt;</description></item><item><title>FIX_APEX_DOMAIN</title><link>http://localhost:1313/documents/klm-migrate/fix_apex_domain/</link><pubDate>Tue, 23 Dec 2025 16:02:23 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/fix_apex_domain/</guid><description>&lt;h1 id="fix-apex-domain-klmcrmcom-without-www"&gt;Fix Apex Domain (klmcrm.com without www)&lt;a class="anchor" href="#fix-apex-domain-klmcrmcom-without-www"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Issue:&lt;/strong&gt; The apex domain &lt;code&gt;klmcrm.com&lt;/code&gt; (without www) is not resolving to the staging site.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Status:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ &lt;strong&gt;&lt;a href="https://www.klmcrm.com"&gt;www.klmcrm.com&lt;/a&gt;&lt;/strong&gt; - Works correctly&lt;/li&gt;
+&lt;li&gt;❌ &lt;strong&gt;klmcrm.com&lt;/strong&gt; - Not resolving (DNS issue)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="problem"&gt;Problem&lt;a class="anchor" href="#problem"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your domain registrar is currently using &lt;strong&gt;GoDaddy nameservers&lt;/strong&gt; instead of &lt;strong&gt;AWS Route 53 nameservers&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Current nameservers (WRONG):&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;dns1.name-services.com
+dns2.name-services.com
+dns3.name-services.com
+dns4.name-services.com
+dns5.name-services.com&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Required nameservers (CORRECT - AWS Route 53):&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;ns-570.awsdns-07.net
+ns-1027.awsdns-00.org
+ns-1567.awsdns-03.co.uk
+ns-17.awsdns-02.com&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="solution-update-nameservers-at-domain-registrar"&gt;Solution: Update Nameservers at Domain Registrar&lt;a class="anchor" href="#solution-update-nameservers-at-domain-registrar"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="step-1-find-your-domain-registrar"&gt;Step 1: Find Your Domain Registrar&lt;a class="anchor" href="#step-1-find-your-domain-registrar"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;First, determine where you purchased &lt;code&gt;klmcrm.com&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>README</title><link>http://localhost:1313/documents/klm-migrate/readme/</link><pubDate>Tue, 23 Dec 2025 13:05:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/readme/</guid><description>&lt;h1 id="klm-insurance-page-templates"&gt;KLM Insurance Page Templates&lt;a class="anchor" href="#klm-insurance-page-templates"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Professional templates for creating consistent product and service pages&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-files-in-this-directory"&gt;📁 Files in This Directory&lt;a class="anchor" href="#-files-in-this-directory"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;File&lt;/th&gt;
+ &lt;th&gt;Purpose&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;product-service-template.md&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;strong&gt;Main template&lt;/strong&gt; - Copy this to create new pages&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;HOW_TO_USE_TEMPLATE.md&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;strong&gt;Complete guide&lt;/strong&gt; - Step-by-step instructions&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;example-motorcycle-insurance.md&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;strong&gt;Example 1&lt;/strong&gt; - Completed motorcycle insurance page&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;example-renters-insurance.md&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;strong&gt;Example 2&lt;/strong&gt; - Completed renters insurance page&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;code&gt;README.md&lt;/code&gt;&lt;/td&gt;
+ &lt;td&gt;This file - Overview of templates&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h2 id="-quick-start"&gt;🚀 Quick Start&lt;a class="anchor" href="#-quick-start"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;To create a new page:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 1. Copy the template&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp /Users/mark/PycharmProjects/klm-migrate/templates/product-service-template.md &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/your-product.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 2. Edit the file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nano /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/your-product.md
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 3. Test locally&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo server -D --bind 0.0.0.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 4. View at http://localhost:1313/your-product/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 5. Publish to staging&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 publish_to_staging.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="-using-the-templates"&gt;📖 Using the Templates&lt;a class="anchor" href="#-using-the-templates"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="for-first-time-users"&gt;For First-Time Users&lt;a class="anchor" href="#for-first-time-users"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Read:&lt;/strong&gt; &lt;code&gt;HOW_TO_USE_TEMPLATE.md&lt;/code&gt; - Complete guide with everything you need&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Look at:&lt;/strong&gt; Example files to see completed pages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Copy:&lt;/strong&gt; &lt;code&gt;product-service-template.md&lt;/code&gt; to your content folder&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edit:&lt;/strong&gt; Replace all &lt;code&gt;[placeholders]&lt;/code&gt; with your content&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test:&lt;/strong&gt; Run Hugo server locally to preview&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Publish:&lt;/strong&gt; Deploy to staging for review&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="for-experienced-users"&gt;For Experienced Users&lt;a class="anchor" href="#for-experienced-users"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Copy:&lt;/strong&gt; &lt;code&gt;product-service-template.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edit:&lt;/strong&gt; Update front matter and content&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Publish:&lt;/strong&gt; Deploy when ready&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="-template-features"&gt;🎨 Template Features&lt;a class="anchor" href="#-template-features"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;✅ &lt;strong&gt;Consistent Design&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>HOW_TO_USE_TEMPLATE</title><link>http://localhost:1313/documents/klm-migrate/how_to_use_template/</link><pubDate>Tue, 23 Dec 2025 13:03:31 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/how_to_use_template/</guid><description>&lt;h1 id="how-to-create-a-new-productservice-page"&gt;How to Create a New Product/Service Page&lt;a class="anchor" href="#how-to-create-a-new-productservice-page"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Complete guide for using the KLM Insurance product/service template&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="quick-start"&gt;Quick Start&lt;a class="anchor" href="#quick-start"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Copy the template:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp /Users/mark/PycharmProjects/klm-migrate/templates/product-service-template.md &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site/content/your-product-name.md&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Edit the file&lt;/strong&gt; - Replace all &lt;code&gt;[placeholders]&lt;/code&gt; with your content&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test locally:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate/klm-hugo-site
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo server -D --bind 0.0.0.0&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;View at:&lt;/strong&gt; http://localhost:1313/your-product-name/&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Publish when ready:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd /Users/mark/PycharmProjects/klm-migrate
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;python3 publish_to_staging.py&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="template-sections-explained"&gt;Template Sections Explained&lt;a class="anchor" href="#template-sections-explained"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="front-matter-yaml-header"&gt;Front Matter (YAML Header)&lt;a class="anchor" href="#front-matter-yaml-header"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;title&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;[Product/Service Name]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;description&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;[Product/Service Name] - KLM Insurance Solutions&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;draft&lt;/span&gt;: &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;hero_image&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;/images/featured-banner.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;sidebar_image&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;/images/featured-[product-name]-thumbnail.png&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;form_type&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;full&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;---&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;What to change:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>PUBLISHING_WORKFLOW</title><link>http://localhost:1313/documents/klm-migrate/publishing_workflow/</link><pubDate>Tue, 23 Dec 2025 12:46:16 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/publishing_workflow/</guid><description>&lt;h1 id="klm-insurance-website---complete-publishing-workflow"&gt;KLM Insurance Website - Complete Publishing Workflow&lt;a class="anchor" href="#klm-insurance-website---complete-publishing-workflow"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Complete Lifecycle Documentation: Development → Staging → Production&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="table-of-contents"&gt;Table of Contents&lt;a class="anchor" href="#table-of-contents"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#overview"&gt;Overview&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#environment-architecture"&gt;Environment Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#prerequisites"&gt;Prerequisites&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#development-workflow"&gt;Development Workflow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#creating-a-new-page"&gt;Creating a New Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#local-testing-localhost"&gt;Local Testing (Localhost)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#publishing-to-staging"&gt;Publishing to Staging&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#publishing-to-production"&gt;Publishing to Production&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#troubleshooting"&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#quick-reference"&gt;Quick Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="overview"&gt;Overview&lt;a class="anchor" href="#overview"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The KLM Insurance website follows a three-tier publishing workflow:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Development (Localhost) → Staging (klmcrm.com) → Production (klminsurance.com)&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Key Principles:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All changes are developed and tested locally first&lt;/li&gt;
+&lt;li&gt;Staging is used for validation and client review&lt;/li&gt;
+&lt;li&gt;Production deployments happen only after staging approval&lt;/li&gt;
+&lt;li&gt;Each environment is isolated and independent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="environment-architecture"&gt;Environment Architecture&lt;a class="anchor" href="#environment-architecture"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th&gt;Environment&lt;/th&gt;
+ &lt;th&gt;URL&lt;/th&gt;
+ &lt;th&gt;S3 Bucket&lt;/th&gt;
+ &lt;th&gt;CloudFront ID&lt;/th&gt;
+ &lt;th&gt;Purpose&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Development&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;http://localhost:1313&lt;/td&gt;
+ &lt;td&gt;N/A&lt;/td&gt;
+ &lt;td&gt;N/A&lt;/td&gt;
+ &lt;td&gt;Local development and testing&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Staging&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://www.klmcrm.com"&gt;https://www.klmcrm.com&lt;/a&gt;&lt;br&gt;&lt;a href="https://klmcrm.com"&gt;https://klmcrm.com&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;s3://klmcrm.com&lt;/td&gt;
+ &lt;td&gt;E3HA8770RGET6T&lt;/td&gt;
+ &lt;td&gt;Client review and validation&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td&gt;&lt;strong&gt;Production&lt;/strong&gt;&lt;/td&gt;
+ &lt;td&gt;&lt;a href="https://www.klminsurance.com"&gt;https://www.klminsurance.com&lt;/a&gt;&lt;br&gt;&lt;a href="https://klminsurance.com"&gt;https://klminsurance.com&lt;/a&gt;&lt;/td&gt;
+ &lt;td&gt;s3://klminsurance.com&lt;/td&gt;
+ &lt;td&gt;&lt;em&gt;To be configured&lt;/em&gt;&lt;/td&gt;
+ &lt;td&gt;Live customer-facing site&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;AWS Account:&lt;/strong&gt; 837716495292
+&lt;strong&gt;Region:&lt;/strong&gt; us-east-1
+&lt;strong&gt;IAM User:&lt;/strong&gt; klm-hugo&lt;/p&gt;</description></item><item><title>klm_crm_publishing_process</title><link>http://localhost:1313/documents/klm-migrate/klm_crm_publishing_process/</link><pubDate>Mon, 22 Dec 2025 14:00:56 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/klm_crm_publishing_process/</guid><description>&lt;h1 id="klm-crm--hugo-publishing-process-staging--production"&gt;KLM CRM – Hugo Publishing Process (Staging &amp;amp; Production)&lt;a class="anchor" href="#klm-crm--hugo-publishing-process-staging--production"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="purpose"&gt;Purpose&lt;a class="anchor" href="#purpose"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This document defines the &lt;strong&gt;end‑to‑end publishing workflow&lt;/strong&gt; for deploying a Hugo static site to &lt;strong&gt;KLM staging (klmcrm)&lt;/strong&gt; and &lt;strong&gt;production (klminsurance)&lt;/strong&gt; using AWS S3 and CloudFront. It is designed to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Support a &lt;strong&gt;new MacBook&lt;/strong&gt; and fresh Hugo install&lt;/li&gt;
+&lt;li&gt;Assume &lt;strong&gt;AWS CLI credentials are already configured&lt;/strong&gt; (but provide verification steps)&lt;/li&gt;
+&lt;li&gt;Clearly identify &lt;strong&gt;what credentials are required vs. not required&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Provide &lt;strong&gt;safe, repeatable steps&lt;/strong&gt; to fully replace (delete + upload) S3 site content&lt;/li&gt;
+&lt;li&gt;Align with the established &lt;strong&gt;script‑driven KLM workflow&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All credentials are documented with &lt;strong&gt;placeholders&lt;/strong&gt; where sensitive data is not available or should not be stored.&lt;/p&gt;</description></item><item><title>NEW_PAGE_TEMPLATE_GUIDE</title><link>http://localhost:1313/documents/klm-migrate/new_page_template_guide/</link><pubDate>Mon, 22 Dec 2025 10:23:51 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/new_page_template_guide/</guid><description>&lt;h1 id="klm-insurance---new-page--menu-template-guide"&gt;KLM Insurance - New Page &amp;amp; Menu Template Guide&lt;a class="anchor" href="#klm-insurance---new-page--menu-template-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Last Updated:&lt;/strong&gt; December 22, 2025&lt;/p&gt;
+&lt;p&gt;This guide explains how to create new pages and menu items in your KLM Insurance Hugo website.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="table-of-contents"&gt;Table of Contents&lt;a class="anchor" href="#table-of-contents"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#creating-a-new-page"&gt;Creating a New Page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#adding-to-navigation-menu"&gt;Adding to Navigation Menu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#page-templates-available"&gt;Page Templates Available&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#step-by-step-examples"&gt;Step-by-Step Examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#troubleshooting"&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="creating-a-new-page"&gt;Creating a New Page&lt;a class="anchor" href="#creating-a-new-page"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="quick-start"&gt;Quick Start&lt;a class="anchor" href="#quick-start"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Create the content file&lt;/strong&gt; in &lt;code&gt;klm-hugo-site/content/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Add menu item&lt;/strong&gt; in &lt;code&gt;klm-hugo-site/hugo.toml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Run Hugo&lt;/strong&gt; to see your changes&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="file-naming-convention"&gt;File Naming Convention&lt;a class="anchor" href="#file-naming-convention"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Use lowercase&lt;/li&gt;
+&lt;li&gt;Use hyphens (not spaces or underscores)&lt;/li&gt;
+&lt;li&gt;End with &lt;code&gt;.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Examples:
+&lt;ul&gt;
+&lt;li&gt;✅ &lt;code&gt;boat-insurance.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;✅ &lt;code&gt;privacy-policy.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;✅ &lt;code&gt;claims-process.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;❌ &lt;code&gt;Boat Insurance.md&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;❌ &lt;code&gt;privacy_policy.md&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id="page-templates-available"&gt;Page Templates Available&lt;a class="anchor" href="#page-templates-available"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="template-1-insurance-service-page"&gt;Template 1: Insurance Service Page&lt;a class="anchor" href="#template-1-insurance-service-page"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Use for:&lt;/strong&gt; Auto, Home, Life, Commercial insurance pages&lt;/p&gt;</description></item><item><title>REDESIGN_COMPLETE</title><link>http://localhost:1313/documents/klm-migrate/redesign_complete/</link><pubDate>Mon, 22 Dec 2025 10:12:48 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/redesign_complete/</guid><description>&lt;h1 id="klm-insurance-website---screenshot-based-redesign-complete-"&gt;KLM Insurance Website - Screenshot-Based Redesign COMPLETE ✅&lt;a class="anchor" href="#klm-insurance-website---screenshot-based-redesign-complete-"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 22, 2025
+&lt;strong&gt;Status:&lt;/strong&gt; Successfully Redesigned to Match Screenshot
+&lt;strong&gt;Site URL:&lt;/strong&gt; http://localhost:1313&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-redesign-complete"&gt;🎉 Redesign Complete!&lt;a class="anchor" href="#-redesign-complete"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your KLM Insurance Hugo website has been completely redesigned to match the screenshot you provided (&lt;code&gt;screenshot-home.png&lt;/code&gt;). All images have been downloaded from the live site and the layout now precisely replicates the original design.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-what-was-accomplished"&gt;✅ What Was Accomplished&lt;a class="anchor" href="#-what-was-accomplished"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-downloaded-all-images-from-live-site-19-images"&gt;1. &lt;strong&gt;Downloaded All Images from Live Site&lt;/strong&gt; (19 images)&lt;a class="anchor" href="#1-downloaded-all-images-from-live-site-19-images"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Successfully downloaded all images including:&lt;/p&gt;</description></item><item><title>PROJECT_COMPLETE</title><link>http://localhost:1313/documents/klm-migrate/project_complete/</link><pubDate>Mon, 22 Dec 2025 09:29:20 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/project_complete/</guid><description>&lt;h1 id="klm-insurance-website-migration---project-complete-"&gt;KLM Insurance Website Migration - PROJECT COMPLETE ✅&lt;a class="anchor" href="#klm-insurance-website-migration---project-complete-"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 21, 2025
+&lt;strong&gt;Status:&lt;/strong&gt; Successfully Completed
+&lt;strong&gt;Hugo Site Running:&lt;/strong&gt; http://localhost:1313&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-mission-accomplished"&gt;🎉 Mission Accomplished&lt;a class="anchor" href="#-mission-accomplished"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;The KLM Insurance website has been successfully replicated using Hugo static site generator. The site is now running locally and ready for customization and deployment.&lt;/p&gt;
+&lt;h2 id="-project-structure"&gt;📁 Project Structure&lt;a class="anchor" href="#-project-structure"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;klm-migrate/
+├── build_klm_site.py # Master orchestration script
+├── scraper.py # Web content scraper
+├── screenshot_pages.py # Screenshot capture tool (optional)
+├── create_hugo_site.py # Hugo site builder
+├── requirements.txt # Python dependencies
+├── README.md # Comprehensive documentation
+├── PROJECT_COMPLETE.md # This file
+├── scraped_data/ # Scraped website data
+│ └── content.json # Homepage data + placeholders
+└── klm-hugo-site/ # ✨ YOUR NEW HUGO SITE ✨
+ ├── content/ # All page content
+ │ ├── _index.md # Homepage
+ │ ├── auto-insurance.md
+ │ ├── home-insurance.md
+ │ ├── commercial-insurance.md
+ │ ├── life-insurance.md
+ │ ├── about.md
+ │ └── contact.md
+ ├── themes/klm-theme/ # Custom insurance theme
+ │ ├── layouts/ # HTML templates
+ │ │ ├── _default/
+ │ │ │ ├── baseof.html
+ │ │ │ └── single.html
+ │ │ └── index.html
+ │ └── static/css/ # Styling
+ │ └── style.css
+ ├── static/ # Static assets
+ │ ├── images/ # (Add images here)
+ │ ├── css/
+ │ └── js/
+ └── hugo.toml # Site configuration&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="-completed-tasks"&gt;✅ Completed Tasks&lt;a class="anchor" href="#-completed-tasks"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="1-website-analysis-"&gt;1. Website Analysis ✓&lt;a class="anchor" href="#1-website-analysis-"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Analyzed &lt;a href="https://www.klminsurance.com"&gt;www.klminsurance.com&lt;/a&gt; structure&lt;/li&gt;
+&lt;li&gt;Identified all pages and navigation&lt;/li&gt;
+&lt;li&gt;Documented insurance services offered&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="2-content-scraping-"&gt;2. Content Scraping ✓&lt;a class="anchor" href="#2-content-scraping-"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Created advanced web scraper&lt;/li&gt;
+&lt;li&gt;Successfully scraped homepage content&lt;/li&gt;
+&lt;li&gt;Generated placeholder content for protected subpages&lt;/li&gt;
+&lt;li&gt;Saved data to &lt;code&gt;scraped_data/content.json&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-hugo-site-setup-"&gt;3. Hugo Site Setup ✓&lt;a class="anchor" href="#3-hugo-site-setup-"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Installed Hugo v0.153.1&lt;/li&gt;
+&lt;li&gt;Created new Hugo site&lt;/li&gt;
+&lt;li&gt;Built custom &amp;ldquo;klm-theme&amp;rdquo; insurance theme&lt;/li&gt;
+&lt;li&gt;Configured site settings&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="4-content-creation-"&gt;4. Content Creation ✓&lt;a class="anchor" href="#4-content-creation-"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Created comprehensive pages:&lt;/p&gt;</description></item><item><title>Claude Instructions</title><link>http://localhost:1313/documents/klm-migrate/claude-instructions/</link><pubDate>Sun, 21 Dec 2025 23:44:15 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/claude-instructions/</guid><description>&lt;h1 id="klm-insurance-website-migration-to-hugo--full-thread-summary--continuation-guide"&gt;KLM Insurance Website Migration to Hugo – Full Thread Summary &amp;amp; Continuation Guide&lt;a class="anchor" href="#klm-insurance-website-migration-to-hugo--full-thread-summary--continuation-guide"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; December 21, 2025&lt;br&gt;
+&lt;strong&gt;Project Goal:&lt;/strong&gt; Replicate the existing website at &lt;code&gt;www.klminsurance.com&lt;/code&gt; in Hugo using the Megakit theme.&lt;br&gt;
+&lt;strong&gt;Local Project Path:&lt;/strong&gt; &lt;code&gt;C:\Users\emark\PycharmProjects\klm-hugo-lab\&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;Original experimental folder:&lt;/strong&gt; &lt;code&gt;klm-hugo&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;New clean target folder:&lt;/strong&gt; &lt;code&gt;klm-g-hugo&lt;/code&gt; (parallel, fresh site)&lt;br&gt;
+&lt;strong&gt;Conda Environment:&lt;/strong&gt; &lt;code&gt;klm-hugo&lt;/code&gt; (contains &lt;code&gt;jinja2&lt;/code&gt;, Hugo in PATH)&lt;/p&gt;
+&lt;h2 id="thread-summary-chronological-key-points"&gt;Thread Summary (Chronological Key Points)&lt;a class="anchor" href="#thread-summary-chronological-key-points"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Initial Request&lt;/strong&gt;&lt;br&gt;
+User wanted Python scripts to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scrape content from &lt;code&gt;www.klminsurance.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Customize Megakit Hugo theme&lt;/li&gt;
+&lt;li&gt;Generate pages matching the original site&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Scraping Script&lt;/strong&gt;&lt;br&gt;
+Provided &lt;code&gt;g_scrape_klm.py&lt;/code&gt; → Successfully scraped homepage, but subpages returned 403 → used placeholders + manual screenshot text fallback.&lt;/p&gt;</description></item><item><title>[Product/Service Name]</title><link>http://localhost:1313/documents/klm-migrate/product-service-template/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/product-service-template/</guid><description>&lt;p&gt;[Opening paragraph - Hook the reader with a compelling introduction that addresses their needs or concerns. Explain why they might need this product/service. Keep it conversational and customer-focused. 2-3 sentences.]&lt;/p&gt;
+&lt;h2 id="main-benefit-or-feature-heading"&gt;[Main Benefit or Feature Heading]&lt;a class="anchor" href="#main-benefit-or-feature-heading"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;[First main section - Expand on the primary value proposition. What problems does this solve? How does it help customers? What makes your offering unique? 2-4 paragraphs.]&lt;/p&gt;
+&lt;p&gt;[Optional second paragraph with more details about the main benefit.]&lt;/p&gt;</description></item><item><title>About KLM Insurance Solutions, Inc</title><link>http://localhost:1313/documents/klm-migrate/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/about/</guid><description>&lt;p&gt;KLM Insurance Agency has been a family run independent agency proudly serving the Greater Philadelphia region since 1980. We pride ourselves on customer service and providing prompt, fair and efficient problem resolution in simple and easy to understand. We will take the time to understand your needs and your goals and will help you understand your decisions and options.&lt;/p&gt;
+&lt;p&gt;At KLM Insurance Solutions everything we do is focused on making insurance easy, understandable and effective. We want to help find you the solution that best fits your situation. We will look for pricing advantages you may qualify for that the right insurance company. Insurance is an ongoing investment designed to protect your primary investments, your health and your income. It is important to select a local agent who will listen when needed and will save the time to understand the details of your situation.&lt;/p&gt;</description></item><item><title>Auto Insurance</title><link>http://localhost:1313/documents/klm-migrate/auto-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/auto-insurance/</guid><description>&lt;p&gt;Driving on the open road can be thrilling but can also pose a wide variety of risks that require the right type and level of insurance protection. KLM Insurance Solutions Inc. is here to help with top-quality insurance products to protect you and your vehicle. We offer premium insurance options that our clients can rely on to get the exact coverage they need.&lt;/p&gt;
+&lt;h2 id="find-the-right-auto-insurance-protection"&gt;Find the Right Auto Insurance Protection&lt;a class="anchor" href="#find-the-right-auto-insurance-protection"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;We are proudly serving the insurance needs of customers just like you in the Greater Philadelphia region and across the state of Pennsylvania. We can help potential clients discover what their individual needs are currently and even help them make any changes to the policy as their needs change along the way. Additionally, we can help you get the right coverage to meet financing requirements so you can drive away from the dealership or car lot.&lt;/p&gt;</description></item><item><title>Boat/Watercraft Insurance</title><link>http://localhost:1313/documents/klm-migrate/boat-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/boat-insurance/</guid><description>&lt;p&gt;Owning a boat or other vessel in Pennsylvania is a large, fun investment and can come with the need for insurance. Boat owner should consider finding a high-quality, comprehensive boat and watercraft insurance policy. There can be use there ways to stay on the water, and you may be able to ruin a family structure. There can use use there ways to stay, or may be able to ruin a great day on the water, so do what you can to stay protected.&lt;/p&gt;</description></item><item><title>Client Center - Customer Service Portal</title><link>http://localhost:1313/documents/klm-migrate/client-center/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/client-center/</guid><description/></item><item><title>Commercial Insurance</title><link>http://localhost:1313/documents/klm-migrate/commercial-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/commercial-insurance/</guid><description>&lt;p&gt;Every business and company comes with risks that are in place for your employees as well as assets that are imperative to protect. KLM Insurance Solutions Inc. can tell you more about that you have the commercial insurance that you need.&lt;/p&gt;
+&lt;h2 id="protect-your-livelihood"&gt;Protect Your Livelihood&lt;a class="anchor" href="#protect-your-livelihood"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your business needs to be protected against everything that could happen. As your agent, we can&amp;rsquo;t make sure that nothing bad ever happens to your business and assets, but we can make sure that you will recover from any incident that may happen. This is why you need the right insurance. You will need to think about what you need. We are here to help you decide. Common insurance policies include:&lt;/p&gt;</description></item><item><title>Compare Quotes - Get Insurance Quotes</title><link>http://localhost:1313/documents/klm-migrate/compare-quotes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/compare-quotes/</guid><description/></item><item><title>Contact KLM Insurance Solutions, Inc</title><link>http://localhost:1313/documents/klm-migrate/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/contact/</guid><description>&lt;p&gt;KLM Insurance Solutions, Inc&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1554 Paoli Pike #306&lt;/strong&gt;
+West Chester, PA 19380
+United States&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Phone:&lt;/strong&gt; 610-429-1330
+&lt;strong&gt;Fax:&lt;/strong&gt; 610-429-1388
+&lt;strong&gt;Email:&lt;/strong&gt; &lt;a href="mailto:sales@klminsurance.com"&gt;sales@klminsurance.com&lt;/a&gt;
+&lt;strong&gt;Website:&lt;/strong&gt; &lt;a href="https://www.klminsurance.com"&gt;www.klminsurance.com&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Get Your Free Insurance Quote</title><link>http://localhost:1313/documents/klm-migrate/landingv2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/landingv2/</guid><description>&lt;h2 id="why-choose-klm-insurance-solutions"&gt;Why Choose KLM Insurance Solutions?&lt;a class="anchor" href="#why-choose-klm-insurance-solutions"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;As an independent insurance agency, we work for &lt;strong&gt;you&lt;/strong&gt;, not the insurance companies. We compare rates from multiple top-rated carriers to find the best coverage at the best price.&lt;/p&gt;
+&lt;h3 id="our-services-include"&gt;Our Services Include:&lt;a class="anchor" href="#our-services-include"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Auto Insurance&lt;/strong&gt; - Comprehensive coverage for your vehicles&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Home Insurance&lt;/strong&gt; - Protection for your most valuable asset&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Commercial Insurance&lt;/strong&gt; - Business coverage tailored to your needs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Life Insurance&lt;/strong&gt; - Financial security for your loved ones&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Call us today at 610-429-1330&lt;/strong&gt; or fill out the form above to get started!&lt;/p&gt;</description></item><item><title>Home Insurance</title><link>http://localhost:1313/documents/klm-migrate/home-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/home-insurance/</guid><description>&lt;p&gt;Insurance is one of the best tools available to help protect people&amp;rsquo;s belongings and investments. There are many different types of insurance available including home insurance. While a lot of people are familiar with basic insurance products such as home insurance, but there are many more designed to offer unique protection from a variety of risks. Let our knowledgeable, experienced insurance agents help you discover insurance products designed to fit your lifestyle.&lt;/p&gt;</description></item><item><title>Insurance Insights</title><link>http://localhost:1313/documents/klm-migrate/insurance-insights/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/insurance-insights/</guid><description>&lt;p&gt;Welcome to the KLM Insurance Solutions Insurance Insights center, your trusted resource for insurance knowledge, tips, and industry updates. Whether you&amp;rsquo;re protecting your family, securing your business, or planning for life&amp;rsquo;s important moments, our blog provides valuable information to help you make informed decisions about your insurance coverage.&lt;/p&gt;
+&lt;h2 id="protect-what-matters"&gt;Protect What Matters&lt;a class="anchor" href="#protect-what-matters"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Understanding insurance is the first step to protecting what matters most in your life. From your home and vehicles to your family&amp;rsquo;s financial future, the right insurance coverage provides peace of mind and security when you need it most.&lt;/p&gt;</description></item><item><title>Landing Page</title><link>http://localhost:1313/documents/klm-migrate/landing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/landing/</guid><description>&lt;p&gt;Welcome to our landing page. Watch the video above to learn more about our insurance solutions.&lt;/p&gt;
+&lt;p&gt;You can customize this content to provide information about what visitors will see in the video, or any other relevant details you&amp;rsquo;d like to share.&lt;/p&gt;</description></item><item><title>Life Insurance</title><link>http://localhost:1313/documents/klm-migrate/life-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/life-insurance/</guid><description>&lt;p&gt;Have you thought about what happens in the event of your death? While you hope that you don&amp;rsquo;t have to worry about such a thing, it&amp;rsquo;s always best to plan for the inevitable. With the help of us at KLM Insurance Solutions Inc., we can be sure that you have reliable life insurance in Pennsylvania.&lt;/p&gt;
+&lt;h2 id="types-of-life-insurance"&gt;Types of Life Insurance&lt;a class="anchor" href="#types-of-life-insurance"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Did you know that there are different types of life insurance? Shopping for a policy on your own can be overwhelming. How much coverage do you need? Should you choose term or whole?&lt;/p&gt;</description></item><item><title>Motorcycle Insurance</title><link>http://localhost:1313/documents/klm-migrate/example-motorcycle-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/example-motorcycle-insurance/</guid><description>&lt;p&gt;Owning a motorcycle offers freedom and excitement on the open road, but it also comes with unique risks that require specialized insurance coverage. Whether you ride a cruiser, sport bike, or touring motorcycle, having the right protection is essential. KLM Insurance Solutions Inc. provides comprehensive motorcycle insurance tailored to riders throughout Pennsylvania.&lt;/p&gt;
+&lt;h2 id="comprehensive-protection-for-riders"&gt;Comprehensive Protection for Riders&lt;a class="anchor" href="#comprehensive-protection-for-riders"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Motorcycle insurance is different from standard auto insurance because bikes face distinct risks and require specialized coverage. Our policies protect you from liability, collision damage, theft, and more. We understand that every rider has different needs based on their bike, riding habits, and budget.&lt;/p&gt;</description></item><item><title>Renters Insurance</title><link>http://localhost:1313/documents/klm-migrate/example-renters-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/example-renters-insurance/</guid><description>&lt;p&gt;Renting an apartment or home doesn&amp;rsquo;t mean you should go without insurance protection for your belongings and liability. Many renters mistakenly believe their landlord&amp;rsquo;s insurance covers their personal property, but that&amp;rsquo;s simply not the case. KLM Insurance Solutions Inc. offers affordable renters insurance policies that protect what matters most to you in Pennsylvania.&lt;/p&gt;
+&lt;h2 id="protect-your-personal-property"&gt;Protect Your Personal Property&lt;a class="anchor" href="#protect-your-personal-property"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Your landlord&amp;rsquo;s insurance policy covers the building structure, but your furniture, electronics, clothing, jewelry, and other personal belongings are your responsibility to insure. Renters insurance provides financial protection if your possessions are damaged or stolen due to fire, theft, vandalism, water damage, or other covered events.&lt;/p&gt;</description></item><item><title>Umbrella Insurance</title><link>http://localhost:1313/documents/klm-migrate/umbrella-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/umbrella-insurance/</guid><description>&lt;p&gt;You never know what could happen or how expensive it will be to recover. Although you may have plenty of insurance in place in Pennsylvania, you can never have enough. Umbrella insurance can be just what you need to prevent financial ruin. At KLM Insurance Solutions Inc., we&amp;rsquo;ll help you discover how helpful it can be.&lt;/p&gt;
+&lt;h2 id="how-umbrella-insurance-is-used"&gt;How Umbrella Insurance is Used&lt;a class="anchor" href="#how-umbrella-insurance-is-used"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Throughout Pennsylvania, you need to be covered for all that could happen. What happens when you are in an incident and the bills start to add up, don&amp;rsquo;t which much to exhaust the coverage limits when there&amp;rsquo;s a major accident. Once coverage levels are exceeded, the remaining costs are yours to shoulder.&lt;/p&gt;</description></item><item><title>What is the Difference Between Term, Whole and Permanent Insurance</title><link>http://localhost:1313/documents/klm-migrate/term-whole-permanent-insurance/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/documents/klm-migrate/term-whole-permanent-insurance/</guid><description>&lt;p&gt;Choosing the right life insurance policy can feel overwhelming, especially when you&amp;rsquo;re faced with terms like &amp;ldquo;term life,&amp;rdquo; &amp;ldquo;whole life,&amp;rdquo; and &amp;ldquo;permanent insurance.&amp;rdquo; At KLM Insurance Solutions Inc., we believe understanding your options should be straightforward. Let&amp;rsquo;s break down the key differences between these three types of life insurance in plain English.&lt;/p&gt;
+&lt;h2 id="term-life-insurance-protection-for-a-specific-period"&gt;Term Life Insurance: Protection for a Specific Period&lt;a class="anchor" href="#term-life-insurance-protection-for-a-specific-period"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Think of term life insurance as renting coverage for a set period of time. You choose how long you need protection—typically 10, 20, or 30 years—and if you pass away during that term, your beneficiaries receive the death benefit.&lt;/p&gt;</description></item></channel></rss>

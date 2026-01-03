@@ -34,7 +34,7 @@ weight: 1
 
 ### Settings F...
 
-## Documentation (57 files)
+## Documentation (55 files)
 
 ### [PRODUCTION_DEPLOYMENT_PLAN.md]({{< relref "/documents/klm-migrate/PRODUCTION_DEPLOYMENT_PLAN" >}})
 
@@ -172,10 +172,6 @@ Renters Insurance - KLM Insurance Solutions
 
 Motorcycle Insurance - KLM Insurance Solutions
 
-### [default.md]({{< relref "/documents/klm-migrate/default" >}})
-
-+++
-
 ### [insurance-insights.md]({{< relref "/documents/klm-migrate/insurance-insights" >}})
 
 Insurance Insights - Knowledge Center & Blog - KLM Insurance Solutions
@@ -251,10 +247,6 @@ This document provides a comprehensive overview of the Git/GitHub workflow you'v
 ### [LANDING_PAGES_GUIDE.md]({{< relref "/documents/klm-migrate/LANDING_PAGES_GUIDE" >}})
 
 This guide explains how to create landing pages and track which page users submitted forms from.
-
-### [default.md]({{< relref "/documents/klm-migrate/default" >}})
-
-+++
 
 ### [landing.md]({{< relref "/documents/klm-migrate/landing" >}})
 

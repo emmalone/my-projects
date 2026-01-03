@@ -49,7 +49,7 @@ A desktop application for managing and visualizing your project portfolio with a
 
 **Last Commit**: Initial commit: Project Portfolio Manager
 
-**Author**: Mark Malone (12 hours ago)
+**Author**: Mark Malone (13 hours ago)
 
 
 **Path**: `/Users/mark/PycharmProjects/test`

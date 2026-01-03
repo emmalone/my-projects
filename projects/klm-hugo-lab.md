@@ -18,32 +18,15 @@ No description available
 
 ## Files
 
-**Total Markdown Files**: 50
+**Total Markdown Files**: 40
 
 
 ### Documentation
 
 - [README.md](klm-hugo/sites/klm-megakit/README.md)
   - Business template for Hugo. Browse through a [live demo](https://timely-land.cloudvent.net/). This theme has been adapted from the MIT licensed [Megakit Bootstrap template from Theme Fisher](https:...
-- [default.md](klm-hugo/sites/hello-klm/archetypes/default.md)
-  - +++
-- [LICENSE.md](klm-hugo/sites/hello-klm/themes/ananke/LICENSE.md)
-  - Copyright (c) 2016-2024 Bud Parr
-- [CHANGELOG.md](klm-hugo/sites/hello-klm/themes/ananke/CHANGELOG.md)
-  - * update README.md ([a001981](https://github.com/thenewdynamic/gohugo-theme-ananke/commit/a0019812ff62d978781392c765addbaee1c1eddf))
-- [README.md](klm-hugo/sites/hello-klm/themes/ananke/README.md)
-  - > [!WARNING]
-- [default.md](klm-hugo/sites/hello-klm/themes/ananke/archetypes/default.md)
-- [pull_request_template.md](klm-hugo/sites/hello-klm/themes/ananke/.github/pull_request_template.md)
-  - <!---
-- [changelog-old.md](klm-hugo/sites/hello-klm/themes/ananke/.github/changelog-old.md)
-  - All notable changes to this project will be documented in this file.
-- [bugs.md](klm-hugo/sites/hello-klm/themes/ananke/.github/ISSUE_TEMPLATE/bugs.md)
-  - <!---
 - [welcome.md](klm-hugo/sites/hello-klm/content/posts/welcome.md)
   - If you can read this, your Hugo setup is working. ✅
-- [post.md](klm-hugo/sites/klm-megakit/archetypes/post.md)
-- [service.md](klm-hugo/sites/klm-megakit/archetypes/service.md)
 - [pricing.md](klm-hugo/sites/klm-megakit/content/pricing.md)
   - No summary available
 - [portfolio.md](klm-hugo/sites/klm-megakit/content/portfolio.md)

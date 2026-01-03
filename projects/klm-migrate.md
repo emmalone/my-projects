@@ -37,7 +37,7 @@ tech_stack: Python
 
 ## Files
 
-**Total Markdown Files**: 57
+**Total Markdown Files**: 55
 
 
 ### Documentation
@@ -110,8 +110,6 @@ tech_stack: Python
   - **Professional templates for creating consistent product and service pages**
 - [example-motorcycle-insurance.md](templates/example-motorcycle-insurance.md)
   - Motorcycle Insurance - KLM Insurance Solutions
-- [default.md](klm-hugo-site/archetypes/default.md)
-  - +++
 - [insurance-insights.md](klm-hugo-site/content/insurance-insights.md)
   - Insurance Insights - Knowledge Center & Blog - KLM Insurance Solutions
 - [commercial-insurance.md](klm-hugo-site/content/commercial-insurance.md)
@@ -150,8 +148,6 @@ tech_stack: Python
   - This document provides a comprehensive overview of the Git/GitHub workflow you've mastered through building the Task Manager API demo application.
 - [LANDING_PAGES_GUIDE.md](klm-hugo-site/docs/LANDING_PAGES_GUIDE.md)
   - This guide explains how to create landing pages and track which page users submitted forms from.
-- [default.md](klm-hugo-site/themes/klm-theme/archetypes/default.md)
-  - +++
 - [landing.md](klm-hugo-site/content/guides/landing.md)
   - Landing Page - KLM Insurance Solutions
 - [landingv2.md](klm-hugo-site/content/guides/landingv2.md)

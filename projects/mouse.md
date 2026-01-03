@@ -50,7 +50,7 @@ A simple macOS menubar application that allows quick toggling of "natural scroll
 
 **Branch**: main
 
-**Last Commit**: Initial commit: Natural Scrolling Toggle MenuBar App (12 hours ago) by Mark Malone
+**Last Commit**: Initial commit: Natural Scrolling Toggle MenuBar App (13 hours ago) by Mark Malone
 
 
 **Path**: `/Users/mark/PycharmProjects/mouse`

@@ -1,0 +1,206 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='Migrating Website to GitHub - Safety Checklist# BEFORE YOU START - CRITICAL SECURITY CHECKS# ☐ Step 1: Identify Sensitive Files# Navigate to your project directory and look for:
+# Search for potential secret files find . -name ".env*" -o -name "*.key" -o -name "*.pem" -o -name "config.php" -o -name "settings.py" # Look for files with "password" or "secret" in them grep -r "password\|secret\|api_key" --include="*.php" --include="*.py" --include="*.js" --include="*.env" .Common secret files by technology:
+WordPress:
+wp-config.php (has database credentials!) .htaccess (might have passwords) Upload directories with customer data Django/Python:
+'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/documents/remote/migrate_to_github_checklist/"><meta property="og:site_name" content="My Projects - Documentation Hub"><meta property="og:title" content="MIGRATE_TO_GITHUB_CHECKLIST"><meta property="og:description" content='Migrating Website to GitHub - Safety Checklist# BEFORE YOU START - CRITICAL SECURITY CHECKS# ☐ Step 1: Identify Sensitive Files# Navigate to your project directory and look for:
+# Search for potential secret files find . -name ".env*" -o -name "*.key" -o -name "*.pem" -o -name "config.php" -o -name "settings.py" # Look for files with "password" or "secret" in them grep -r "password\|secret\|api_key" --include="*.php" --include="*.py" --include="*.js" --include="*.env" .Common secret files by technology:
+WordPress:
+wp-config.php (has database credentials!) .htaccess (might have passwords) Upload directories with customer data Django/Python:'><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="documents"><meta property="article:published_time" content="2025-12-28T14:16:44+00:00"><meta property="article:modified_time" content="2025-12-28T14:16:44+00:00"><meta itemprop=name content="MIGRATE_TO_GITHUB_CHECKLIST"><meta itemprop=description content='Migrating Website to GitHub - Safety Checklist# BEFORE YOU START - CRITICAL SECURITY CHECKS# ☐ Step 1: Identify Sensitive Files# Navigate to your project directory and look for:
+# Search for potential secret files find . -name ".env*" -o -name "*.key" -o -name "*.pem" -o -name "config.php" -o -name "settings.py" # Look for files with "password" or "secret" in them grep -r "password\|secret\|api_key" --include="*.php" --include="*.py" --include="*.js" --include="*.env" .Common secret files by technology:
+WordPress:
+wp-config.php (has database credentials!) .htaccess (might have passwords) Upload directories with customer data Django/Python:'><meta itemprop=datePublished content="2025-12-28T14:16:44+00:00"><meta itemprop=dateModified content="2025-12-28T14:16:44+00:00"><meta itemprop=wordCount content="1254"><title>MIGRATE_TO_GITHUB_CHECKLIST | My Projects - Documentation Hub</title><link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/documents/remote/migrate_to_github_checklist/><link rel=stylesheet href=/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj+RQ9XBXU=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/en.search.min.da5a5af27f9bdea67bd6f07f3142824ec301e0c7f9d37c0fc61aefc961834a9e.js integrity="sha256-2lpa8n+b3qZ71vB/MUKCTsMB4Mf503wPxhrvyWGDSp4=" crossorigin=anonymous></script></head><body dir=ltr class="book-kind-page book-type-documents"><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/><span>My Projects - Documentation Hub</span></a></h2><div class="book-search hidden"><input id=book-search-input type=text placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class="book-header hidden"><div class="flex align-center justify-between"><label for=menu-control><img src=/icons/menu.svg class=book-icon alt=Menu></label><h3>MIGRATE_TO_GITHUB_CHECKLIST</h3><label for=toc-control><img src=/icons/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class=hidden><nav id=TableOfContents><ul><li><a href=#migrating-website-to-github---safety-checklist>Migrating Website to GitHub - Safety Checklist</a><ul><li><a href=#before-you-start---critical-security-checks>BEFORE YOU START - CRITICAL SECURITY CHECKS</a><ul><li><a href=#-step-1-identify-sensitive-files>☐ Step 1: Identify Sensitive Files</a></li><li><a href=#-step-2-create-gitignore-file>☐ Step 2: Create .gitignore File</a></li><li><a href=#-step-3-review-what-will-be-committed>☐ Step 3: Review What Will Be Committed</a></li><li><a href=#-step-4-check-for-hardcoded-secrets-in-code>☐ Step 4: Check for Hardcoded Secrets in Code</a></li></ul></li><li><a href=#migration-steps>MIGRATION STEPS</a><ul><li><a href=#-step-5-backup-your-local-project>☐ Step 5: Backup Your Local Project</a></li><li><a href=#-step-6-check-github-repo-status>☐ Step 6: Check GitHub Repo Status</a></li><li><a href=#-step-7-initialize-git-in-your-project>☐ Step 7: Initialize Git in Your Project</a></li><li><a href=#-step-8-stage-files-carefully>☐ Step 8: Stage Files (Carefully!)</a></li><li><a href=#-step-9-create-initial-commit>☐ Step 9: Create Initial Commit</a></li><li><a href=#-step-10-connect-to-github-remote>☐ Step 10: Connect to GitHub Remote</a></li><li><a href=#-step-11-check-if-remote-has-content>☐ Step 11: Check if Remote Has Content</a></li><li><a href=#-step-12-verify-on-github>☐ Step 12: Verify on GitHub</a></li></ul></li><li><a href=#-emergency-i-accidentally-committed-secrets>⚠️ EMERGENCY: I Accidentally Committed Secrets!</a><ul><li><a href=#option-1-if-just-pushed-within-minutes>Option 1: If Just Pushed (within minutes)</a></li><li><a href=#option-2-remove-from-git-history-advanced>Option 2: Remove from Git History (Advanced)</a></li></ul></li><li><a href=#technology-specific-guides>TECHNOLOGY-SPECIFIC GUIDES</a><ul><li><a href=#wordpress>WordPress</a></li><li><a href=#djangopython>Django/Python</a></li><li><a href=#reactnode>React/Node</a></li></ul></li><li><a href=#best-practices>BEST PRACTICES</a><ul><li><a href=#-use-environment-variables>☐ Use Environment Variables</a></li><li><a href=#-add-a-readme>☐ Add a README</a></li><li><a href=#-create-envexample>☐ Create .env.example</a></li></ul></li><li><a href=#common-mistakes-to-avoid>COMMON MISTAKES TO AVOID</a><ul><li><a href=#-dont-commit-node_modules>❌ Don&rsquo;t Commit node_modules</a></li><li><a href=#-dont-commit-database-files>❌ Don&rsquo;t Commit Database Files</a></li><li><a href=#-dont-commit-compiled-files>❌ Don&rsquo;t Commit Compiled Files</a></li><li><a href=#-dont-commit-large-media-files>❌ Don&rsquo;t Commit Large Media Files</a></li><li><a href=#-dont-commit-with-wrong-email>❌ Don&rsquo;t Commit with Wrong Email</a></li></ul></li><li><a href=#post-migration>POST-MIGRATION</a><ul><li><a href=#-set-up-branch-protection-optional>☐ Set Up Branch Protection (Optional)</a></li><li><a href=#-add-collaborators-if-needed>☐ Add Collaborators (If Needed)</a></li><li><a href=#-configure-github-actions-optional>☐ Configure GitHub Actions (Optional)</a></li></ul></li><li><a href=#quick-reference>Quick Reference</a><ul><li><a href=#safe-to-commit>Safe to Commit:</a></li><li><a href=#never-commit>NEVER Commit:</a></li></ul></li><li><a href=#need-help>Need Help?</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=migrating-website-to-github---safety-checklist>Migrating Website to GitHub - Safety Checklist<a class=anchor href=#migrating-website-to-github---safety-checklist>#</a></h1><h2 id=before-you-start---critical-security-checks>BEFORE YOU START - CRITICAL SECURITY CHECKS<a class=anchor href=#before-you-start---critical-security-checks>#</a></h2><h3 id=-step-1-identify-sensitive-files>☐ Step 1: Identify Sensitive Files<a class=anchor href=#-step-1-identify-sensitive-files>#</a></h3><p><strong>Navigate to your project directory and look for:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Search for potential secret files</span>
+</span></span><span style=display:flex><span>find . -name <span style=color:#e6db74>&#34;.env*&#34;</span> -o -name <span style=color:#e6db74>&#34;*.key&#34;</span> -o -name <span style=color:#e6db74>&#34;*.pem&#34;</span> -o -name <span style=color:#e6db74>&#34;config.php&#34;</span> -o -name <span style=color:#e6db74>&#34;settings.py&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Look for files with &#34;password&#34; or &#34;secret&#34; in them</span>
+</span></span><span style=display:flex><span>grep -r <span style=color:#e6db74>&#34;password\|secret\|api_key&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.php&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.py&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.js&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.env&#34;</span> .</span></span></code></pre></div><p><strong>Common secret files by technology:</strong></p><p><strong>WordPress:</strong></p><ul><li><code>wp-config.php</code> (has database credentials!)</li><li><code>.htaccess</code> (might have passwords)</li><li>Upload directories with customer data</li></ul><p><strong>Django/Python:</strong></p><ul><li><code>settings.py</code> or <code>local_settings.py</code></li><li><code>.env</code> files</li><li><code>secrets.json</code></li></ul><p><strong>React/Node:</strong></p><ul><li><code>.env</code>, <code>.env.local</code>, <code>.env.production</code></li><li><code>config.js</code> with API keys</li></ul><p><strong>PHP:</strong></p><ul><li><code>config.php</code>, <code>db-config.php</code></li><li><code>.env</code></li></ul><h3 id=-step-2-create-gitignore-file>☐ Step 2: Create .gitignore File<a class=anchor href=#-step-2-create-gitignore-file>#</a></h3><p><strong>Create a <code>.gitignore</code> file in your project root with these patterns:</strong></p><pre tabindex=0><code class=language-gitignore data-lang=gitignore># Secrets and configuration
+.env
+.env.*
+*.env
+.env.local
+.env.production
+config.php
+wp-config.php
+settings.py
+local_settings.py
+secrets.json
+*.key
+*.pem
+.htpasswd
+
+# Database
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+database/
+
+# Dependencies
+node_modules/
+vendor/
+venv/
+env/
+__pycache__/
+*.pyc
+
+# User uploads (if large)
+uploads/
+media/
+wp-content/uploads/
+
+# Build outputs
+dist/
+build/
+*.min.js
+*.min.css
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+cache/</code></pre><h3 id=-step-3-review-what-will-be-committed>☐ Step 3: Review What Will Be Committed<a class=anchor href=#-step-3-review-what-will-be-committed>#</a></h3><p><strong>BEFORE committing, check what git will add:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Initialize git (if not already done)</span>
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Add the .gitignore</span>
+</span></span><span style=display:flex><span>git add .gitignore
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Do a DRY RUN - see what would be committed</span>
+</span></span><span style=display:flex><span>git add --dry-run -A
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Actually see the file list</span>
+</span></span><span style=display:flex><span>git status</span></span></code></pre></div><p><strong>CAREFULLY REVIEW THIS LIST!</strong> Look for:</p><ul><li>Any files with passwords/keys</li><li>Large files (> 100MB)</li><li>Sensitive customer data</li></ul><h3 id=-step-4-check-for-hardcoded-secrets-in-code>☐ Step 4: Check for Hardcoded Secrets in Code<a class=anchor href=#-step-4-check-for-hardcoded-secrets-in-code>#</a></h3><p><strong>Search your code for hardcoded credentials:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Look for common secret patterns</span>
+</span></span><span style=display:flex><span>grep -r <span style=color:#e6db74>&#34;password.*=.*[&#39;\&#34;]&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.php&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.py&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.js&#34;</span> .
+</span></span><span style=display:flex><span>grep -r <span style=color:#e6db74>&#34;api_key.*=.*[&#39;\&#34;]&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.php&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.py&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.js&#34;</span> .
+</span></span><span style=display:flex><span>grep -r <span style=color:#e6db74>&#34;secret.*=.*[&#39;\&#34;]&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.php&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.py&#34;</span> --include<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;*.js&#34;</span> .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check for AWS keys</span>
+</span></span><span style=display:flex><span>grep -r <span style=color:#e6db74>&#34;AKIA&#34;</span> .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check for Stripe keys</span>
+</span></span><span style=display:flex><span>grep -r <span style=color:#e6db74>&#34;sk_live&#34;</span> .</span></span></code></pre></div><p><strong>If you find hardcoded secrets:</strong></p><ol><li>Move them to environment variables</li><li>Reference them via <code>os.getenv()</code> (Python) or <code>process.env</code> (Node)</li><li>Never commit the actual values</li></ol><hr><h2 id=migration-steps>MIGRATION STEPS<a class=anchor href=#migration-steps>#</a></h2><h3 id=-step-5-backup-your-local-project>☐ Step 5: Backup Your Local Project<a class=anchor href=#-step-5-backup-your-local-project>#</a></h3><p><strong>Just in case something goes wrong:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Create a backup</span>
+</span></span><span style=display:flex><span>cp -r /path/to/your/project /path/to/your/project-backup-<span style=color:#66d9ef>$(</span>date +%Y%m%d<span style=color:#66d9ef>)</span></span></span></code></pre></div><h3 id=-step-6-check-github-repo-status>☐ Step 6: Check GitHub Repo Status<a class=anchor href=#-step-6-check-github-repo-status>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># See if there&#39;s anything already in the repo</span>
+</span></span><span style=display:flex><span>git clone https://github.com/emmalone/klm-migrate.git temp-check
+</span></span><span style=display:flex><span>cd temp-check
+</span></span><span style=display:flex><span>ls -la
+</span></span><span style=display:flex><span>cd ..
+</span></span><span style=display:flex><span>rm -rf temp-check</span></span></code></pre></div><p><strong>If repo has content:</strong> You&rsquo;ll need to merge or decide what to keep
+<strong>If repo is empty:</strong> You can push directly</p><h3 id=-step-7-initialize-git-in-your-project>☐ Step 7: Initialize Git in Your Project<a class=anchor href=#-step-7-initialize-git-in-your-project>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Navigate to your project</span>
+</span></span><span style=display:flex><span>cd /path/to/your/website
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check if git is already initialized</span>
+</span></span><span style=display:flex><span>ls -la | grep .git
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># If not, initialize it</span>
+</span></span><span style=display:flex><span>git init
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Set up your identity (if not already done)</span>
+</span></span><span style=display:flex><span>git config user.name <span style=color:#e6db74>&#34;emmalone&#34;</span>
+</span></span><span style=display:flex><span>git config user.email <span style=color:#e6db74>&#34;mark@emm-associates.com&#34;</span></span></span></code></pre></div><h3 id=-step-8-stage-files-carefully>☐ Step 8: Stage Files (Carefully!)<a class=anchor href=#-step-8-stage-files-carefully>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Add .gitignore first</span>
+</span></span><span style=display:flex><span>git add .gitignore
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check what will be added</span>
+</span></span><span style=display:flex><span>git status
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># If everything looks safe, add all files</span>
+</span></span><span style=display:flex><span>git add .
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Review staged files one more time</span>
+</span></span><span style=display:flex><span>git status</span></span></code></pre></div><h3 id=-step-9-create-initial-commit>☐ Step 9: Create Initial Commit<a class=anchor href=#-step-9-create-initial-commit>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>git commit -m <span style=color:#e6db74>&#34;Initial commit: Migrate website to GitHub
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>- Add website source code
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>- Configure .gitignore for security
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>- Exclude sensitive configuration files
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span></span></span></code></pre></div><h3 id=-step-10-connect-to-github-remote>☐ Step 10: Connect to GitHub Remote<a class=anchor href=#-step-10-connect-to-github-remote>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Add the remote</span>
+</span></span><span style=display:flex><span>git remote add origin https://github.com/emmalone/klm-migrate.git
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Verify it&#39;s correct</span>
+</span></span><span style=display:flex><span>git remote -v</span></span></code></pre></div><h3 id=-step-11-check-if-remote-has-content>☐ Step 11: Check if Remote Has Content<a class=anchor href=#-step-11-check-if-remote-has-content>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Fetch to see what&#39;s on GitHub</span>
+</span></span><span style=display:flex><span>git fetch origin
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check branches</span>
+</span></span><span style=display:flex><span>git branch -a</span></span></code></pre></div><p><strong>If remote is empty:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Push directly</span>
+</span></span><span style=display:flex><span>git push -u origin main</span></span></code></pre></div><p><strong>If remote has content:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Pull and merge first</span>
+</span></span><span style=display:flex><span>git pull origin main --allow-unrelated-histories
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Resolve any conflicts</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Then push</span>
+</span></span><span style=display:flex><span>git push -u origin main</span></span></code></pre></div><h3 id=-step-12-verify-on-github>☐ Step 12: Verify on GitHub<a class=anchor href=#-step-12-verify-on-github>#</a></h3><ol><li>Visit: <a href=https://github.com/emmalone/klm-migrate>https://github.com/emmalone/klm-migrate</a></li><li>Check the file list</li><li><strong>IMPORTANT:</strong> Look for any files that shouldn&rsquo;t be there</li><li>If you see secrets, DELETE them immediately and see &ldquo;Emergency&rdquo; section below</li></ol><hr><h2 id=-emergency-i-accidentally-committed-secrets>⚠️ EMERGENCY: I Accidentally Committed Secrets!<a class=anchor href=#-emergency-i-accidentally-committed-secrets>#</a></h2><p><strong>If you pushed sensitive data to GitHub:</strong></p><h3 id=option-1-if-just-pushed-within-minutes>Option 1: If Just Pushed (within minutes)<a class=anchor href=#option-1-if-just-pushed-within-minutes>#</a></h3><ol><li><p><strong>Delete the repository on GitHub immediately</strong></p><ul><li>Go to repo Settings → Danger Zone → Delete</li></ul></li><li><p><strong>Rotate all exposed credentials</strong></p><ul><li>Change database passwords</li><li>Regenerate API keys</li><li>Update all services</li></ul></li><li><p><strong>Fix locally and re-push</strong></p><ul><li>Remove secrets from code</li><li>Add to .gitignore</li><li>Create new repo</li><li>Push clean version</li></ul></li></ol><h3 id=option-2-remove-from-git-history-advanced>Option 2: Remove from Git History (Advanced)<a class=anchor href=#option-2-remove-from-git-history-advanced>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Install BFG Repo Cleaner</span>
+</span></span><span style=display:flex><span>brew install bfg  <span style=color:#75715e># macOS</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Remove the file from history</span>
+</span></span><span style=display:flex><span>bfg --delete-files config.php
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Clean up</span>
+</span></span><span style=display:flex><span>git reflog expire --expire<span style=color:#f92672>=</span>now --all
+</span></span><span style=display:flex><span>git gc --prune<span style=color:#f92672>=</span>now --aggressive
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Force push (WARNING: destructive)</span>
+</span></span><span style=display:flex><span>git push --force</span></span></code></pre></div><p><strong>CRITICAL:</strong> Even after removal, assume the secrets are compromised. Always rotate them!</p><hr><h2 id=technology-specific-guides>TECHNOLOGY-SPECIFIC GUIDES<a class=anchor href=#technology-specific-guides>#</a></h2><h3 id=wordpress>WordPress<a class=anchor href=#wordpress>#</a></h3><p><strong>Files to include:</strong></p><ul><li>✅ <code>wp-content/themes/</code> (your custom themes)</li><li>✅ <code>wp-content/plugins/</code> (your custom plugins)</li><li>✅ Custom PHP files</li></ul><p><strong>Files to EXCLUDE:</strong></p><ul><li>❌ <code>wp-config.php</code> (has DB credentials!)</li><li>❌ <code>wp-content/uploads/</code> (user uploads)</li><li>❌ WordPress core files (can be downloaded)</li><li>❌ <code>.htaccess</code> (often has sensitive rules)</li></ul><p><strong>Alternative approach:</strong> Only commit your theme/plugin, not entire WP install</p><h3 id=djangopython>Django/Python<a class=anchor href=#djangopython>#</a></h3><p><strong>Create this .gitignore:</strong></p><pre tabindex=0><code class=language-gitignore data-lang=gitignore>*.pyc
+__pycache__/
+venv/
+env/
+.env
+db.sqlite3
+*.log
+media/
+staticfiles/
+local_settings.py</code></pre><p><strong>Environment variables approach:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># settings.py</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> os
+</span></span><span style=display:flex><span><span style=color:#f92672>from</span> dotenv <span style=color:#f92672>import</span> load_dotenv
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>load_dotenv()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>SECRET_KEY <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>getenv(<span style=color:#e6db74>&#39;SECRET_KEY&#39;</span>)
+</span></span><span style=display:flex><span>DATABASE_PASSWORD <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>getenv(<span style=color:#e6db74>&#39;DATABASE_PASSWORD&#39;</span>)</span></span></code></pre></div><h3 id=reactnode>React/Node<a class=anchor href=#reactnode>#</a></h3><p><strong>Create this .gitignore:</strong></p><pre tabindex=0><code class=language-gitignore data-lang=gitignore>node_modules/
+.env
+.env.local
+.env.production
+build/
+dist/
+npm-debug.log*
+.DS_Store</code></pre><p><strong>Environment variables:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#75715e>// Use process.env
+</span></span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>apiKey</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>process</span>.<span style=color:#a6e22e>env</span>.<span style=color:#a6e22e>REACT_APP_API_KEY</span>;</span></span></code></pre></div><hr><h2 id=best-practices>BEST PRACTICES<a class=anchor href=#best-practices>#</a></h2><h3 id=-use-environment-variables>☐ Use Environment Variables<a class=anchor href=#-use-environment-variables>#</a></h3><p><strong>Instead of:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span>$db_password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;super_secret_123&#34;</span>;  <span style=color:#75715e>// DON&#39;T DO THIS!
+</span></span></span></code></pre></div><p><strong>Do this:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span>$db_password <span style=color:#f92672>=</span> <span style=color:#a6e22e>getenv</span>(<span style=color:#e6db74>&#39;DB_PASSWORD&#39;</span>);</span></span></code></pre></div><p><strong>Then create <code>.env</code> (and add to .gitignore):</strong></p><pre tabindex=0><code>DB_PASSWORD=super_secret_123</code></pre><h3 id=-add-a-readme>☐ Add a README<a class=anchor href=#-add-a-readme>#</a></h3><p><strong>Create <code>README.md</code> in your project:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-markdown data-lang=markdown><span style=display:flex><span># KLM Website
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Setup
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>1.</span> Clone the repository
+</span></span><span style=display:flex><span><span style=color:#66d9ef>2.</span> Copy <span style=color:#e6db74>`.env.example`</span> to <span style=color:#e6db74>`.env`</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>3.</span> Update <span style=color:#e6db74>`.env`</span> with your credentials
+</span></span><span style=display:flex><span><span style=color:#66d9ef>4.</span> Install dependencies
+</span></span><span style=display:flex><span><span style=color:#66d9ef>5.</span> Run the application
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>## Environment Variables
+</span></span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Required variables in <span style=color:#e6db74>`.env`</span>:
+</span></span><span style=display:flex><span><span style=color:#66d9ef>-</span> <span style=color:#e6db74>`DATABASE_URL`</span> - Database connection string
+</span></span><span style=display:flex><span>- <span style=color:#e6db74>`API_KEY`</span> - API key for external service</span></span></code></pre></div><h3 id=-create-envexample>☐ Create .env.example<a class=anchor href=#-create-envexample>#</a></h3><p><strong>Template file (safe to commit):</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># .env.example - Template for environment variables</span>
+</span></span><span style=display:flex><span>DATABASE_URL<span style=color:#f92672>=</span>postgresql://localhost/mydb
+</span></span><span style=display:flex><span>API_KEY<span style=color:#f92672>=</span>your_api_key_here
+</span></span><span style=display:flex><span>SECRET_KEY<span style=color:#f92672>=</span>generate_a_random_secret</span></span></code></pre></div><p><strong>Users copy this to <code>.env</code> and fill in real values</strong></p><hr><h2 id=common-mistakes-to-avoid>COMMON MISTAKES TO AVOID<a class=anchor href=#common-mistakes-to-avoid>#</a></h2><h3 id=-dont-commit-node_modules>❌ Don&rsquo;t Commit node_modules<a class=anchor href=#-dont-commit-node_modules>#</a></h3><ul><li>Always in <code>.gitignore</code></li><li>Regenerate with <code>npm install</code></li></ul><h3 id=-dont-commit-database-files>❌ Don&rsquo;t Commit Database Files<a class=anchor href=#-dont-commit-database-files>#</a></h3><ul><li>Use migrations instead</li><li>Provide schema, not data</li></ul><h3 id=-dont-commit-compiled-files>❌ Don&rsquo;t Commit Compiled Files<a class=anchor href=#-dont-commit-compiled-files>#</a></h3><ul><li>Add <code>dist/</code>, <code>build/</code> to <code>.gitignore</code></li><li>Build on deployment</li></ul><h3 id=-dont-commit-large-media-files>❌ Don&rsquo;t Commit Large Media Files<a class=anchor href=#-dont-commit-large-media-files>#</a></h3><ul><li>Use Git LFS for large files</li><li>Or store in S3/CDN</li></ul><h3 id=-dont-commit-with-wrong-email>❌ Don&rsquo;t Commit with Wrong Email<a class=anchor href=#-dont-commit-with-wrong-email>#</a></h3><ul><li>Check: <code>git config user.email</code></li><li>Should match your GitHub account</li></ul><hr><h2 id=post-migration>POST-MIGRATION<a class=anchor href=#post-migration>#</a></h2><h3 id=-set-up-branch-protection-optional>☐ Set Up Branch Protection (Optional)<a class=anchor href=#-set-up-branch-protection-optional>#</a></h3><p>On GitHub:</p><ol><li>Go to Settings → Branches</li><li>Add rule for <code>main</code></li><li>Require pull request reviews</li><li>Prevent force pushes</li></ol><h3 id=-add-collaborators-if-needed>☐ Add Collaborators (If Needed)<a class=anchor href=#-add-collaborators-if-needed>#</a></h3><ol><li>Settings → Collaborators</li><li>Add team members</li><li>Set appropriate permissions</li></ol><h3 id=-configure-github-actions-optional>☐ Configure GitHub Actions (Optional)<a class=anchor href=#-configure-github-actions-optional>#</a></h3><p>Auto-deploy on push, run tests, etc.</p><hr><h2 id=quick-reference>Quick Reference<a class=anchor href=#quick-reference>#</a></h2><h3 id=safe-to-commit>Safe to Commit:<a class=anchor href=#safe-to-commit>#</a></h3><p>✅ Source code (HTML, CSS, JavaScript, Python, PHP)
+✅ Templates and views
+✅ Static assets (images, fonts - if not too large)
+✅ Configuration templates (.env.example)
+✅ Documentation (README, docs/)
+✅ Tests
+✅ Package files (package.json, requirements.txt, composer.json)</p><h3 id=never-commit>NEVER Commit:<a class=anchor href=#never-commit>#</a></h3><p>❌ .env files with real credentials
+❌ Database files with data
+❌ User uploads
+❌ Dependency directories (node_modules, vendor)
+❌ API keys, passwords, secrets
+❌ Private keys (.key, .pem)
+❌ Compiled/built files</p><hr><h2 id=need-help>Need Help?<a class=anchor href=#need-help>#</a></h2><p>If you&rsquo;re unsure about any file, <strong>DON&rsquo;T COMMIT IT YET</strong>.</p><p>Ask yourself:</p><ol><li>Does this file contain passwords or API keys?</li><li>Is this file generated (can be rebuilt)?</li><li>Is this file user-uploaded content?</li><li>Is this file larger than 50MB?</li></ol><p>If YES to any → Add to .gitignore</p><hr><p><strong>Remember: Once something is on GitHub, assume it&rsquo;s public forever. Even if you delete it, it may be cached or archived. Prevention is key!</strong></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div></div><div></div></div><script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#migrating-website-to-github---safety-checklist>Migrating Website to GitHub - Safety Checklist</a><ul><li><a href=#before-you-start---critical-security-checks>BEFORE YOU START - CRITICAL SECURITY CHECKS</a><ul><li><a href=#-step-1-identify-sensitive-files>☐ Step 1: Identify Sensitive Files</a></li><li><a href=#-step-2-create-gitignore-file>☐ Step 2: Create .gitignore File</a></li><li><a href=#-step-3-review-what-will-be-committed>☐ Step 3: Review What Will Be Committed</a></li><li><a href=#-step-4-check-for-hardcoded-secrets-in-code>☐ Step 4: Check for Hardcoded Secrets in Code</a></li></ul></li><li><a href=#migration-steps>MIGRATION STEPS</a><ul><li><a href=#-step-5-backup-your-local-project>☐ Step 5: Backup Your Local Project</a></li><li><a href=#-step-6-check-github-repo-status>☐ Step 6: Check GitHub Repo Status</a></li><li><a href=#-step-7-initialize-git-in-your-project>☐ Step 7: Initialize Git in Your Project</a></li><li><a href=#-step-8-stage-files-carefully>☐ Step 8: Stage Files (Carefully!)</a></li><li><a href=#-step-9-create-initial-commit>☐ Step 9: Create Initial Commit</a></li><li><a href=#-step-10-connect-to-github-remote>☐ Step 10: Connect to GitHub Remote</a></li><li><a href=#-step-11-check-if-remote-has-content>☐ Step 11: Check if Remote Has Content</a></li><li><a href=#-step-12-verify-on-github>☐ Step 12: Verify on GitHub</a></li></ul></li><li><a href=#-emergency-i-accidentally-committed-secrets>⚠️ EMERGENCY: I Accidentally Committed Secrets!</a><ul><li><a href=#option-1-if-just-pushed-within-minutes>Option 1: If Just Pushed (within minutes)</a></li><li><a href=#option-2-remove-from-git-history-advanced>Option 2: Remove from Git History (Advanced)</a></li></ul></li><li><a href=#technology-specific-guides>TECHNOLOGY-SPECIFIC GUIDES</a><ul><li><a href=#wordpress>WordPress</a></li><li><a href=#djangopython>Django/Python</a></li><li><a href=#reactnode>React/Node</a></li></ul></li><li><a href=#best-practices>BEST PRACTICES</a><ul><li><a href=#-use-environment-variables>☐ Use Environment Variables</a></li><li><a href=#-add-a-readme>☐ Add a README</a></li><li><a href=#-create-envexample>☐ Create .env.example</a></li></ul></li><li><a href=#common-mistakes-to-avoid>COMMON MISTAKES TO AVOID</a><ul><li><a href=#-dont-commit-node_modules>❌ Don&rsquo;t Commit node_modules</a></li><li><a href=#-dont-commit-database-files>❌ Don&rsquo;t Commit Database Files</a></li><li><a href=#-dont-commit-compiled-files>❌ Don&rsquo;t Commit Compiled Files</a></li><li><a href=#-dont-commit-large-media-files>❌ Don&rsquo;t Commit Large Media Files</a></li><li><a href=#-dont-commit-with-wrong-email>❌ Don&rsquo;t Commit with Wrong Email</a></li></ul></li><li><a href=#post-migration>POST-MIGRATION</a><ul><li><a href=#-set-up-branch-protection-optional>☐ Set Up Branch Protection (Optional)</a></li><li><a href=#-add-collaborators-if-needed>☐ Add Collaborators (If Needed)</a></li><li><a href=#-configure-github-actions-optional>☐ Configure GitHub Actions (Optional)</a></li></ul></li><li><a href=#quick-reference>Quick Reference</a><ul><li><a href=#safe-to-commit>Safe to Commit:</a></li><li><a href=#never-commit>NEVER Commit:</a></li></ul></li><li><a href=#need-help>Need Help?</a></li></ul></li></ul></nav></div></aside></main></body></html>

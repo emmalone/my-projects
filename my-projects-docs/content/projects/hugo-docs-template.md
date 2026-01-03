@@ -28,7 +28,7 @@ This automation system creates a complete, production-ready documentation site w
 ```bash
 # In...
 
-## Documentation (3 files)
+## Documentation (8 files)
 
 ### [QUICKSTART.md]({{< relref "/documents/hugo-docs-template/QUICKSTART" >}})
 
@@ -42,13 +42,35 @@ Real-world examples of deploying documentation sites with the automation system.
 
 **One-command deployment of secure Hugo documentation sites to AWS**
 
+### [_index.md]({{< relref "/documents/hugo-docs-template/_index" >}})
+
+This is your project documentation site.
+
+### [_index.md]({{< relref "/documents/hugo-docs-template/_index" >}})
+
+Content goes here.
+
+### [_index.md]({{< relref "/documents/hugo-docs-template/_index" >}})
+
+Content goes here.
+
+### [_index.md]({{< relref "/documents/hugo-docs-template/_index" >}})
+
+Content goes here.
+
+### [_index.md]({{< relref "/documents/hugo-docs-template/_index" >}})
+
+Content goes here.
+
 ## Git Information
 
 **Branch**: main
 
 **Last Commit**: Initial commit: Hugo docs automation system
 
-**Author**: Mark Malone (5 minutes ago)
+**Author**: Mark Malone (2 hours ago)
+
+⚠️ **Status**: Uncommitted changes
 
 
 **Path**: `/Users/mark/PycharmProjects/hugo-docs-template`

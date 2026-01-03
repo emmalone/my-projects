@@ -40,6 +40,12 @@ class DocumentationGenerator:
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)
 
+        # Clean existing content directories to avoid old files
+        for subdir in ['projects', 'documents', 'inventory']:
+            subdir_path = f"{self.content_dir}/{subdir}"
+            if os.path.exists(subdir_path):
+                shutil.rmtree(subdir_path)
+
         # Create content directories
         os.makedirs(f"{self.content_dir}/projects", exist_ok=True)
         os.makedirs(f"{self.content_dir}/documents", exist_ok=True)

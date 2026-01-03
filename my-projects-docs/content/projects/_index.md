@@ -6,7 +6,7 @@ bookCollapseSection: false
 
 # All Projects
 
-23 projects found in PycharmProjects.
+22 projects found in PycharmProjects.
 
 ## [klmdnc]({{< relref "klmdnc" >}})
 
@@ -60,7 +60,7 @@ Project Portfolio Manager
 
 KLM Business Plan
 
-**Documents**: 72
+**Documents**: 34
 
 [View on GitHub](https://github.com/emmalone/klm-plan)
 
@@ -72,7 +72,7 @@ KLM Business Plan
 
 KLM Insurance Website Migration Project
 
-**Documents**: 57
+**Documents**: 55
 
 ---
 
@@ -101,14 +101,6 @@ Mouse Natural Scrolling Toggle - Project Context
 **Documents**: 1
 
 [View on GitHub](https://github.com/emmalone/mouse)
-
----
-
-## [klm-hugo-lab]({{< relref "klm-hugo-lab" >}})
-
-📁 Directory | Unknown
-
-**Documents**: 50
 
 ---
 
@@ -154,7 +146,7 @@ Sales Opportunity Manager
 
 Hugo Documentation Site Deployment Automation
 
-**Documents**: 3
+**Documents**: 8
 
 ---
 
@@ -186,7 +178,7 @@ Hugo Documentation Site Deployment Automation
 
 📁 Directory | Unknown
 
-**Documents**: 18
+**Documents**: 16
 
 ---
 
@@ -204,7 +196,7 @@ Hugo Documentation Site Deployment Automation
 
 KLM Apartment Application (KAA)
 
-**Documents**: 10
+**Documents**: 13
 
 [View on GitHub](https://github.com/emmalone/klm-apartment-app)
 

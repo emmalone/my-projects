@@ -31,7 +31,7 @@ A Hugo-based wiki for organizing business planning, product development, and str
 - **Documentation**: See [claude.md](./claude.md) for complete workflow guide
 - **Security Setup**: See [SECURITY-SETUP.md](./SECURITY-SET...
 
-## Documentation (72 files)
+## Documentation (34 files)
 
 ### [planning.md]({{< relref "/documents/klm-plan/planning" >}})
 
@@ -77,161 +77,9 @@ All permissions have been configured to auto-approve for ALL future sessions acr
 
 This repository contains business planning documents, product ideas, and strategic planning for KLM Insurance. The content is organized using Hugo and published automatically to AWS S3 for easy acc...
 
-### [default.md]({{< relref "/documents/klm-plan/default" >}})
-
-+++
-
 ### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
 
 Welcome to the KLM business planning workspace. This site organizes our strategic thinking, product development, and operational planning across all business lines.
-
-### [README.md]({{< relref "/documents/klm-plan/README" >}})
-
-[![Hugo](https://img.shields.io/badge/hugo-0.146-blue.svg)](https://gohugo.io)
-
-### [docs.md]({{< relref "/documents/klm-plan/docs" >}})
-
-No summary available
-
-### [posts.md]({{< relref "/documents/klm-plan/posts" >}})
-
-No summary available
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-{{% columns %}}
-
-### [showcases.md]({{< relref "/documents/klm-plan/showcases" >}})
-
-<div class="book-hero text-center">
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-<div class="book-hero">
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-{{% columns %}}
-
-### [creating-a-new-theme.md]({{< relref "/documents/klm-plan/creating-a-new-theme" >}})
-
-This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I'l...
-
-### [migrate-from-jekyll.md]({{< relref "/documents/klm-plan/migrate-from-jekyll" >}})
-
-Jekyll has a rule that any directory not starting with `_` will be copied as-is to the `_site` output. Hugo keeps all static content under `static`. You should therefore move it all there.
-
-### [hugoisforlovers.md]({{< relref "/documents/klm-plan/hugoisforlovers" >}})
-
-+++
-
-### [goisforlovers.md]({{< relref "/documents/klm-plan/goisforlovers" >}})
-
-+++
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-No summary available
-
-### [hidden.md]({{< relref "/documents/klm-plan/hidden" >}})
-
-Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus,
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-Lorem markdownum, a quoque nutu est *quodcumque mandasset* veluti. Passim
-
-### [buttons.md]({{< relref "/documents/klm-plan/buttons" >}})
-
-Buttons are styled links that can lead to local page or external link.
-
-### [columns.md]({{< relref "/documents/klm-plan/columns" >}})
-
-Columns help organize shorter pieces of content horizontally for readability. `columns` shortcode styles markdown list as up to 3 columns.
-
-### [details.md]({{< relref "/documents/klm-plan/details" >}})
-
-Details shortcode is a helper for `details` html5 element. To collapse the details either omit the `open`
-
-### [hints.md]({{< relref "/documents/klm-plan/hints" >}})
-
-Hint shortcode can be used as a hint/alert/notification block.
-
-### [tabs.md]({{< relref "/documents/klm-plan/tabs" >}})
-
-Tabs let you organize content by context, for example installation instructions for each supported platform.
-
-### [steps.md]({{< relref "/documents/klm-plan/steps" >}})
-
-Steps shortcode styles numbered list as series of points for better content organization.
-
-### [katex.md]({{< relref "/documents/klm-plan/katex" >}})
-
-KaTeX shortcode let you render math typesetting in markdown document. See [KaTeX](https://katex.org/)
-
-### [mermaid.md]({{< relref "/documents/klm-plan/mermaid" >}})
-
-[MermaidJS](https://mermaid-js.github.io/) is library for generating svg charts and diagrams from text.
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-No summary available
-
-### [images.md]({{< relref "/documents/klm-plan/images" >}})
-
-> [!WARNING]
-
-### [badges.md]({{< relref "/documents/klm-plan/badges" >}})
-
-> [!WARNING]
-
-### [asciinema.md]({{< relref "/documents/klm-plan/asciinema" >}})
-
-> [!WARNING]
-
-### [cards.md]({{< relref "/documents/klm-plan/cards" >}})
-
-> [!WARNING]
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-No summary available
-
-### [first-page.md]({{< relref "/documents/klm-plan/first-page" >}})
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u...
-
-### [second-page.md]({{< relref "/documents/klm-plan/second-page" >}})
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi u...
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-Section renders pages in section as definition list, using title and description. Optional param `summary` can be used to show or hide page summary
-
-### [with-toc.md]({{< relref "/documents/klm-plan/with-toc" >}})
-
-Lorem markdownum pavent auras, surgit nunc cingentibus libet **Laomedonque que**
-
-### [without-toc.md]({{< relref "/documents/klm-plan/without-toc" >}})
-
-Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-Lorem markdownum partu paterno Achillem. Habent amne generosi aderant ad pellem
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-No summary available
-
-### [4th-level.md]({{< relref "/documents/klm-plan/4th-level" >}})
-
-Inde aderam facti; Theseus vis de tauri illa peream. Oculos **uberaque** non
-
-### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
-
-Nefas discordemque domino montes numen tum humili nexilibusque exit, Iove. Quae
 
 ### [_index.md]({{< relref "/documents/klm-plan/_index" >}})
 
@@ -325,9 +173,9 @@ Personal lines insurance protects individuals and families from financial loss.
 
 **Branch**: main
 
-**Last Commit**: Add Hugo documentation site automation system
+**Last Commit**: Add automation summary documentation
 
-**Author**: Mark Malone (5 minutes ago)
+**Author**: Mark Malone (2 hours ago)
 
 ⚠️ **Status**: Uncommitted changes
 

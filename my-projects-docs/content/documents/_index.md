@@ -1,7 +1,8 @@
 ---
 title: "Documents"
 type: docs
-bookCollapseSection: false
+bookCollapseSection: true
+weight: 20
 ---
 
 # All Documents

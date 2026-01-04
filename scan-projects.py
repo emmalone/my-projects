@@ -5,9 +5,17 @@ Project Scanner - Auto-discover all projects in PycharmProjects
 Scans /Users/mark/PycharmProjects for:
 - Git repositories
 - Project metadata (README, package.json, requirements.txt)
-- Markdown documentation files
+- Markdown documentation files (with doc_type: documentation tag)
 - Tech stack information
 - Current status
+
+Only includes markdown files that have frontmatter with:
+  doc_type: documentation
+
+Optional frontmatter fields:
+  visible: true/false (default: true) - controls display on docs site
+  doc_project: project-name - the project this doc belongs to
+  doc_category: technical|business|process|reference
 
 Generates:
 - projects/{project-name}.md - Project profiles
@@ -26,6 +34,50 @@ class ProjectScanner:
         self.base_path = Path(base_path)
         self.projects = []
         self.all_markdown_files = []
+
+    def parse_frontmatter(self, file_path):
+        """Parse YAML frontmatter from markdown file and return as dict"""
+        try:
+            content = file_path.read_text(encoding='utf-8')
+
+            if not content.startswith('---'):
+                return None
+
+            # Find the closing ---
+            end_match = re.search(r'\n---\s*\n', content[3:])
+            if not end_match:
+                return None
+
+            frontmatter_text = content[3:end_match.start() + 3]
+
+            # Parse YAML-like frontmatter (simple key: value parsing)
+            frontmatter = {}
+            for line in frontmatter_text.split('\n'):
+                line = line.strip()
+                if ':' in line and not line.startswith('#'):
+                    key, value = line.split(':', 1)
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    # Handle boolean values
+                    if value.lower() == 'true':
+                        value = True
+                    elif value.lower() == 'false':
+                        value = False
+                    frontmatter[key] = value
+
+            return frontmatter
+
+        except Exception as e:
+            return None
+
+    def is_documentation_file(self, file_path):
+        """Check if file has doc_type: documentation in frontmatter"""
+        frontmatter = self.parse_frontmatter(file_path)
+        if frontmatter is None:
+            return False, {}
+
+        doc_type = frontmatter.get('doc_type', '').lower()
+        return doc_type == 'documentation', frontmatter
 
     def scan_all(self):
         """Scan all projects in PycharmProjects"""
@@ -73,12 +125,22 @@ class ProjectScanner:
                 project['readme_content'] = self.read_file_safe(readme_path, max_chars=500)
                 break
 
-        # Find all markdown files
+        # Find all markdown files with doc_type: documentation
         markdown_files = list(project_path.rglob('*.md'))
         for md_file in markdown_files:
             # Skip files in node_modules, venv, .git, themes, archetypes, etc.
             if any(part in md_file.parts for part in ['node_modules', 'venv', '.git', 'dist', 'build', 'themes', 'archetypes']):
                 continue
+
+            # Check if file has doc_type: documentation in frontmatter
+            is_doc, frontmatter = self.is_documentation_file(md_file)
+            if not is_doc:
+                continue  # Skip files without doc_type: documentation
+
+            # Get visibility (default: True)
+            visible = frontmatter.get('visible', True)
+            if isinstance(visible, str):
+                visible = visible.lower() != 'false'
 
             md_info = {
                 'project': project_path.name,
@@ -87,7 +149,10 @@ class ProjectScanner:
                 'name': md_file.name,
                 'size': md_file.stat().st_size,
                 'modified': datetime.fromtimestamp(md_file.stat().st_mtime).isoformat(),
-                'summary': self.extract_summary(md_file)
+                'summary': self.extract_summary(md_file),
+                'visible': visible,
+                'doc_category': frontmatter.get('doc_category', 'general'),
+                'doc_project': frontmatter.get('doc_project', project_path.name)
             }
 
             project['markdown_files'].append(md_info)

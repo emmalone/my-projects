@@ -4,6 +4,7 @@ title = 'My Projects - Documentation Hub'
 theme = 'hugo-book'
 
 [params]
+  BookSection = '/'
   BookRepo = 'https://github.com/emmalone/my-projects'
   BookSearch = true
   BookToC = true

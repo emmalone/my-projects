@@ -81,20 +81,27 @@ gh run view <run-id>
 
 ### scan-projects.py
 
-**Purpose**: Discovers all projects and markdown files
+**Purpose**: Discovers all projects and **tagged documentation files**
 **Output**: `inventory.json` and `projects/` directory
 
 **What it scans**:
 - All directories in `/Users/mark/PycharmProjects/` (except .claude, my-projects, klm-hugo-lab)
 - Git repositories and status
-- Markdown files (excluding themes/, archetypes/, node_modules/, venv/)
-- README files
+- **Only markdown files with `doc_type: documentation` frontmatter**
+- README files (for project descriptions)
 - Tech stack detection (package.json, requirements.txt, hugo.toml, etc.)
+
+**Documentation filtering**:
+- Parses frontmatter of each markdown file
+- Only includes files where `doc_type: documentation`
+- Stores `visible` flag for each file (default: true)
+- Stores `doc_category` for categorization
 
 **Exclusions**:
 - `klm-hugo-lab`: Excluded due to Hugo template incompatibility
 - Template files: Skips archetypes/ and themes/ directories
 - Dependency folders: Skips node_modules/, venv/, .git/, dist/, build/
+- **Any markdown file without `doc_type: documentation` tag**
 
 ### generate-docs.py
 
@@ -104,14 +111,79 @@ gh run view <run-id>
 **What it generates**:
 - Homepage with project stats
 - Project pages (one per project)
-- Document index (all markdown files organized by project)
+- Document index (only visible documentation files)
 - Inventory page with detailed stats
-- Copies all markdown files to Hugo content directory
+- Copies visible documentation files to Hugo content directory
 
 **Special handling**:
 - Cleans content directories before regenerating (prevents old files)
 - Skips Hugo shortcodes in summaries (prevents build errors)
 - Adds frontmatter to documents (project, path, modified date)
+- Only includes files where `visible: true` (or not set, defaults to true)
+
+## Documentation File Tagging
+
+### Required Frontmatter
+
+**Only markdown files with `doc_type: documentation` are included** in the documentation site. This prevents Hugo content pages (insurance products, landing pages) from being mixed with actual documentation.
+
+Add this frontmatter to documentation files:
+
+```yaml
+---
+title: "Database Workflow Guide"
+doc_type: documentation
+doc_project: klm-apartment-app
+doc_category: technical
+visible: true
+---
+```
+
+### Frontmatter Fields
+
+| Field | Required | Values | Description |
+|-------|----------|--------|-------------|
+| `doc_type` | **Yes** | `documentation` | Must be exactly `documentation` to be included |
+| `visible` | No | `true` / `false` | Controls display on docs site (default: `true`) |
+| `doc_project` | No | project name | The project this doc belongs to |
+| `doc_category` | No | `technical`, `business`, `process`, `reference` | Categorization for filtering |
+
+### Examples
+
+**Technical documentation (visible):**
+```yaml
+---
+title: "API Setup Guide"
+doc_type: documentation
+doc_category: technical
+visible: true
+---
+```
+
+**Business documentation (hidden from site):**
+```yaml
+---
+title: "Internal Notes"
+doc_type: documentation
+doc_category: business
+visible: false
+---
+```
+
+### Files That Need Tagging
+
+Claude-generated documentation files (usually UPPERCASE names) need the frontmatter added:
+- `WORKFLOW.md`, `QUICK_START.md`, `DEPLOYMENT.md`
+- `DATABASE_WORKFLOW.md`, `REQUIREMENTS.md`
+- `CLAUDE_CODE_INSTRUCTIONS.md`, `CONVERSATION_SUMMARY.md`
+- `claude.md`, `CLAUDE.md` (project context files)
+
+### Files That Should NOT Be Tagged
+
+These are Hugo content pages, not documentation:
+- Files in `content/` directories (Hugo pages)
+- `_index.md` files (Hugo section pages)
+- Insurance product pages, landing pages, etc.
 
 ## AWS Deployment
 

@@ -6,6 +6,7 @@ refLinksErrorLevel = 'WARNING'
 refLinksNotFoundURL = '#'
 
 [params]
+  BookSection = '/'
   BookRepo = 'https://github.com/emmalone/my-projects'
   BookSearch = true
   BookToC = true

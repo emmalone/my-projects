@@ -245,7 +245,11 @@ weight: 1
         print(f"✅ Created {len(self.inventory['projects'])} project pages")
 
     def create_documents_index(self):
-        """Create documents index organized by project"""
+        """Create documents index organized by project (only visible docs)"""
+        # Filter to only visible documents
+        visible_docs = [md for md in self.inventory['markdown_files']
+                       if md.get('visible', True)]
+
         index = f'''---
 title: "Documents"
 type: docs
@@ -255,13 +259,13 @@ weight: 20
 
 # All Documents
 
-{len(self.inventory['markdown_files'])} markdown files across all projects.
+{len(visible_docs)} documentation files across all projects.
 
 '''
 
         # Group by project
         docs_by_project = {}
-        for md_file in self.inventory['markdown_files']:
+        for md_file in visible_docs:
             project = md_file['project']
             if project not in docs_by_project:
                 docs_by_project[project] = []
@@ -273,18 +277,25 @@ weight: 20
 
             for md_file in docs:
                 doc_link = f"/documents/{project_name}/{md_file['name'].replace('.md', '')}"
-                index += f"- [{md_file['name']}]({{{{< relref \"{doc_link}\" >}}}}) - {md_file.get('summary', 'No summary')}\n"
+                category = md_file.get('doc_category', '')
+                category_badge = f" `{category}`" if category and category != 'general' else ''
+                index += f"- [{md_file['name']}]({{{{< relref \"{doc_link}\" >}}}}){category_badge} - {md_file.get('summary', 'No summary')}\n"
 
             index += "\n"
 
         with open(f"{self.content_dir}/documents/_index.md", 'w') as f:
             f.write(index)
 
-        print("✅ Documents index created")
+        print(f"✅ Documents index created ({len(visible_docs)} visible docs)")
 
     def copy_document_files(self):
-        """Copy all markdown files to Hugo content"""
-        for md_file in self.inventory['markdown_files']:
+        """Copy visible markdown files to Hugo content"""
+        # Filter to only visible documents
+        visible_docs = [md for md in self.inventory['markdown_files']
+                       if md.get('visible', True)]
+
+        copied_count = 0
+        for md_file in visible_docs:
             project_name = md_file['project']
             source_path = md_file['file_path']
 
@@ -302,11 +313,12 @@ weight: 20
 
                 # Add frontmatter if not present
                 self.add_frontmatter(dest_path, md_file)
+                copied_count += 1
 
             except Exception as e:
                 print(f"⚠️  Error copying {md_file['name']}: {e}")
 
-        print(f"✅ Copied {len(self.inventory['markdown_files'])} document files")
+        print(f"✅ Copied {copied_count} visible document files")
 
     def add_frontmatter(self, file_path, md_info):
         """Add or update frontmatter in markdown file"""
@@ -412,7 +424,7 @@ weight: {idx + 1}
 |----------|-------|
 | **Type** | {git_status} |
 | **Tech Stack** | {tech_stack} |
-| **Documents** | {len(project.get('markdown_files', []))} |
+| **Documents** | {len([md for md in project.get('markdown_files', []) if md.get('visible', True)])} |
 | **Size** | {project.get('size_mb', 0):.2f} MB |
 | **Path** | `{project['path']}` |
 
@@ -426,14 +438,16 @@ weight: {idx + 1}
                 if 'remote_url' in git:
                     content += f"[View on GitHub]({git['remote_url']})\n\n"
 
-            # Add document links if available
-            if project.get('markdown_files'):
-                content += f"## Documents ({len(project['markdown_files'])})\n\n"
-                for md_file in project['markdown_files'][:10]:  # Show first 10
+            # Add document links if available (only visible docs)
+            visible_docs = [md for md in project.get('markdown_files', [])
+                           if md.get('visible', True)]
+            if visible_docs:
+                content += f"## Documents ({len(visible_docs)})\n\n"
+                for md_file in visible_docs[:10]:  # Show first 10
                     doc_link = f"/documents/{project['name']}/{md_file['name'].replace('.md', '')}"
                     content += f"- [{md_file['name']}]({{{{< relref \"{doc_link}\" >}}}})\n"
-                if len(project['markdown_files']) > 10:
-                    content += f"\n*...and {len(project['markdown_files']) - 10} more documents*\n"
+                if len(visible_docs) > 10:
+                    content += f"\n*...and {len(visible_docs) - 10} more documents*\n"
 
             with open(project_file, 'w') as f:
                 f.write(content)

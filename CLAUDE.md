@@ -112,6 +112,67 @@ gh run view <run-id>
 - Cleans content directories before regenerating (prevents old files)
 - Skips Hugo shortcodes in summaries (prevents build errors)
 - Adds frontmatter to documents (project, path, modified date)
+- Adds `type: docs` to all pages for proper navigation
+- Sets `bookCollapseSection: true` for collapsible navigation
+- Configures Hugo to handle broken internal references gracefully
+
+## Site Navigation
+
+The site features **collapsible navigation** in the left sidebar with three main sections:
+
+### Navigation Structure
+
+1. **Projects** (collapsible)
+   - Lists all 22 projects
+   - Each project links to its detail page
+   - Shows tech stack, Git status, and document count
+
+2. **Documents** (collapsible)
+   - All 142+ markdown files organized by source project
+   - Nested structure for project-specific documents
+   - Preserves original file organization
+
+3. **Inventory** (collapsible)
+   - Individual project inventory pages as sub-items
+   - Each project page shows:
+     - Project metadata (type, size, path)
+     - Tech stack
+     - Git information
+     - Links to all project documents
+
+### Navigation Configuration
+
+The collapsible navigation requires specific Hugo configuration:
+
+**Hugo Config (`hugo.toml`)**:
+```toml
+# Must NOT include BookMenuBundle - allows auto-generated navigation
+# Must include error handling for broken references
+refLinksErrorLevel = 'WARNING'
+refLinksNotFoundURL = '#'
+```
+
+**Page Frontmatter Requirements**:
+- All pages must include `type: docs` for navigation inclusion
+- Section index pages (`_index.md`) need `bookCollapseSection: true` for expand/collapse
+- Weight property controls ordering
+
+**Example**:
+```yaml
+---
+title: "Projects"
+type: docs
+bookCollapseSection: true
+weight: 10
+---
+```
+
+### Implementation Notes
+
+- The `generate-docs.py` script automatically adds required frontmatter
+- Removing `BookMenuBundle = '/menu'` enables auto-navigation generation
+- Hugo-book theme automatically creates collapsible sections with checkboxes
+- Each section gets a unique ID for expand/collapse state management
 
 ## AWS Deployment
 
